@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Worlds 2026 · Predicción</title>
+<meta name="description" content="Predicción de las eliminatorias de Worlds 2026: cuadro, razonamiento por partido y análisis de datos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+:root{
+  --bg:#07080b; --bg2:#0d0f14; --panel:#12151c; --panel2:#181c25; --line:#262b37; --line2:#333a49;
+  --fg:#eef0f5; --muted:#8c93a3; --dim:#5b6272; --accent:#2ee6d6; --accent2:#f5c451; --win:#2ee6d6; --loss:#ff6b6b;
+  --display:"Barlow Condensed","Arial Narrow",sans-serif; --body:"Inter",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.5}
+a{color:var(--accent)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+header.top{border-bottom:1px solid var(--line);background:linear-gradient(180deg,#0b0d12,var(--bg))}
+.top .wrap{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:22px}
+.brand{padding-bottom:14px}
+.brand .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.brand h1{font-family:var(--display);font-weight:800;font-size:2.4rem;line-height:1;margin:4px 0 0;letter-spacing:.01em}
+nav.tabs{display:flex;gap:4px}
+nav.tabs button{background:none;border:0;color:var(--muted);font:600 .95rem var(--body);padding:12px 16px;cursor:pointer;border-bottom:3px solid transparent}
+nav.tabs button[aria-selected="true"]{color:var(--fg);border-bottom-color:var(--accent)}
+nav.tabs button:hover{color:var(--fg)}
+main{padding:32px 16px 64px}
+section.view{display:none}
+section.view.on{display:block}
+h2{font-family:var(--display);font-size:1.7rem;text-transform:uppercase;letter-spacing:.04em;margin:0 0 6px}
+h3{font-family:var(--display);font-size:1.3rem;letter-spacing:.02em;margin:0 0 8px}
+.sub{color:var(--muted);margin:0 0 18px;max-width:72ch}
+/* toggle */
+.seg{display:inline-flex;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:3px;gap:2px;margin-bottom:18px}
+.seg button{background:none;border:0;color:var(--muted);font:600 .85rem var(--body);padding:8px 14px;border-radius:999px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);color:#04201d}
+.modehint{color:var(--muted);font-size:.86rem;margin:-8px 0 18px;max-width:80ch}
+/* bracket */
+.bracket-scroll{overflow-x:auto;padding-bottom:6px}
+.bracket{display:grid;grid-template-columns:repeat(3,minmax(220px,1fr));gap:40px;min-width:760px;height:600px}
+.col{display:flex;flex-direction:column}
+.colhead{background:var(--panel);border:1px solid var(--line);border-radius:8px;text-align:center;padding:8px;margin-bottom:14px}
+.colhead b{display:block;font-size:.85rem}
+.colhead span{font-size:.75rem;color:var(--muted)}
+.colbody{flex:1;display:flex;flex-direction:column}
+.pair{flex:1;display:flex;flex-direction:column;position:relative}
+.slot{flex:1;display:flex;align-items:center;position:relative}
+.col:not(:last-child) .pair::before{content:"";position:absolute;right:-20px;top:25%;bottom:25%;border-right:2px solid var(--line2)}
+.col:not(:last-child) .pair::after{content:"";position:absolute;right:-40px;top:50%;width:20px;border-top:2px solid var(--line2)}
+.col:not(:last-child) .slot::after{content:"";position:absolute;right:-20px;top:50%;width:20px;border-top:2px solid var(--line2)}
+.match{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.trow{display:flex;align-items:center;gap:10px;padding:8px 12px;border-left:3px solid transparent}
+.trow + .trow{border-top:1px solid var(--line)}
+.trow .nm{font-weight:700;font-size:1rem;flex:1}
+.trow .pc{font-family:var(--mono);font-size:.78rem;color:var(--muted)}
+.trow.win{border-left-color:var(--accent);background:linear-gradient(90deg,rgba(46,230,214,.10),transparent 70%)}
+.trow.win .pc{color:var(--accent)}
+.trow.lose{opacity:.42}
+.trow.tbd .nm{color:var(--dim)}
+.badge{flex:none;display:inline-block}
+.logo{flex:none;display:inline-flex;align-items:center;justify-content:center}
+.logo img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+.logo img.inv{filter:invert(1)}
+.champ .logo img{filter:drop-shadow(0 8px 24px rgba(0,0,0,.5))}
+.champ .logo img.inv{filter:invert(1) drop-shadow(0 8px 24px rgba(0,0,0,.5))}
+.matrix th .logo{margin:0 auto 2px}
+/* champion */
+.champ{margin-top:34px;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;background:radial-gradient(120% 140% at 0% 50%,rgba(245,196,81,.16),transparent 60%),var(--panel);border:1px solid #3a3320;border-radius:14px;padding:26px 28px}
+.champ .lbl{font-family:var(--mono);font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent2)}
+.champ .name{font-family:var(--display);font-weight:800;font-size:3.4rem;line-height:1;margin:6px 0}
+.champ .meta{color:var(--muted)}
+.champ .meta b{color:var(--fg)}
+.champ .trophy{position:relative}
+.champ .trophy svg.cup{position:absolute;top:-18px;right:-18px}
+/* detail */
+.mcard{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:14px}
+.mhead{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.mround{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.vs{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;margin:12px 0}
+.vs .t{display:flex;align-items:center;gap:10px}
+.vs .t.r{justify-content:flex-end;text-align:right}
+.vs .t .nm{font-family:var(--display);font-weight:700;font-size:1.6rem;line-height:1}
+.vs .t .full{font-size:.78rem;color:var(--muted)}
+.vs .mid{font-family:var(--mono);color:var(--dim);font-size:.8rem}
+.pbar{display:flex;height:12px;border-radius:6px;overflow:hidden;background:var(--line)}
+.pbar i{display:block}
+.plabels{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.82rem;margin-top:5px}
+.chip{font-size:.75rem;font-weight:600;padding:3px 9px;border-radius:999px;border:1px solid currentColor}
+.c1{color:#9aa3b5}.c2{color:#f5c451}.c3{color:#5ad1ff}.c4{color:#2ee6d6}
+.models{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}
+.models div{background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:.8rem;color:var(--muted)}
+.models b{display:block;color:var(--fg);font-family:var(--mono);font-size:.9rem}
+.why{margin:6px 0 0;padding-left:18px;color:#cfd3dc;font-size:.92rem}
+.why li{margin:4px 0}
+.pickflag{font-size:.82rem;color:var(--accent2);margin-top:8px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.matrix{border-collapse:separate;border-spacing:4px;width:100%}
+.matrix th{font-family:var(--mono);font-size:.72rem;color:var(--muted);font-weight:500;padding:4px}
+.matrix td{text-align:center;padding:10px 4px;border-radius:6px;font-family:var(--mono);font-size:.82rem;cursor:pointer;color:#fff;font-weight:600;position:relative;text-shadow:0 1px 2px rgba(0,0,0,.6)}
+.matrix td.sel{outline:2px solid #fff}
+.matrix .rowh{display:flex;align-items:center;gap:8px;justify-content:flex-start;font-family:var(--body);font-weight:700;color:var(--fg);font-size:.85rem}
+.inspector{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:.88rem;color:var(--muted);min-height:64px}
+.inspector b{color:var(--fg)}
+.paths{display:flex;flex-direction:column;gap:8px}
+.prow{display:grid;grid-template-columns:110px 1fr;gap:10px;align-items:center}
+.prow .tn{display:flex;align-items:center;gap:8px;font-weight:700}
+.stack{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+.stack div{height:22px;border-radius:4px;background:var(--line);position:relative;overflow:hidden}
+.stack div i{position:absolute;inset:0 auto 0 0;background:var(--accent);opacity:.85}
+.stack div span{position:relative;font-family:var(--mono);font-size:.72rem;padding-left:6px;line-height:22px;color:#fff;mix-blend-mode:difference}
+.legend{font-size:.8rem;color:var(--muted)}
+/* analysis */
+.toc{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:22px}
+.toc a{font-size:.8rem;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:5px 11px;color:var(--muted)}
+.toc a:hover{color:var(--fg);border-color:var(--line2)}
+.asec{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:16px;scroll-margin-top:16px}
+.asec p{color:#cfd3dc;max-width:85ch}
+.asec ul{color:#cfd3dc;padding-left:20px}
+.asec li{margin:4px 0}
+.tbl{overflow-x:auto;margin:10px 0}
+table.t{border-collapse:collapse;width:100%;font-size:.85rem;min-width:560px}
+table.t th,table.t td{padding:7px 9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+table.t th{font-family:var(--mono);font-size:.7rem;color:var(--muted);font-weight:500;text-transform:uppercase;letter-spacing:.05em}
+table.t td.n{font-family:var(--mono);white-space:nowrap}
+.rbars{display:flex;flex-direction:column;gap:6px;margin:10px 0}
+.rbar{display:grid;grid-template-columns:60px 1fr 54px;gap:10px;align-items:center;font-size:.85rem}
+.rbar .b{height:14px;border-radius:4px;background:var(--line);overflow:hidden}
+.rbar .b i{display:block;height:100%}
+.rbar .v{font-family:var(--mono);font-size:.8rem;color:var(--muted);text-align:right}
+.cards3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:10px}
+.mini{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.mini .k{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.mini ul{margin:6px 0 0;padding-left:18px;font-size:.88rem}
+.formula{font-family:var(--mono);background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:.85rem;display:inline-block}
+footer{border-top:1px solid var(--line);color:var(--dim);font-size:.78rem;padding:18px 0 30px}
+@media (max-width:760px){
+  .brand h1{font-size:1.9rem}
+  .champ{grid-template-columns:1fr;text-align:center;justify-items:center;padding:22px 16px}
+  .champ .name{font-size:2.6rem}
+  .models{grid-template-columns:1fr}
+  .grid2{grid-template-columns:1fr}
+  .vs .t .nm{font-size:1.25rem}
+  nav.tabs button{padding:10px 10px}
+  .bracket{grid-template-columns:1fr;min-width:0;height:auto;gap:18px}
+  .colbody{gap:10px}
+  .pair{gap:10px}
+  .slot{flex:none}
+  .col .pair::before,.col .pair::after,.col .slot::after{display:none}
+  .colhead{margin-bottom:10px;text-align:left;display:flex;justify-content:space-between;align-items:baseline}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="brand">
+      <div class="eyebrow">League of Legends · Worlds 2026</div>
+      <h1>Predicción de eliminatorias</h1>
+    </div>
+    <nav class="tabs" role="tablist">
+      <button role="tab" data-view="cuadro" aria-selected="true">Cuadro</button>
+      <button role="tab" data-view="detalle" aria-selected="false">Detalle</button>
+      <button role="tab" data-view="analisis" aria-selected="false">Análisis</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- CUADRO -->
+  <section class="view on" id="cuadro">
+    <div class="seg" role="group" aria-label="Modo de predicción">
+      <button data-mode="pct" aria-pressed="true">Por porcentaje</button>
+      <button data-mode="pickem" aria-pressed="false">Por confianza (Pick'Em)</button>
+    </div>
+    <p class="modehint" id="hint1"></p>
+    <div class="bracket-scroll"><div class="bracket" id="bracket"></div></div>
+    <div class="champ" id="champ"></div>
+  </section>
+
+  <!-- DETALLE -->
+  <section class="view" id="detalle">
+    <div class="seg" role="group" aria-label="Modo de predicción">
+      <button data-mode="pct" aria-pressed="true">Por porcentaje</button>
+      <button data-mode="pickem" aria-pressed="false">Por confianza (Pick'Em)</button>
+    </div>
+    <p class="modehint" id="hint2"></p>
+    <h2>El camino predicho</h2>
+    <p class="sub">Cada tarjeta muestra la probabilidad de consenso (promedio de mi modelo, ChatGPT y Gemini), el desglose por análisis y por qué gana el equipo elegido.</p>
+    <div id="cards"></div>
+
+    <h2 style="margin-top:34px">Todos los cruces posibles</h2>
+    <p class="sub">Toca una celda para ver el desglose. El color indica la probabilidad del equipo de la fila: turquesa si es favorito, rojo si no lo es.</p>
+    <div class="grid2">
+      <div class="mcard"><h3>Semifinal A</h3><table class="matrix" id="mxA"></table></div>
+      <div class="mcard"><h3>Semifinal B</h3><table class="matrix" id="mxB"></table></div>
+    </div>
+    <div class="mcard"><h3>Final (lado A en filas, lado B en columnas)</h3><table class="matrix" id="mxF"></table></div>
+    <div class="inspector" id="insp">Toca una celda de las tablas para ver quién gana y qué dice cada análisis.</div>
+
+    <h2 style="margin-top:34px">Probabilidad de cada equipo</h2>
+    <p class="sub">Probabilidad de llegar a semis, de llegar a la final y de ser campeón, teniendo en cuenta todos los caminos posibles.</p>
+    <div class="mcard"><div class="paths" id="paths"></div></div>
+  </section>
+
+  <!-- ANALISIS -->
+  <section class="view" id="analisis">
+    <h2>Cómo se hizo la predicción</h2>
+    <p class="sub">Todo el análisis, de los datos crudos a los porcentajes finales.</p>
+    <div class="toc">
+      <a href="#a-fuentes">1. Fuentes</a><a href="#a-suiza">2. La suiza</a><a href="#a-drafts">3. Drafts y bans</a>
+      <a href="#a-temporada">4. Temporada 2026</a><a href="#a-2025">5. Worlds 2025</a><a href="#a-elo">6. Modelo Elo</a>
+      <a href="#a-consenso">7. Consenso con ChatGPT y Gemini</a><a href="#a-limites">8. Límites</a>
+    </div>
+    
+<div class="asec" id="a-fuentes"><h3>1. Fuentes</h3>
+<ul>
+<li><b>26 transcripciones</b> de la fase suiza (39 mapas), con la narración de los casters desde la selección de campeones.</li>
+<li><b>Resultados oficiales</b> de las 33 series de la suiza, incluidas las 7 entre equipos eliminados.</li>
+<li><b>Torneos de 2026:</b> First Stand, MSI y Esports World Cup (EWC), además de los playoffs y las fases regulares de LCK, LPL, LEC y LCS.</li>
+<li><b>Worlds 2025</b>, verificando los rosters titulares de cada año.</li>
+<li><b>Dos análisis independientes</b> de ChatGPT y Gemini, con el mismo prompt y sin acceso a mis picks.</li>
+<li>Las casas de apuestas (Polymarket) y el modelo de Outdrafted se usaron solo como referencia para comparar, nunca como dato del modelo.</li>
+</ul></div>
+
+<div class="asec" id="a-suiza"><h3>2. La suiza: contra quién ganó cada uno</h3>
+<p>No vale lo mismo ganarle a G2 que a HLE. Esta tabla muestra la calidad del calendario de cada clasificado.</p>
+<div class="tbl"><table class="t"><thead><tr><th>Equipo</th><th>Récord</th><th>Ganó a</th><th>Perdió con</th><th>Lectura</th></tr></thead><tbody>
+<tr><td><b>GEN</b></td><td class="n">3-0</td><td>IG, HLE, LYON (2-1)</td><td>—</td><td>El calendario más duro y el resultado más limpio.</td></tr>
+<tr><td><b>DK</b></td><td class="n">3-0</td><td>G2, T1, MKOI (2-0)</td><td>—</td><td>Una victoria de calidad (T1) y dos remontadas.</td></tr>
+<tr><td><b>T1</b></td><td class="n">3-1</td><td>LØS, CFO, MKOI (2-0)</td><td>DK</td><td>No le ganó a ningún clasificado.</td></tr>
+<tr><td><b>IG</b></td><td class="n">3-1</td><td>TSW, HLE, LYON (2-1)</td><td>GEN</td><td>Su única derrota fue ante el mejor equipo.</td></tr>
+<tr><td><b>TES</b></td><td class="n">3-1</td><td>AL, G2, BLG (2-1)</td><td>HLE</td><td>La victoria ante BLG vale mucho; las otras, poco.</td></tr>
+<tr><td><b>BLG</b></td><td class="n">3-2</td><td>TL, KC, HLE (2-0)</td><td>MKOI, TES (1-2)</td><td>Irregular, pero eliminó al campeón del MSI.</td></tr>
+<tr><td><b>KC</b></td><td class="n">3-2</td><td>AL, CFO (2-0), MKOI (2-0)</td><td>LYON, BLG</td><td>El calendario más flojo; 0-2 contra clasificados.</td></tr>
+<tr><td><b>LYON</b></td><td class="n">3-2</td><td>TSW, KC, LØS (2-1)</td><td>GEN (1-2), IG (1-2)</td><td>Le gana a Occidente y le saca mapas a Asia.</td></tr>
+</tbody></table></div></div>
+
+<div class="asec" id="a-drafts"><h3>3. Drafts y lógica de los bans</h3>
+<p>De cada mapa saqué el lado, el orden de bans y picks, el tipo de composición y cómo se jugó contra la del rival. Se repiten seis patrones de ban:</p>
+<div class="cards3">
+<div class="mini"><span class="k">Protección</span><ul><li>Primero eligen y después banean el counter de su propio pick.</li><li>GEN tomó Rumble, baneó Locke y Akali, y dejó la Syndra de Chovy para el final.</li></ul></div>
+<div class="mini"><span class="k">Romper combos</span><ul><li>Se banea una mitad del dúo: Nocturne-Orianna, Kalista-Renata (cae Renata), Yunara-Lulu (cae Lulu).</li><li>Si no alcanzan los bans, se pickea para negar: TES tomó Nocturne justo después de la Orianna de AL.</li></ul></div>
+<div class="mini"><span class="k">Target ban</span><ul><li>369: Renekton y Ambessa. Chovy: tres mids en un mismo mapa.</li><li>Knight: Syndra, Ahri y Sylas. Rookie: Orianna y Aurora. Doran: Jayce.</li></ul></div>
+<div class="mini"><span class="k">Negar lo que falta</span><ul><li>MKOI no tenía engage, y DK le baneó Pantheon.</li></ul></div>
+<div class="mini"><span class="k">Ceder prioridad</span><ul><li>TES dejó pasar a Yunara para darle a 369 el counter en top, y ganó.</li><li>T1 deja siempre el último pick para Doran.</li></ul></div>
+<div class="mini"><span class="k">Esconder el flex</span><ul><li>Campeones que sirven en dos roles: Camille de BLG (top o support), Anivia de LYON (top o mid) y Galio de T1 (terminó mid).</li></ul></div>
+</div>
+<div class="tbl"><table class="t"><thead><tr><th>Equipo</th><th>Cómo draftea</th><th>Gana con</th><th>Pierde cuando</th></tr></thead><tbody>
+<tr><td><b>GEN</b></td><td>First pick de jungla; el mid de Chovy, al final.</td><td>Poke de largo alcance y Kiin.</td><td>Le roban objetivos.</td></tr>
+<tr><td><b>DK</b></td><td>Jungla primero y un ADC fuerte para Smash.</td><td>Peleas tardías que inicia Career.</td><td>Se desordena en el juego medio.</td></tr>
+<tr><td><b>BLG</b></td><td>Esconde flex; Orianna de Knight ×4.</td><td>Dive alrededor de Knight; Xun roba objetivos.</td><td>Divean a Viper sin flash.</td></tr>
+<tr><td><b>TES</b></td><td>Nocturne de Tian; último pick de top para 369.</td><td>Dive, flancos y split push.</td><td>Draft estándar sin plan.</td></tr>
+<tr><td><b>IG</b></td><td>Yunara-Lulu o Ashe-Sera; Annie o Aurora de Rookie.</td><td>5 contra 5 de frente y dragones.</td><td>Rookie queda aislado.</td></tr>
+<tr><td><b>T1</b></td><td>Último pick para Doran; Keria con sorpresas.</td><td>Picks de Keria y TP de Doran.</td><td>No cierra con ventaja.</td></tr>
+<tr><td><b>KC</b></td><td>Kalista-Renata; Rumble de Canna.</td><td>Early con visión.</td><td>Peleas tardías; Caliste muere primero.</td></tr>
+<tr><td><b>LYON</b></td><td>Nocturne de Inspired; Yunara de Berserker.</td><td>Peleas largas y robos.</td><td>Cede el early.</td></tr>
+</tbody></table></div></div>
+
+<div class="asec" id="a-temporada"><h3>4. Temporada 2026</h3>
+<div class="tbl"><table class="t"><thead><tr><th>Equipo</th><th>Liga</th><th>Internacional</th></tr></thead><tbody>
+<tr><td><b>GEN</b></td><td>Campeón de la LCK Cup y de la temporada (3-1 a HLE).</td><td>First Stand: semis (0-3 con G2). No fue al MSI. EWC: 3.º (1-2 con DK, 2-1 a T1).</td></tr>
+<tr><td><b>DK</b></td><td>4.º seed de la LCK; perdió 1-3 con T1 en playoffs.</td><td><b>Campeón del EWC</b>: 2-1 a BLG, 2-1 a GEN y 3-0 a KC.</td></tr>
+<tr><td><b>T1</b></td><td>3.er seed de la LCK; perdió con HLE.</td><td>MSI: 3-0 a KC, 2-3 con BLG, 1-3 con G2. EWC: 4.º (1-2 con KC).</td></tr>
+<tr><td><b>BLG</b></td><td>Campeón de los splits 1 y 2; finalista del Split 3.</td><td><b>Campeón de First Stand</b>. Finalista del MSI (2-3 con HLE). EWC: cuartos.</td></tr>
+<tr><td><b>TES</b></td><td>Finalista del Split 2; clasificó por el regional (3-1 a IG).</td><td>MSI: 2-3 con G2 y 1-3 con TSW.</td></tr>
+<tr><td><b>IG</b></td><td>Split 1-2 sin TheShy (2-8, 5-9). Con él: 3-2 a TES en el Split 3.</td><td>No jugó torneos internacionales.</td></tr>
+<tr><td><b>KC</b></td><td>9-0 en la fase regular del Summer, pero 3.º en playoffs.</td><td>MSI: 0-6 en mapas. EWC: finalista (2-1 a T1).</td></tr>
+<tr><td><b>LYON</b></td><td>Campeón del Lock In y del Spring; finalista del Summer.</td><td>MSI: 3.º (3-0 a G2). EWC: eliminado en grupos.</td></tr>
+</tbody></table></div></div>
+
+<div class="asec" id="a-2025"><h3>5. Worlds 2025 (con los rosters correctos)</h3>
+<p>Cuartos de 2025: GEN 3-1 HLE · KT 3-0 CFO · TES 3-1 G2 · T1 3-2 AL. Semis: KT 3-1 GEN · T1 3-0 TES. Final: T1 3-2 KT. Un dato histórico solo sirve si los jugadores son los mismos:</p>
+<div class="tbl"><table class="t"><thead><tr><th>Equipo</th><th>Roster del dato histórico</th><th>Roster 2026</th><th>¿Sirve?</th></tr></thead><tbody>
+<tr><td><b>T1</b></td><td>2023-24: Zeus, Oner, Faker, Gumayusi, Keria. 2025: Doran en lugar de Zeus.</td><td>Doran, Oner, Faker, Peyz, Keria</td><td>En parte: Oner, Faker y Keria estuvieron en los 3 títulos.</td></tr>
+<tr><td><b>GEN</b></td><td>2025: Kiin, Canyon, Chovy, Ruler, Duro</td><td>El mismo</td><td>Sí: este roster perdió 1-3 en semis de 2025.</td></tr>
+<tr><td><b>TES</b></td><td>2025: 369, Kanavi, Creme, JackeyLove, Crisp</td><td>Entraron Tian y Zhuo</td><td>En parte.</td></tr>
+<tr><td><b>BLG</b></td><td>Final 2024: Bin, Xun, Knight, Elk, ON</td><td>Viper en lugar de Elk</td><td>En parte.</td></tr>
+<tr><td><b>IG</b></td><td>2025: TheShy, Wei, Rookie, GALA, Meiko (Play-In, 1-3 con T1)</td><td>JiaQi en lugar de GALA</td><td>En parte.</td></tr>
+</tbody></table></div></div>
+
+<div class="asec" id="a-elo"><h3>6. El modelo Elo</h3>
+<p>Cada mapa jugado en 2026 es un dato. La probabilidad de ganar un mapa depende de la diferencia de rating:</p>
+<p><span class="formula">P(A gana un mapa) = 1 / (1 + 10^((R<sub>B</sub> − R<sub>A</sub>) / 400))</span></p>
+<p>El modelo busca los ratings que mejor explican todos los resultados a la vez: unas 130 series, entre la suiza, First Stand, el MSI, el EWC y los playoffs y fases regulares de las ligas. Lo reciente pesa más: Worlds 1.0, verano 0.85, MSI y EWC 0.8, primavera 0.6, enero-marzo 0.45. Pesan menos los datos de IG sin TheShy, de TES sin 369 y de LYON casi sin Inspired.</p>
+<p>De mapa a Bo5: es la probabilidad de ganar 3 mapas antes que el rival. Por ejemplo, 100 puntos de ventaja dan 64% por mapa y 75% en un Bo5.</p>
+<p>Encima del modelo hay tres ajustes, por información que los resultados de 2026 no recogen: T1 +20 (9-0 en Bo5 de Worlds desde 2023), GEN −10 (el mismo roster cayó en las semis de 2025) e IG +10 (pocos datos con TheShy).</p>
+<div class="rbars" data-rbars></div>
+<p><b>Robustez.</b> Con un Elo clásico partido a partido, DK-BLG da DK 56.7% y TES-IG queda en 50.4% para TES. Sin las 5 series con marcador asumido, DK-BLG pasa de 51.1% a 50.0%. El cambio más grande vino al agregar el EWC: DK-BLG pasó de BLG 64% a casi 50/50.</p></div>
+
+<div class="asec" id="a-consenso"><h3>7. Consenso con ChatGPT y Gemini</h3>
+<p>Los porcentajes de este sitio son el promedio de tres análisis independientes. Promediar reduce el sesgo de cada uno: el mío dependía de los datos que encontré; los otros dos se apoyan más en el juicio.</p>
+<div class="tbl"><table class="t"><thead><tr><th>Cruce</th><th>Mi modelo</th><th>ChatGPT</th><th>Gemini</th><th>Promedio</th></tr></thead><tbody>
+<tr><td>DK vs BLG</td><td class="n">DK 51.1%</td><td class="n">DK 55.4%</td><td class="n">BLG 54.4%</td><td class="n"><b>DK 50.7%</b></td></tr>
+<tr><td>KC vs T1</td><td class="n">T1 87.4%</td><td class="n">T1 68.2%</td><td class="n">T1 87.6%</td><td class="n"><b>T1 81.1%</b></td></tr>
+<tr><td>TES vs IG</td><td class="n">IG 57.5%</td><td class="n">TES 52.7%</td><td class="n">TES 52.8%</td><td class="n"><b>IG 50.7%</b></td></tr>
+<tr><td>GEN vs LYON</td><td class="n">GEN 87.3%</td><td class="n">GEN 85.7%</td><td class="n">GEN 92.3%</td><td class="n"><b>GEN 88.4%</b></td></tr>
+<tr><td>DK vs T1</td><td class="n">DK 53.6%</td><td class="n">DK 63.2%</td><td class="n">T1 58.7%</td><td class="n"><b>DK 52.7%</b></td></tr>
+<tr><td>IG vs GEN</td><td class="n">GEN 86.3%</td><td class="n">GEN 77.0%</td><td class="n">GEN 75.8%</td><td class="n"><b>GEN 79.7%</b></td></tr>
+<tr><td>DK vs GEN</td><td class="n">GEN 57.5%</td><td class="n">GEN 52.7%</td><td class="n">GEN 68.4%</td><td class="n"><b>GEN 59.5%</b></td></tr>
+<tr><td>T1 vs GEN</td><td class="n">GEN 61.0%</td><td class="n">GEN 65.7%</td><td class="n">GEN 59.4%</td><td class="n"><b>GEN 62.0%</b></td></tr>
+</tbody></table></div>
+<div class="cards3">
+<div class="mini"><span class="k">Lo que aportó ChatGPT</span><ul><li>Los resultados del EWC 2026 y las 7 series que faltaban de la suiza. Los verifiqué y los metí en el modelo.</li><li>Error: dice que DK le ganó a T1 en el EWC, pero no se enfrentaron en ese torneo.</li></ul></div>
+<div class="mini"><span class="k">Lo que aportó Gemini</span><ul><li>La tabla de drafts más completa.</li><li>Errores: dice que HLE ganó First Stand (fue BLG) y que GEN jugó el MSI (no lo jugó); en algunos drafts un campeón aparece baneado y elegido a la vez.</li></ul></div>
+<div class="mini"><span class="k">Pick'Em</span><ul><li>Los 128 cuadros posibles se evaluaron con el sistema 10/20/80.</li><li>El mejor da 83.7 puntos esperados de 160.</li></ul></div>
+</div></div>
+
+<div class="asec" id="a-limites"><h3>8. Límites</h3>
+<ul>
+<li>Son pocas series para medir bien a 8 equipos. Un error de ±30 puntos de rating mueve un cruce parejo entre 5 y 10 puntos porcentuales.</li>
+<li>El modelo supone que cada mapa es independiente y no simula el Fearless (que un equipo no pueda repetir campeones en el Bo5).</li>
+<li>Las transcripciones son narración de casters en inglés, con errores de reconocimiento de voz; algunos bans de la fase 2 no se narran.</li>
+<li>DK-BLG y TES-IG son volados de verdad: cualquiera de los dos resultados es razonable.</li>
+</ul></div>
+
+  </section>
+</main>
+
+<footer><div class="wrap">Predicción hecha con datos públicos y transcripciones de la fase suiza. Los logos pertenecen a sus respectivos equipos y se usan solo con fines informativos. Datos actualizados al 1 de noviembre de 2026.</div></footer>
+
+<script>
+const DATA = {"h2h": {"DK|BLG": {"claude": 0.5110155077790872, "chatgpt": 0.554, "gemini": 0.456, "cons": 0.5070051692596957}, "KC|T1": {"claude": 0.1259730129207245, "chatgpt": 0.318, "gemini": 0.124, "cons": 0.1893243376402415}, "TES|IG": {"claude": 0.42495133196896406, "chatgpt": 0.527, "gemini": 0.528, "cons": 0.4933171106563214}, "GEN|LYON": {"claude": 0.8730171435166827, "chatgpt": 0.857, "gemini": 0.923, "cons": 0.8843390478388943}, "DK|KC": {"claude": 0.8908207686252514, "chatgpt": 0.789, "gemini": 0.784, "cons": 0.8212735895417506}, "DK|T1": {"claude": 0.5360546853261506, "chatgpt": 0.632, "gemini": 0.413, "cons": 0.5270182284420503}, "BLG|KC": {"claude": 0.8858913689153958, "chatgpt": 0.749, "gemini": 0.791, "cons": 0.8086304563051319}, "BLG|T1": {"claude": 0.5250731810284148, "chatgpt": 0.58, "gemini": 0.464, "cons": 0.5230243936761383}, "TES|GEN": {"claude": 0.10149540787405498, "chatgpt": 0.251, "gemini": 0.269, "cons": 0.20716513595801833}, "TES|LYON": {"claude": 0.444068682757117, "chatgpt": 0.657, "gemini": 0.704, "cons": 0.601689560919039}, "IG|GEN": {"claude": 0.1368377896150785, "chatgpt": 0.23, "gemini": 0.242, "cons": 0.20294592987169283}, "IG|LYON": {"claude": 0.5193957315188122, "chatgpt": 0.632, "gemini": 0.682, "cons": 0.6111319105062707}, "DK|TES": {"claude": 0.8633695410174536, "chatgpt": 0.728, "gemini": 0.542, "cons": 0.7111231803391512}, "DK|IG": {"claude": 0.8196996720442765, "chatgpt": 0.749, "gemini": 0.569, "cons": 0.7125665573480923}, "DK|GEN": {"claude": 0.4253410470507595, "chatgpt": 0.473, "gemini": 0.316, "cons": 0.4047803490169198}, "DK|LYON": {"claude": 0.8317418151528179, "chatgpt": 0.841, "gemini": 0.795, "cons": 0.8225806050509393}, "BLG|TES": {"claude": 0.8575342373350254, "chatgpt": 0.682, "gemini": 0.531, "cons": 0.6901780791116753}, "BLG|IG": {"claude": 0.8126073068935719, "chatgpt": 0.705, "gemini": 0.564, "cons": 0.6938691022978573}, "BLG|GEN": {"claude": 0.41456596112127553, "chatgpt": 0.42, "gemini": 0.328, "cons": 0.3875219870404252}, "BLG|LYON": {"claude": 0.824975004512798, "chatgpt": 0.808, "gemini": 0.788, "cons": 0.8069916681709328}, "KC|TES": {"claude": 0.44304547275607914, "chatgpt": 0.42, "gemini": 0.235, "cons": 0.3660151575853597}, "KC|IG": {"claude": 0.3699043208016084, "chatgpt": 0.446, "gemini": 0.262, "cons": 0.3593014402672028}, "KC|GEN": {"claude": 0.07986592762145153, "chatgpt": 0.192, "gemini": 0.111, "cons": 0.12762197587381718}, "KC|LYON": {"claude": 0.38833274042367194, "chatgpt": 0.58, "gemini": 0.476, "cons": 0.4814442468078906}, "T1|TES": {"claude": 0.8435684433475841, "chatgpt": 0.607, "gemini": 0.625, "cons": 0.691856147782528}, "T1|IG": {"claude": 0.7957665735764383, "chatgpt": 0.632, "gemini": 0.658, "cons": 0.6952555245254795}, "T1|GEN": {"claude": 0.3902979658152842, "chatgpt": 0.343, "gemini": 0.406, "cons": 0.37976598860509475}, "T1|LYON": {"claude": 0.8088738909510562, "chatgpt": 0.749, "gemini": 0.841, "cons": 0.7996246303170187}}, "round": {"DK": {"SF": 0.5070051692596957, "F": 0.29544607267012696, "C": 0.14802214586642276}, "BLG": {"SF": 0.49299483074030426, "F": 0.2845056269864873, "C": 0.13746966185376802}, "KC": {"SF": 0.1893243376402415, "F": 0.03501731774849297, "C": 0.007102267111221698}, "T1": {"SF": 0.8106756623597585, "F": 0.3850309825948929, "C": 0.1839619776050372}, "TES": {"SF": 0.4933171106563214, "F": 0.12470869422470302, "C": 0.039200803812699}, "IG": {"SF": 0.5066828893436786, "F": 0.12675032680367176, "C": 0.03951931387129089}, "GEN": {"SF": 0.8843390478388943, "F": 0.7030253683616874, "C": 0.4355005931093729}, "LYON": {"SF": 0.11566095216110572, "F": 0.04551561060993776, "C": 0.009223236770187484}}, "pickem": {"ev": 83.6882021559017, "qf": ["DK", "T1", "IG", "GEN"], "sf": ["T1", "GEN"], "champ": "GEN"}, "pct": {"qf": ["DK", "T1", "IG", "GEN"], "sf": ["DK", "GEN"], "champ": "GEN"}, "ratings": {"GEN": 1723.5, "DK": 1695.6, "T1": 1682.3, "BLG": 1691.6, "TES": 1530.8, "IG": 1558.8, "KC": 1509.7, "LYON": 1551.6}};
+const TEAMS = {
+  GEN:{full:"Gen.G",reg:"LCK",c1:"#c9a45c",c2:"#6e5527"},
+  DK:{full:"Dplus KIA",reg:"LCK",c1:"#1fd1c7",c2:"#0d4f4b"},
+  T1:{full:"T1",reg:"LCK",c1:"#ff2d4a",c2:"#7a0d1d"},
+  BLG:{full:"Bilibili Gaming",reg:"LPL",c1:"#4cc4ff",c2:"#1a4f7a"},
+  TES:{full:"Top Esports",reg:"LPL",c1:"#ff6a2b",c2:"#80290a"},
+  IG:{full:"Invictus Gaming",reg:"LPL",c1:"#e8ecf5",c2:"#59607a"},
+  KC:{full:"Karmine Corp",reg:"LEC",c1:"#3d7bff",c2:"#132a66"},
+  LYON:{full:"LYON",reg:"LCS",c1:"#d9893b",c2:"#6b3a12"}
+};
+const QF = [["DK","BLG"],["KC","T1"],["TES","IG"],["GEN","LYON"]];
+const ROUND = DATA.round;
+const LOGO={GEN:"logos/gen.webp",DK:"logos/dk.webp",T1:"logos/t1.webp",BLG:"logos/blg.png",TES:"logos/tes.png",IG:"logos/ig.png",KC:"logos/kc.png",LYON:"logos/lyon.png"};
+const INVERT={DK:1,IG:1};
+function badge(t,size=34){
+  const w=Math.round(size*1.35), h=size;
+  return `<span class="logo" style="width:${w}px;height:${h}px" data-t="${t}" data-s="${size}"><img src="${LOGO[t]}" alt="${TEAMS[t].full}" loading="lazy" class="${INVERT[t]?"inv":""}" onerror="this.parentNode.outerHTML=shield('${t}',${size})"></span>`;
+}
+function shield(t,size=34){
+  const T=TEAMS[t], id="g"+t+size+Math.random().toString(36).slice(2,6);
+  const fs = t.length>3? size*0.27 : t.length===3? size*0.32 : size*0.4;
+  return `<svg class="badge" width="${size}" height="${size*1.12}" viewBox="0 0 100 112" aria-label="${T.full}" role="img">
+    <defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${T.c1}"/><stop offset="1" stop-color="${T.c2}"/></linearGradient></defs>
+    <path d="M50 3 L94 18 L90 66 Q84 94 50 109 Q16 94 10 66 L6 18 Z" fill="url(#${id})" stroke="rgba(255,255,255,.35)" stroke-width="2"/>
+    <path d="M50 12 L85 24 L82 64 Q77 87 50 99 Q23 87 18 64 L15 24 Z" fill="none" stroke="rgba(0,0,0,.25)" stroke-width="2"/>
+    <text x="50" y="${t.length>3?66:68}" text-anchor="middle" font-family="Barlow Condensed, Arial Narrow, sans-serif" font-weight="800" font-size="${fs*100/size}" fill="${t==='IG'?'#1b1f2b':'#fff'}" letter-spacing="1">${t}</text></svg>`;
+}
+function h2h(a,b){ // prob. de que a gane a b (consenso) + desglose
+  const k1=a+"|"+b, k2=b+"|"+a;
+  if(DATA.h2h[k1]) return DATA.h2h[k1];
+  const r=DATA.h2h[k2]; return {claude:1-r.claude,chatgpt:1-r.chatgpt,gemini:1-r.gemini,cons:1-r.cons};
+}
+const pct = x => (x*100).toFixed(1)+"%";
+function conf(p){ // p = prob del favorito
+  if(p<0.55) return ["Volado","c1"]; if(p<0.65) return ["Ligera ventaja","c2"]; if(p<0.8) return ["Favorito","c3"]; return ["Muy favorito","c4"];
+}
+let MODE="pct";
+function path(mode){
+  const P = mode==="pct"? DATA.pct : DATA.pickem;
+  return {qf:P.qf, sf:P.sf, champ:P.champ};
+}
+function matchRows(a,b,winner,shown){
+  // shown: valores a mostrar por equipo
+  return [a,b].map(t=>{
+    const cls = !t? "tbd" : (winner? (t===winner?"win":"lose") : "");
+    return `<div class="trow ${cls}">${t?badge(t,30):""}<span class="nm">${t||"---"}</span><span class="pc">${t&&shown[t]!=null?pct(shown[t]):""}</span></div>`;
+  }).join("");
+}
+function renderBracket(){
+  const P = path(MODE);
+  const sfA=[P.qf[0],P.qf[1]], sfB=[P.qf[2],P.qf[3]], fin=[P.sf[0],P.sf[1]];
+  const show=(a,b,round)=>{ // porcentajes mostrados
+    const o={};
+    if(MODE==="pct"){ const h=h2h(a,b).cons; o[a]=h; o[b]=1-h; }
+    else { const key=round; o[a]=ROUND[a][key]; o[b]=ROUND[b][key]; }
+    return o;
+  };
+  const qfHtml = [0,1].map(pi=>`<div class="pair">${[0,1].map(j=>{const i=pi*2+j,[a,b]=QF[i];return `<div class="slot"><div class="match">${matchRows(a,b,P.qf[i],show(a,b,"SF"))}</div></div>`}).join("")}</div>`).join("");
+  const sfHtml = `<div class="pair">${[sfA,sfB].map((m,i)=>`<div class="slot"><div class="match">${matchRows(m[0],m[1],P.sf[i],show(m[0],m[1],"F"))}</div></div>`).join("")}</div>`;
+  const fHtml = `<div class="pair"><div class="slot"><div class="match">${matchRows(fin[0],fin[1],P.champ,show(fin[0],fin[1],"C"))}</div></div></div>`;
+  document.getElementById("bracket").innerHTML = `
+    <div class="col"><div class="colhead"><b>Cuartos</b><span>10 pts por acierto</span></div><div class="colbody">${qfHtml}</div></div>
+    <div class="col"><div class="colhead"><b>Semifinales</b><span>20 pts por acierto</span></div><div class="colbody">${sfHtml}</div></div>
+    <div class="col"><div class="colhead"><b>Final</b><span>80 pts</span></div><div class="colbody">${fHtml}</div></div>`;
+  const c=P.champ, other=fin[0]===c?fin[1]:fin[0], hf=h2h(c,other).cons;
+  document.getElementById("champ").innerHTML = `
+    <div class="trophy">${badge(c,150)}<svg class="cup" width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="#f5c451" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg></div>
+    <div><div class="lbl">Ganador de Worlds 2026</div><div class="name">${TEAMS[c].full}</div>
+    <div class="meta">Probabilidad de ser campeón: <b>${pct(ROUND[c].C)}</b> · Final predicha contra ${TEAMS[other].full}: <b>${pct(hf)}</b></div>
+    <div class="meta" style="margin-top:6px">${MODE==="pct"?"Cuadro armado eligiendo al favorito en cada cruce.":"Cuadro que maximiza los puntos esperados: "+DATA.pickem.ev.toFixed(1)+" de 160."}</div></div>`;
+  const h = MODE==="pct"
+    ? "Por porcentaje: en cada cruce avanza el equipo con mayor probabilidad de ganarlo. Los números son la probabilidad de ganar ese partido."
+    : "Por confianza: el cuadro con más puntos esperados en el Pick'Em. Los números son la probabilidad de que el equipo llegue hasta esa ronda, que es la confianza de cada pick. En la semi A cambia: T1 tiene un cuarto mucho más fácil, así que es más probable que llegue a la final aunque DK le gane un cara a cara.";
+  document.getElementById("hint1").textContent=h; document.getElementById("hint2").textContent=h;
+}
+const WHY = {"DK|BLG": ["Es el cuarto más parejo del cuadro. Los tres análisis no se ponen de acuerdo: dos eligen a DK y uno a BLG.", "DK ganó el EWC 2026 (julio) y en el camino eliminó a BLG 2-1. Es el único enfrentamiento directo del año.", "DK ganó la suiza 3-0, con victoria sobre T1. Remonta partidas perdidas gracias a las peleas tardías que inicia Career y al daño de Smash y ShowMaker.", "BLG tuvo el mejor año de todos: ganó 2 splits de la LPL y First Stand, y fue finalista del MSI. Pero su suiza fue irregular (perdió con MKOI y TES), y cae cuando divean a Viper sin flash.", "Ojo con el draft: DK debe quitarle a Knight la Orianna y la Syndra. BLG tiene que castigar el early débil de DK."], "KC|T1": ["T1 barrió 3-0 a KC en el MSI 2026. KC se vengó 2-1 en el EWC, pero a Bo5 la diferencia de nivel pesa más.", "KC domina las fases regulares, pero pierde los Bo5 grandes: 0-6 en mapas en el MSI y 0-3 con MKOI en los playoffs del LEC.", "En la suiza, KC perdió los dos partidos que jugó contra clasificados (LYON y BLG): gana el early con visión y pierde las peleas tardías.", "T1 juega controlado y Keria encuentra los picks; Caliste, el carry de KC, suele morir primero en las peleas."], "TES|IG": ["Volado puro: los tres análisis quedan entre 47% y 58%, y el promedio da 50.7% para IG.", "Van 1-1 en Bo5 este año: IG ganó 3-2 en los playoffs del Split 3 y TES ganó 3-1 en el regional, que fue la serie más reciente.", "IG con TheShy es otro equipo (sin él hizo 2-8 y 5-9). En la suiza solo perdió con GEN y le ganó a HLE y LYON.", "Choque de estilos: IG quiere peleas 5 contra 5 de frente y acumular dragones; TES lo evita con dive, flancos y a 369 empujando solo por las líneas laterales.", "Señal en el draft: si IG le banea a 369 Ambessa y Renekton, como hizo HLE cuando aplastó a TES, TES pierde su arma principal."], "GEN|LYON": ["GEN ya le ganó a LYON dos veces este año: 3-0 en First Stand y 2-1 en la suiza.", "El único mapa que ganó LYON fue robando dos Barones con Kalista. En los otros, el poke de GEN y Kiin (25-4 con Ambessa) decidieron.", "En Bo5 Fearless, la profundidad de GEN pesa más: mostró 5 junglas y mids distintos.", "LYON es el mejor de Norteamérica y fue 3.º en el MSI, pero cede el early con frecuencia."], "DK|T1": ["Cara a cara, casi 50/50: en el promedio gana DK por poco (52.7%).", "DK le ganó a T1 en la suiza remontando una partida con +5k en contra. T1 se vengó 3-1 en los playoffs de la LCK.", "T1 tiene el mejor historial reciente en Bo5 de Worlds: 9-0 en eliminatorias entre 2023 y 2025, con el núcleo Oner, Faker y Keria.", "Para el Pick'Em importa otra cosa: T1 tiene más probabilidad de llegar a esta semi, porque su cuarto es más fácil que el de DK."], "IG|GEN": ["GEN ya le ganó a IG en la suiza: aguantó un early en contra (+2k) y lo remontó con el frontline y la ventaja de TPs.", "IG gana cuando arma su combo sobre un objetivo; GEN lo neutraliza con macro y castiga a los carries que se sobreextienden.", "Los tres análisis le dan más de 75% a GEN."], "DK|GEN": ["GEN es favorito en una final contra cualquiera. Contra DK, el promedio le da 59.5%.", "DK le ganó 2-1 a GEN en la semifinal del EWC, la única serie entre ambos este año.", "GEN fue el mejor equipo de Corea (campeón de la LCK Cup y de la temporada) y el más limpio en la suiza: 3-0 contra el calendario más duro.", "En contra de GEN: este mismo roster perdió 1-3 en semis de Worlds 2025."], "T1|GEN": ["GEN le gana a T1 en los tres análisis (61% en promedio).", "GEN terminó por delante de T1 en la LCK y le ganó 2-1 en el partido por el 3.er puesto del EWC.", "T1 tiene la experiencia de 3 títulos seguidos, pero con un ADC nuevo (Peyz) y sin haberle ganado a ningún clasificado en la suiza."]};
+function card(round,a,b,winner,note){
+  const h=h2h(a,b), pw = winner===a? h.cons : 1-h.cons, [cl,cc]=conf(pw);
+  const ca=TEAMS[a].c1, cb=TEAMS[b].c1;
+  const w = WHY[a+"|"+b] || WHY[b+"|"+a] || [];
+  const m = (x)=> winner===a? x : 1-x;
+  return `<div class="mcard">
+    <div class="mhead"><span class="mround">${round}</span><span class="chip ${cc}">${cl}</span></div>
+    <div class="vs">
+      <div class="t">${badge(a,40)}<div><div class="nm">${a}${winner===a?" ✓":""}</div><div class="full">${TEAMS[a].full} · ${TEAMS[a].reg}</div></div></div>
+      <div class="mid">VS</div>
+      <div class="t r"><div><div class="nm">${winner===b?"✓ ":""}${b}</div><div class="full">${TEAMS[b].full} · ${TEAMS[b].reg}</div></div>${badge(b,40)}</div>
+    </div>
+    <div class="pbar"><i style="width:${h.cons*100}%;background:${ca}"></i><i style="width:${(1-h.cons)*100}%;background:${cb}"></i></div>
+    <div class="plabels"><span>${pct(h.cons)}</span><span>${pct(1-h.cons)}</span></div>
+    <div class="models">
+      <div>Mi modelo<b>${winner} ${pct(m(h.claude))}</b></div>
+      <div>ChatGPT<b>${winner} ${pct(m(h.chatgpt))}</b></div>
+      <div>Gemini<b>${winner} ${pct(m(h.gemini))}</b></div>
+    </div>
+    <ul class="why">${w.map(x=>`<li>${x}</li>`).join("")}</ul>
+    ${note?`<div class="pickflag">${note}</div>`:""}
+  </div>`;
+}
+function renderCards(){
+  const P=path(MODE); let html="";
+  QF.forEach((m,i)=> html+=card(`Cuartos ${i+1}`,m[0],m[1],P.qf[i]));
+  const sA=[P.qf[0],P.qf[1]], sB=[P.qf[2],P.qf[3]];
+  const hA=h2h(sA[0],sA[1]).cons;
+  const noteA = (MODE==="pickem" && (hA>=.5? sA[0]:sA[1])!==P.sf[0]) ?
+    `En el Pick'Em se elige a ${P.sf[0]} aunque pierda este cara a cara: su probabilidad de llegar a la final (${pct(ROUND[P.sf[0]].F)}) es mayor que la de ${P.sf[0]===sA[0]?sA[1]:sA[0]} (${pct(ROUND[P.sf[0]===sA[0]?sA[1]:sA[0]].F)}), porque su cuarto es más fácil.` : "";
+  html+=card("Semifinal A",sA[0],sA[1],P.sf[0],noteA);
+  html+=card("Semifinal B",sB[0],sB[1],P.sf[1]);
+  html+=card("Final",P.sf[0],P.sf[1],P.champ);
+  document.getElementById("cards").innerHTML=html;
+}
+function color(p){ // p del equipo de la fila
+  const t=Math.abs(p-0.5)*2; // 0..1
+  if(p>=0.5) return `rgba(46,230,214,${0.25+0.75*t})`;
+  return `rgba(255,107,107,${0.25+0.75*t})`;
+}
+function matrix(el,rows,cols){
+  let h=`<tr><th></th>${cols.map(c=>`<th>${badge(c,22)}<br>${c}</th>`).join("")}</tr>`;
+  rows.forEach(r=>{
+    h+=`<tr><th><span class="rowh">${badge(r,22)}${r}</span></th>`+cols.map(c=>{const p=h2h(r,c).cons;return `<td style="background:${color(p)}" data-a="${r}" data-b="${c}">${pct(p)}</td>`}).join("")+`</tr>`;
+  });
+  el.innerHTML=h;
+}
+function renderMatrices(){
+  matrix(document.getElementById("mxA"),["DK","BLG"],["KC","T1"]);
+  matrix(document.getElementById("mxB"),["TES","IG"],["GEN","LYON"]);
+  matrix(document.getElementById("mxF"),["DK","BLG","KC","T1"],["TES","IG","GEN","LYON"]);
+  document.querySelectorAll(".matrix td").forEach(td=>td.addEventListener("click",()=>{
+    document.querySelectorAll(".matrix td.sel").forEach(x=>x.classList.remove("sel")); td.classList.add("sel");
+    const a=td.dataset.a,b=td.dataset.b,h=h2h(a,b), w=h.cons>=.5?a:b, pw=h.cons>=.5?h.cons:1-h.cons, f=x=>w===a?x:1-x, [cl]=conf(pw);
+    const reach = ROUND[a] && ROUND[b] ? ` Probabilidad de que este cruce ocurra: ${pct(probMeet(a,b))}.` : "";
+    document.getElementById("insp").innerHTML=`<b>${TEAMS[a].full} vs ${TEAMS[b].full}</b>: gana <b>${w}</b> con ${pct(pw)} (${cl.toLowerCase()}). Mi modelo ${pct(f(h.claude))} · ChatGPT ${pct(f(h.chatgpt))} · Gemini ${pct(f(h.gemini))}.${reach}`;
+  }));
+}
+function probMeet(a,b){
+  const side = t=> ["DK","BLG","KC","T1"].includes(t)?"A":"B";
+  if(side(a)===side(b)) return ROUND[a].SF*ROUND[b].SF; // semifinal
+  return ROUND[a].F*ROUND[b].F; // final (aprox. independiente entre lados)
+}
+function renderPaths(){
+  const order=Object.keys(ROUND).sort((x,y)=>ROUND[y].C-ROUND[x].C);
+  document.getElementById("paths").innerHTML = `<div class="prow"><span></span><div class="stack legend"><span>Semis</span><span>Final</span><span>Campeón</span></div></div>` +
+   order.map(t=>`<div class="prow"><span class="tn">${badge(t,22)}${t}</span><div class="stack">${["SF","F","C"].map(k=>`<div><i style="width:${ROUND[t][k]*100}%"></i><span>${pct(ROUND[t][k])}</span></div>`).join("")}</div></div>`).join("");
+}
+function setMode(m){ MODE=m; document.querySelectorAll(".seg button").forEach(b=>b.setAttribute("aria-pressed", b.dataset.mode===m)); renderBracket(); renderCards(); try{localStorage.setItem("w26mode",m)}catch(e){} }
+document.querySelectorAll(".seg button").forEach(b=>b.addEventListener("click",()=>setMode(b.dataset.mode)));
+document.querySelectorAll("nav.tabs button").forEach(b=>b.addEventListener("click",()=>{
+  document.querySelectorAll("nav.tabs button").forEach(x=>x.setAttribute("aria-selected",x===b));
+  document.querySelectorAll("section.view").forEach(v=>v.classList.toggle("on",v.id===b.dataset.view));
+  try{history.replaceState(null,"","#"+b.dataset.view)}catch(e){}
+  window.scrollTo({top:0});
+}));
+(function init(){
+  let m="pct"; try{m=localStorage.getItem("w26mode")||"pct"}catch(e){}
+  const v=(location.hash||"").slice(1);
+  if(["detalle","analisis"].includes(v)) document.querySelector(`nav.tabs button[data-view="${v}"]`).click();
+  renderMatrices(); renderPaths(); setMode(m);
+  // rating bars in analysis
+  document.querySelectorAll("[data-rbars]").forEach(el=>{
+    const R=DATA.ratings, ks=Object.keys(R).sort((a,b)=>R[b]-R[a]), mn=1450, mx=Math.max(...Object.values(R));
+    el.innerHTML = ks.map(k=>`<div class="rbar"><span>${k}</span><div class="b"><i style="width:${(R[k]-mn)/(mx-mn)*100}%;background:${TEAMS[k].c1}"></i></div><span class="v">${R[k].toFixed(0)}</span></div>`).join("");
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: worlds26-prediccion
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: .
