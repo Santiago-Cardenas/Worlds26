@@ -198,8 +198,11 @@ h3{font-family:var(--display);font-size:1.3rem;letter-spacing:.02em;margin:0 0 8
 .ovcomps{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:.8rem;color:var(--accent2);margin-bottom:6px}
 .ovcomps span{display:flex;align-items:center;gap:6px}
 .dorder summary{cursor:pointer;color:var(--muted);font-size:.82rem;margin:4px 0}
-.match.real{border-color:rgba(245,196,81,.55)}
-.realtag{font-family:var(--mono);font-size:.62rem;color:#1b1400;background:var(--accent2);border-radius:3px;padding:1px 5px;margin-right:6px}
+.match.real{border-color:#2fd47a;box-shadow:0 0 0 1px rgba(47,212,122,.25),0 0 22px rgba(47,212,122,.18)}
+.match.real .trow.win{border-left-color:#2fd47a;background:linear-gradient(90deg,rgba(47,212,122,.22),transparent 75%)}
+.match.real .trow.win .ssc{color:#2fd47a}
+.match.real .trow.win .nm::after{content:"✓ Clasificado";margin-left:8px;font-family:var(--mono);font-size:.62rem;font-weight:600;color:#2fd47a;letter-spacing:.04em}
+.realtag{font-family:var(--mono);font-size:.62rem;color:#03200f;background:#2fd47a;border-radius:3px;padding:1px 5px;margin-right:6px}
 .realpicks{display:flex;flex-direction:column;gap:6px}
 .rp{display:flex;align-items:center;gap:8px;font-size:.85rem}
 .rp .rpimg{width:34px;height:34px;object-fit:cover;object-position:50% 15%;border-radius:6px;flex:none}
@@ -537,7 +540,7 @@ const SIM = {
     "rfs": "DK",
     "rfs_reason": "ganó el sorteo con moneda",
     "rfs_choice": "first",
-    "rfs_why": "DK quiere asegurar un campeón de prioridad de su pool (Vi, Syndra, Kalista, Renata Glasc). Pero Syndra y Kalista quedaron baneados, así que DK abrió con Lee Sin.",
+    "rfs_why": "DK quiere asegurar un campeón de prioridad de su pool (Vi, Syndra, Kalista). Pero Syndra y Kalista quedaron baneados, así que DK abrió con Lee Sin.",
     "other_why": "BLG se queda con el lado azul (mejor acceso a objetivos)",
     "blue": "BLG",
     "red": "DK",
@@ -596,9 +599,9 @@ const SIM = {
      {
       "k": "pick",
       "t": "BLG",
-      "ch": "Lulu",
-      "role": "Support",
-      "player": "ON"
+      "ch": "Vi",
+      "role": "Jungla",
+      "player": "Xun"
      },
      {
       "k": "pick",
@@ -624,14 +627,14 @@ const SIM = {
      {
       "k": "pick",
       "t": "BLG",
-      "ch": "Vi",
-      "role": "Jungla",
-      "player": "Xun"
+      "ch": "Lulu",
+      "role": "Support",
+      "player": "ON"
      },
      {
       "k": "ban",
       "t": "BLG",
-      "ch": "Viktor",
+      "ch": "Cassiopeia",
       "role": null,
       "player": null
      },
@@ -666,7 +669,7 @@ const SIM = {
      {
       "k": "pick",
       "t": "DK",
-      "ch": "Cassiopeia",
+      "ch": "Viktor",
       "role": "Mid",
       "player": "ShowMaker"
      },
@@ -689,7 +692,7 @@ const SIM = {
      "DK": {
       "Top": "K'Sante",
       "Jungla": "Lee Sin",
-      "Mid": "Cassiopeia",
+      "Mid": "Viktor",
       "ADC": "Caitlyn",
       "Support": "Bard"
      },
@@ -718,35 +721,33 @@ const SIM = {
      ]
     },
     "comps": {
-     "DK": "Pick + early / escaramuzas",
+     "DK": "Poke / asedio + pick",
      "BLG": "Pick + proteger al carry"
     },
     "winner": "BLG",
-    "why": "La compo de BLG (pick) se impuso a la de DK (pick); Viper (Yunara) fue el jugador decisivo.",
-    "duration": "36:46",
-    "dmin": 36.8,
+    "why": "La compo de BLG (pick) se impuso a la de DK (poke / asedio); ON (Lulu) fue el jugador decisivo.",
+    "duration": "33:06",
+    "dmin": 33.1,
     "fb": {
-     "time": "2:35",
-     "type": "2v2 en bot a nivel 2-3",
+     "time": "6:31",
+     "type": "gank de la jungla",
      "team": "BLG",
-     "killer": "Viper (Yunara)",
-     "assists": [
-      "ON (Lulu)"
-     ],
-     "victim": "Career (Bard)"
+     "killer": "Xun (Vi)",
+     "assists": [],
+     "victim": "ShowMaker (Viktor)"
     },
-    "kills": "19-15",
+    "kills": "18-12",
     "penta": null,
     "penta_prob": 0.047,
-    "mvp": "Viper (Yunara)",
-    "key": "Partida larga: BLG ganó la pelea del Elder"
+    "mvp": "ON (Lulu)",
+    "key": "BLG ganó la pelea del alma de dragón y cerró con el Barón"
    },
    {
     "n": 2,
     "rfs": "DK",
     "rfs_reason": "perdió la partida 1",
     "rfs_choice": "first",
-    "rfs_why": "DK quiere asegurar un campeón de prioridad de su pool (Syndra, Kalista, Renata Glasc, Nautilus). DK abrió con Syndra.",
+    "rfs_why": "DK quiere asegurar un campeón de prioridad de su pool (Syndra, Kalista). DK abrió con Syndra.",
     "other_why": "BLG se queda con el lado azul (mejor acceso a objetivos)",
     "blue": "BLG",
     "red": "DK",
@@ -763,21 +764,7 @@ const SIM = {
      {
       "k": "ban",
       "t": "BLG",
-      "ch": "Kai'Sa",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "DK",
-      "ch": "Pantheon",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "BLG",
-      "ch": "Nautilus",
+      "ch": "Jarvan IV",
       "role": null,
       "player": null
      },
@@ -791,7 +778,21 @@ const SIM = {
      {
       "k": "ban",
       "t": "BLG",
+      "ch": "Nautilus",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "DK",
       "ch": "Kalista",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "BLG",
+      "ch": "Renata Glasc",
       "role": null,
       "player": null
      },
@@ -812,16 +813,16 @@ const SIM = {
      {
       "k": "pick",
       "t": "BLG",
-      "ch": "Ezreal",
-      "role": "ADC",
-      "player": "Viper"
+      "ch": "Pantheon",
+      "role": "Jungla",
+      "player": "Xun"
      },
      {
       "k": "pick",
       "t": "DK",
-      "ch": "Jarvan IV",
-      "role": "Jungla",
-      "player": "Lucid"
+      "ch": "Kai'Sa",
+      "role": "ADC",
+      "player": "Smash"
      },
      {
       "k": "pick",
@@ -833,9 +834,9 @@ const SIM = {
      {
       "k": "pick",
       "t": "BLG",
-      "ch": "Karma",
-      "role": "Support",
-      "player": "ON"
+      "ch": "Ashe",
+      "role": "ADC",
+      "player": "Viper"
      },
      {
       "k": "ban",
@@ -847,184 +848,30 @@ const SIM = {
      {
       "k": "ban",
       "t": "DK",
+      "ch": "Seraphine",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "BLG",
+      "ch": "Skarner",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "DK",
       "ch": "Camille",
       "role": null,
       "player": null
      },
      {
-      "k": "ban",
-      "t": "BLG",
-      "ch": "Olaf",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "DK",
-      "ch": "Wukong",
-      "role": null,
-      "player": null
-     },
-     {
       "k": "pick",
       "t": "BLG",
-      "ch": "Nocturne",
-      "role": "Jungla",
-      "player": "Xun"
-     },
-     {
-      "k": "pick",
-      "t": "DK",
-      "ch": "Ashe",
-      "role": "ADC",
-      "player": "Smash"
-     },
-     {
-      "k": "pick",
-      "t": "DK",
-      "ch": "Jayce",
-      "role": "Top",
-      "player": "Siwoo"
-     },
-     {
-      "k": "pick",
-      "t": "BLG",
-      "ch": "Shen",
-      "role": "Top",
-      "player": "Bin"
-     }
-    ],
-    "picks": {
-     "DK": {
-      "Top": "Jayce",
-      "Jungla": "Jarvan IV",
-      "Mid": "Syndra",
-      "ADC": "Ashe",
-      "Support": "Poppy"
-     },
-     "BLG": {
-      "Top": "Shen",
-      "Jungla": "Nocturne",
-      "Mid": "Akali",
-      "ADC": "Ezreal",
-      "Support": "Karma"
-     }
-    },
-    "players": {
-     "DK": [
-      "Siwoo",
-      "Lucid",
-      "ShowMaker",
-      "Smash",
-      "Career"
-     ],
-     "BLG": [
-      "Bin",
-      "Xun",
-      "Knight",
-      "Viper",
-      "ON"
-     ]
-    },
-    "comps": {
-     "DK": "Dive / all-in + teamfight / wombo combo",
-     "BLG": "Dive / all-in + poke / asedio"
-    },
-    "winner": "DK",
-    "why": "La compo de DK (dive / all-in) se impuso a la de BLG (dive / all-in); Smash (Ashe) fue el jugador decisivo.",
-    "duration": "25:47",
-    "dmin": 25.8,
-    "fb": {
-     "time": "7:48",
-     "type": "escaramuza en el río por la scuttle/dragón",
-     "team": "BLG",
-     "killer": "Xun (Nocturne)",
-     "assists": [
-      "Knight (Akali)",
-      "ON (Karma)"
-     ],
-     "victim": "Lucid (Jarvan IV)"
-    },
-    "kills": "13-6",
-    "penta": null,
-    "penta_prob": 0.013,
-    "mvp": "Smash (Ashe)",
-    "key": "DK convirtió la ventaja temprana en torres y Barón sin dar opción de pelea"
-   },
-   {
-    "n": 3,
-    "rfs": "BLG",
-    "rfs_reason": "perdió la partida 2",
-    "rfs_choice": "blue",
-    "rfs_why": "BLG prioriza el lado azul (visión y control de dragón/Barón)",
-    "other_why": "DK elige primer pick. Pero Kalista y Renata Glasc quedaron baneados, así que DK abrió con Viktor.",
-    "blue": "BLG",
-    "red": "DK",
-    "first": "DK",
-    "second": "BLG",
-    "log": [
-     {
-      "k": "ban",
-      "t": "DK",
-      "ch": "Nautilus",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "BLG",
-      "ch": "Renata Glasc",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "DK",
-      "ch": "Orianna",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "BLG",
-      "ch": "Kai'Sa",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "DK",
-      "ch": "Locke",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "BLG",
-      "ch": "Kalista",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "pick",
-      "t": "DK",
-      "ch": "Viktor",
-      "role": "Mid",
-      "player": "ShowMaker"
-     },
-     {
-      "k": "pick",
-      "t": "BLG",
-      "ch": "Pantheon",
-      "role": "Jungla",
-      "player": "Xun"
-     },
-     {
-      "k": "pick",
-      "t": "BLG",
-      "ch": "Taliyah",
-      "role": "Mid",
-      "player": "Knight"
+      "ch": "Alistar",
+      "role": "Support",
+      "player": "ON"
      },
      {
       "k": "pick",
@@ -1036,88 +883,32 @@ const SIM = {
      {
       "k": "pick",
       "t": "DK",
-      "ch": "Alistar",
-      "role": "Support",
-      "player": "Career"
-     },
-     {
-      "k": "pick",
-      "t": "BLG",
-      "ch": "Jhin",
-      "role": "ADC",
-      "player": "Viper"
-     },
-     {
-      "k": "ban",
-      "t": "BLG",
-      "ch": "Ambessa",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "DK",
-      "ch": "Seraphine",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "BLG",
-      "ch": "Ornn",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "DK",
       "ch": "Olaf",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "pick",
-      "t": "BLG",
-      "ch": "Leona",
-      "role": "Support",
-      "player": "ON"
-     },
-     {
-      "k": "pick",
-      "t": "DK",
-      "ch": "Lucian",
-      "role": "ADC",
-      "player": "Smash"
-     },
-     {
-      "k": "pick",
-      "t": "DK",
-      "ch": "Rumble",
       "role": "Top",
       "player": "Siwoo"
      },
      {
       "k": "pick",
       "t": "BLG",
-      "ch": "Camille",
+      "ch": "Jayce",
       "role": "Top",
       "player": "Bin"
      }
     ],
     "picks": {
      "DK": {
-      "Top": "Rumble",
+      "Top": "Olaf",
       "Jungla": "Qiyana",
-      "Mid": "Viktor",
-      "ADC": "Lucian",
-      "Support": "Alistar"
+      "Mid": "Syndra",
+      "ADC": "Kai'Sa",
+      "Support": "Poppy"
      },
      "BLG": {
-      "Top": "Camille",
+      "Top": "Jayce",
       "Jungla": "Pantheon",
-      "Mid": "Taliyah",
-      "ADC": "Jhin",
-      "Support": "Leona"
+      "Mid": "Akali",
+      "ADC": "Ashe",
+      "Support": "Alistar"
      }
     },
     "players": {
@@ -1137,55 +928,41 @@ const SIM = {
      ]
     },
     "comps": {
-     "DK": "Teamfight / wombo combo + early / escaramuzas",
+     "DK": "Dive / all-in + pick",
      "BLG": "Pick + dive / all-in"
     },
     "winner": "DK",
-    "why": "La compo de DK (teamfight / wombo combo) se impuso a la de BLG (pick); Lucid (Qiyana) fue el jugador decisivo.",
-    "duration": "22:56",
-    "dmin": 22.9,
+    "why": "La compo de DK (dive / all-in) se impuso a la de BLG (pick); Career (Poppy) fue el jugador decisivo.",
+    "duration": "29:52",
+    "dmin": 29.9,
     "fb": {
-     "time": "7:25",
-     "type": "gank de la jungla",
+     "time": "2:23",
+     "type": "2v2 en bot a nivel 2-3",
      "team": "DK",
-     "killer": "Siwoo (Rumble)",
+     "killer": "Smash (Kai'Sa)",
      "assists": [
-      "Lucid (Qiyana)"
+      "Career (Poppy)"
      ],
-     "victim": "Bin (Camille)"
+     "victim": "Viper (Ashe)"
     },
-    "kills": "12-6",
+    "kills": "15-7",
     "penta": null,
-    "penta_prob": 0.031,
-    "mvp": "Lucid (Qiyana)",
-    "key": "DK convirtió la ventaja temprana en torres y Barón sin dar opción de pelea"
+    "penta_prob": 0.042,
+    "mvp": "Career (Poppy)",
+    "key": "DK ganó la pelea del alma de dragón y cerró con el Barón"
    },
    {
-    "n": 4,
+    "n": 3,
     "rfs": "BLG",
-    "rfs_reason": "perdió la partida 3",
+    "rfs_reason": "perdió la partida 2",
     "rfs_choice": "first",
-    "rfs_why": "BLG quiere asegurar un campeón de prioridad de su pool (Ambessa, Orianna, Nautilus). BLG abrió con Orianna.",
+    "rfs_why": "BLG quiere asegurar un campeón de prioridad de su pool (Ambessa, Orianna). BLG abrió con Orianna.",
     "other_why": "DK se queda con el lado azul (mejor acceso a objetivos)",
     "blue": "DK",
     "red": "BLG",
     "first": "BLG",
     "second": "DK",
     "log": [
-     {
-      "k": "ban",
-      "t": "BLG",
-      "ch": "Locke",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "DK",
-      "ch": "Kalista",
-      "role": null,
-      "player": null
-     },
      {
       "k": "ban",
       "t": "BLG",
@@ -1203,14 +980,28 @@ const SIM = {
      {
       "k": "ban",
       "t": "BLG",
-      "ch": "Ambessa",
+      "ch": "Cassiopeia",
       "role": null,
       "player": null
      },
      {
       "k": "ban",
       "t": "DK",
-      "ch": "Kai'Sa",
+      "ch": "Ezreal",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "BLG",
+      "ch": "Kalista",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "DK",
+      "ch": "Jarvan IV",
       "role": null,
       "player": null
      },
@@ -1224,9 +1015,65 @@ const SIM = {
      {
       "k": "pick",
       "t": "DK",
+      "ch": "Locke",
+      "role": "Mid",
+      "player": "ShowMaker"
+     },
+     {
+      "k": "pick",
+      "t": "DK",
+      "ch": "Jhin",
+      "role": "ADC",
+      "player": "Smash"
+     },
+     {
+      "k": "pick",
+      "t": "BLG",
+      "ch": "Nocturne",
+      "role": "Jungla",
+      "player": "Xun"
+     },
+     {
+      "k": "pick",
+      "t": "BLG",
+      "ch": "Ambessa",
+      "role": "Top",
+      "player": "Bin"
+     },
+     {
+      "k": "pick",
+      "t": "DK",
       "ch": "Seraphine",
       "role": "Support",
       "player": "Career"
+     },
+     {
+      "k": "ban",
+      "t": "DK",
+      "ch": "Zeri",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "BLG",
+      "ch": "Renekton",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "DK",
+      "ch": "Rakan",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "BLG",
+      "ch": "Jax",
+      "role": null,
+      "player": null
      },
      {
       "k": "pick",
@@ -1238,95 +1085,39 @@ const SIM = {
      {
       "k": "pick",
       "t": "BLG",
-      "ch": "Xin Zhao",
-      "role": "Jungla",
-      "player": "Xun"
-     },
-     {
-      "k": "pick",
-      "t": "BLG",
       "ch": "Jinx",
       "role": "ADC",
       "player": "Viper"
      },
      {
       "k": "pick",
-      "t": "DK",
-      "ch": "Corki",
-      "role": "ADC",
-      "player": "Smash"
-     },
-     {
-      "k": "ban",
-      "t": "DK",
-      "ch": "Renekton",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
       "t": "BLG",
-      "ch": "Galio",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "DK",
-      "ch": "Olaf",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "BLG",
-      "ch": "Irelia",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "pick",
-      "t": "DK",
-      "ch": "Ahri",
-      "role": "Mid",
-      "player": "ShowMaker"
-     },
-     {
-      "k": "pick",
-      "t": "BLG",
-      "ch": "Nami",
+      "ch": "Braum",
       "role": "Support",
       "player": "ON"
      },
      {
       "k": "pick",
-      "t": "BLG",
-      "ch": "Aatrox",
-      "role": "Top",
-      "player": "Bin"
-     },
-     {
-      "k": "pick",
       "t": "DK",
-      "ch": "Ornn",
+      "ch": "Rumble",
       "role": "Top",
       "player": "Siwoo"
      }
     ],
     "picks": {
      "DK": {
-      "Top": "Ornn",
+      "Top": "Rumble",
       "Jungla": "Wukong",
-      "Mid": "Ahri",
-      "ADC": "Corki",
+      "Mid": "Locke",
+      "ADC": "Jhin",
       "Support": "Seraphine"
      },
      "BLG": {
-      "Top": "Aatrox",
-      "Jungla": "Xin Zhao",
+      "Top": "Ambessa",
+      "Jungla": "Nocturne",
       "Mid": "Orianna",
       "ADC": "Jinx",
-      "Support": "Nami"
+      "Support": "Braum"
      }
     },
     "players": {
@@ -1350,29 +1141,240 @@ const SIM = {
      "BLG": "Dive / all-in + early / escaramuzas"
     },
     "winner": "DK",
-    "why": "La compo de DK (teamfight / wombo combo) se impuso a la de BLG (dive / all-in); Smash (Corki) fue el jugador decisivo.",
-    "duration": "29:45",
-    "dmin": 29.8,
+    "why": "La compo de DK (teamfight / wombo combo) se impuso a la de BLG (dive / all-in); Career (Seraphine) fue el jugador decisivo.",
+    "duration": "31:37",
+    "dmin": 31.6,
     "fb": {
-     "time": "3:35",
-     "type": "gank de la jungla",
+     "time": "5:07",
+     "type": "escaramuza en el río por la scuttle/dragón",
      "team": "BLG",
-     "killer": "Knight (Orianna)",
+     "killer": "Xun (Nocturne)",
      "assists": [
-      "Xun (Xin Zhao)"
+      "Knight (Orianna)",
+      "ON (Braum)"
      ],
-     "victim": "ShowMaker (Ahri)"
+     "victim": "Lucid (Wukong)"
     },
-    "kills": "14-8",
+    "kills": "14-9",
+    "penta": null,
+    "penta_prob": 0.034,
+    "mvp": "Career (Seraphine)",
+    "key": "DK ganó la pelea del alma de dragón y cerró con el Barón"
+   },
+   {
+    "n": 4,
+    "rfs": "BLG",
+    "rfs_reason": "perdió la partida 3",
+    "rfs_choice": "second",
+    "rfs_why": "BLG quiere el último pick para darle counter a su top",
+    "other_why": "DK toma el lado azul y juega con primer pick. DK abrió con Cassiopeia.",
+    "blue": "DK",
+    "red": "BLG",
+    "first": "DK",
+    "second": "BLG",
+    "log": [
+     {
+      "k": "ban",
+      "t": "DK",
+      "ch": "Nautilus",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "BLG",
+      "ch": "Jarvan IV",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "DK",
+      "ch": "Kalista",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "BLG",
+      "ch": "Renata Glasc",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "DK",
+      "ch": "Ezreal",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "BLG",
+      "ch": "Ornn",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "pick",
+      "t": "DK",
+      "ch": "Cassiopeia",
+      "role": "Mid",
+      "player": "ShowMaker"
+     },
+     {
+      "k": "pick",
+      "t": "BLG",
+      "ch": "Yone",
+      "role": "Mid",
+      "player": "Knight"
+     },
+     {
+      "k": "pick",
+      "t": "BLG",
+      "ch": "Skarner",
+      "role": "Jungla",
+      "player": "Xun"
+     },
+     {
+      "k": "pick",
+      "t": "DK",
+      "ch": "Sejuani",
+      "role": "Jungla",
+      "player": "Lucid"
+     },
+     {
+      "k": "pick",
+      "t": "DK",
+      "ch": "Lucian",
+      "role": "ADC",
+      "player": "Smash"
+     },
+     {
+      "k": "pick",
+      "t": "BLG",
+      "ch": "Ziggs",
+      "role": "ADC",
+      "player": "Viper"
+     },
+     {
+      "k": "ban",
+      "t": "BLG",
+      "ch": "Milio",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "DK",
+      "ch": "Camille",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "BLG",
+      "ch": "Irelia",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "DK",
+      "ch": "Renekton",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "pick",
+      "t": "BLG",
+      "ch": "Karma",
+      "role": "Support",
+      "player": "ON"
+     },
+     {
+      "k": "pick",
+      "t": "DK",
+      "ch": "Rakan",
+      "role": "Support",
+      "player": "Career"
+     },
+     {
+      "k": "pick",
+      "t": "DK",
+      "ch": "Galio",
+      "role": "Top",
+      "player": "Siwoo"
+     },
+     {
+      "k": "pick",
+      "t": "BLG",
+      "ch": "Aatrox",
+      "role": "Top",
+      "player": "Bin"
+     }
+    ],
+    "picks": {
+     "DK": {
+      "Top": "Galio",
+      "Jungla": "Sejuani",
+      "Mid": "Cassiopeia",
+      "ADC": "Lucian",
+      "Support": "Rakan"
+     },
+     "BLG": {
+      "Top": "Aatrox",
+      "Jungla": "Skarner",
+      "Mid": "Yone",
+      "ADC": "Ziggs",
+      "Support": "Karma"
+     }
+    },
+    "players": {
+     "DK": [
+      "Siwoo",
+      "Lucid",
+      "ShowMaker",
+      "Smash",
+      "Career"
+     ],
+     "BLG": [
+      "Bin",
+      "Xun",
+      "Knight",
+      "Viper",
+      "ON"
+     ]
+    },
+    "comps": {
+     "DK": "Teamfight / wombo combo + dive / all-in",
+     "BLG": "Dive / all-in + poke / asedio"
+    },
+    "winner": "DK",
+    "why": "La compo de DK (teamfight / wombo combo) se impuso a la de BLG (dive / all-in); Smash (Lucian) fue el jugador decisivo.",
+    "duration": "29:09",
+    "dmin": 29.2,
+    "fb": {
+     "time": "6:12",
+     "type": "gank de la jungla",
+     "team": "DK",
+     "killer": "Smash (Lucian)",
+     "assists": [
+      "Lucid (Sejuani)",
+      "Career (Rakan)"
+     ],
+     "victim": "ON (Karma)"
+    },
+    "kills": "13-7",
     "penta": null,
     "penta_prob": 0.013,
-    "mvp": "Smash (Corki)",
+    "mvp": "Smash (Lucian)",
     "key": "DK ganó la pelea del alma de dragón y cerró con el Barón"
    }
   ],
   "pentas": [],
-  "p_any_penta": 0.1,
-  "avg_min": 28.8,
+  "p_any_penta": 0.13,
+  "avg_min": 30.9,
   "mode": "ambos"
  },
  "qf2": {
@@ -1457,9 +1459,30 @@ const SIM = {
      {
       "k": "pick",
       "t": "KC",
-      "ch": "Lulu",
-      "role": "Support",
-      "player": "Busio"
+      "ch": "Wukong",
+      "role": "Jungla",
+      "player": "Yike"
+     },
+     {
+      "k": "pick",
+      "t": "KC",
+      "ch": "Syndra",
+      "role": "Mid",
+      "player": "kyeahoo"
+     },
+     {
+      "k": "pick",
+      "t": "T1",
+      "ch": "Akali",
+      "role": "Mid",
+      "player": "Faker"
+     },
+     {
+      "k": "pick",
+      "t": "T1",
+      "ch": "Jhin",
+      "role": "ADC",
+      "player": "Peyz"
      },
      {
       "k": "pick",
@@ -1469,30 +1492,146 @@ const SIM = {
       "player": "Caliste"
      },
      {
-      "k": "pick",
+      "k": "ban",
+      "t": "KC",
+      "ch": "Nautilus",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
       "t": "T1",
-      "ch": "Caitlyn",
-      "role": "ADC",
-      "player": "Peyz"
+      "ch": "Lulu",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "KC",
+      "ch": "Alistar",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "T1",
+      "ch": "Galio",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "pick",
+      "t": "KC",
+      "ch": "Karma",
+      "role": "Support",
+      "player": "Busio"
      },
      {
       "k": "pick",
       "t": "T1",
-      "ch": "Karma",
+      "ch": "Rakan",
       "role": "Support",
       "player": "Keria"
      },
      {
       "k": "pick",
+      "t": "T1",
+      "ch": "K'Sante",
+      "role": "Top",
+      "player": "Doran"
+     },
+     {
+      "k": "pick",
       "t": "KC",
-      "ch": "Lee Sin",
-      "role": "Jungla",
-      "player": "Yike"
+      "ch": "Renekton",
+      "role": "Top",
+      "player": "Canna"
+     }
+    ],
+    "picks": {
+     "KC": {
+      "Top": "Renekton",
+      "Jungla": "Wukong",
+      "Mid": "Syndra",
+      "ADC": "Yunara",
+      "Support": "Karma"
+     },
+     "T1": {
+      "Top": "K'Sante",
+      "Jungla": "Vi",
+      "Mid": "Akali",
+      "ADC": "Jhin",
+      "Support": "Rakan"
+     }
+    },
+    "players": {
+     "KC": [
+      "Canna",
+      "Yike",
+      "kyeahoo",
+      "Caliste",
+      "Busio"
+     ],
+     "T1": [
+      "Doran",
+      "Oner",
+      "Faker",
+      "Peyz",
+      "Keria"
+     ]
+    },
+    "comps": {
+     "KC": "Dive / all-in + poke / asedio",
+     "T1": "Dive / all-in + pick"
+    },
+    "winner": "T1",
+    "why": "La compo de T1 (dive / all-in) se impuso a la de KC (dive / all-in); Oner (Vi) fue el jugador decisivo.",
+    "duration": "32:24",
+    "dmin": 32.4,
+    "fb": {
+     "time": "4:31",
+     "type": "gank de la jungla",
+     "team": "KC",
+     "killer": "Yike (Wukong)",
+     "assists": [],
+     "victim": "Faker (Akali)"
+    },
+    "kills": "13-10",
+    "penta": null,
+    "penta_prob": 0.034,
+    "mvp": "Oner (Vi)",
+    "key": "T1 ganó la pelea del alma de dragón y cerró con el Barón"
+   },
+   {
+    "n": 2,
+    "rfs": "KC",
+    "rfs_reason": "perdió la partida 1",
+    "rfs_choice": "first",
+    "rfs_why": "KC quiere asegurar un campeón de prioridad de su pool (Rumble, Kalista). Pero Rumble y Kalista quedaron baneados, así que KC abrió con Viktor.",
+    "other_why": "T1 se queda con el lado azul (mejor acceso a objetivos)",
+    "blue": "T1",
+    "red": "KC",
+    "first": "KC",
+    "second": "T1",
+    "log": [
+     {
+      "k": "ban",
+      "t": "KC",
+      "ch": "Jayce",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "T1",
+      "ch": "Kalista",
+      "role": null,
+      "player": null
      },
      {
       "k": "ban",
       "t": "KC",
-      "ch": "Syndra",
+      "ch": "Lee Sin",
       "role": null,
       "player": null
      },
@@ -1506,14 +1645,14 @@ const SIM = {
      {
       "k": "ban",
       "t": "KC",
-      "ch": "Ahri",
+      "ch": "Orianna",
       "role": null,
       "player": null
      },
      {
       "k": "ban",
       "t": "T1",
-      "ch": "Camille",
+      "ch": "Rumble",
       "role": null,
       "player": null
      },
@@ -1527,209 +1666,23 @@ const SIM = {
      {
       "k": "pick",
       "t": "T1",
-      "ch": "LeBlanc",
+      "ch": "Ahri",
       "role": "Mid",
       "player": "Faker"
      },
      {
       "k": "pick",
       "t": "T1",
-      "ch": "Renekton",
-      "role": "Top",
-      "player": "Doran"
-     },
-     {
-      "k": "pick",
-      "t": "KC",
-      "ch": "Jax",
-      "role": "Top",
-      "player": "Canna"
-     }
-    ],
-    "picks": {
-     "KC": {
-      "Top": "Jax",
-      "Jungla": "Lee Sin",
-      "Mid": "Viktor",
-      "ADC": "Yunara",
-      "Support": "Lulu"
-     },
-     "T1": {
-      "Top": "Renekton",
-      "Jungla": "Vi",
-      "Mid": "LeBlanc",
-      "ADC": "Caitlyn",
-      "Support": "Karma"
-     }
-    },
-    "players": {
-     "KC": [
-      "Canna",
-      "Yike",
-      "kyeahoo",
-      "Caliste",
-      "Busio"
-     ],
-     "T1": [
-      "Doran",
-      "Oner",
-      "Faker",
-      "Peyz",
-      "Keria"
-     ]
-    },
-    "comps": {
-     "KC": "Escalado + proteger al carry",
-     "T1": "Early / escaramuzas + dive / all-in"
-    },
-    "winner": "T1",
-    "why": "La compo de T1 (early / escaramuzas) se impuso a la de KC (escalado); Doran (Renekton) fue el jugador decisivo.",
-    "duration": "38:54",
-    "dmin": 38.9,
-    "fb": {
-     "time": "6:50",
-     "type": "gank de la jungla",
-     "team": "KC",
-     "killer": "Yike (Lee Sin)",
-     "assists": [],
-     "victim": "Faker (LeBlanc)"
-    },
-    "kills": "21-8",
-    "penta": null,
-    "penta_prob": 0.016,
-    "mvp": "Doran (Renekton)",
-    "key": "Partida larga: T1 ganó la pelea del Elder tras ir abajo en oro"
-   },
-   {
-    "n": 2,
-    "rfs": "KC",
-    "rfs_reason": "perdió la partida 1",
-    "rfs_choice": "first",
-    "rfs_why": "KC quiere asegurar un campeón de prioridad de su pool (Rumble, Kalista, Renata Glasc). Pero Rumble y Kalista quedaron baneados, así que KC abrió con Wukong.",
-    "other_why": "T1 se queda con el lado azul (mejor acceso a objetivos)",
-    "blue": "T1",
-    "red": "KC",
-    "first": "KC",
-    "second": "T1",
-    "log": [
-     {
-      "k": "ban",
-      "t": "KC",
-      "ch": "Jayce",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "T1",
-      "ch": "Kalista",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "KC",
-      "ch": "Ambessa",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "T1",
-      "ch": "Rumble",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "KC",
-      "ch": "Jhin",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "T1",
-      "ch": "Orianna",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "pick",
-      "t": "KC",
-      "ch": "Wukong",
-      "role": "Jungla",
-      "player": "Yike"
-     },
-     {
-      "k": "pick",
-      "t": "T1",
-      "ch": "Nautilus",
-      "role": "Support",
-      "player": "Keria"
-     },
-     {
-      "k": "pick",
-      "t": "T1",
-      "ch": "Kai'Sa",
+      "ch": "Caitlyn",
       "role": "ADC",
       "player": "Peyz"
      },
      {
       "k": "pick",
       "t": "KC",
-      "ch": "Cassiopeia",
-      "role": "Mid",
-      "player": "kyeahoo"
-     },
-     {
-      "k": "pick",
-      "t": "KC",
-      "ch": "Alistar",
-      "role": "Support",
-      "player": "Busio"
-     },
-     {
-      "k": "pick",
-      "t": "T1",
-      "ch": "Syndra",
-      "role": "Mid",
-      "player": "Faker"
-     },
-     {
-      "k": "ban",
-      "t": "T1",
-      "ch": "Galio",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "KC",
       "ch": "Jarvan IV",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "T1",
-      "ch": "Ashe",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "KC",
-      "ch": "Nocturne",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "pick",
-      "t": "T1",
-      "ch": "Skarner",
       "role": "Jungla",
-      "player": "Oner"
+      "player": "Yike"
      },
      {
       "k": "pick",
@@ -1740,242 +1693,81 @@ const SIM = {
      },
      {
       "k": "pick",
-      "t": "KC",
-      "ch": "Camille",
-      "role": "Top",
-      "player": "Canna"
-     },
-     {
-      "k": "pick",
-      "t": "T1",
-      "ch": "Gwen",
-      "role": "Top",
-      "player": "Doran"
-     }
-    ],
-    "picks": {
-     "KC": {
-      "Top": "Camille",
-      "Jungla": "Wukong",
-      "Mid": "Cassiopeia",
-      "ADC": "Sivir",
-      "Support": "Alistar"
-     },
-     "T1": {
-      "Top": "Gwen",
-      "Jungla": "Skarner",
-      "Mid": "Syndra",
-      "ADC": "Kai'Sa",
-      "Support": "Nautilus"
-     }
-    },
-    "players": {
-     "KC": [
-      "Canna",
-      "Yike",
-      "kyeahoo",
-      "Caliste",
-      "Busio"
-     ],
-     "T1": [
-      "Doran",
-      "Oner",
-      "Faker",
-      "Peyz",
-      "Keria"
-     ]
-    },
-    "comps": {
-     "KC": "Teamfight / wombo combo + dive / all-in",
-     "T1": "Dive / all-in + pick"
-    },
-    "winner": "T1",
-    "why": "La compo de T1 (dive / all-in) se impuso a la de KC (teamfight / wombo combo); Doran (Gwen) fue el jugador decisivo.",
-    "duration": "32:22",
-    "dmin": 32.4,
-    "fb": {
-     "time": "4:11",
-     "type": "gank de la jungla",
-     "team": "KC",
-     "killer": "Caliste (Sivir)",
-     "assists": [
-      "Yike (Wukong)",
-      "Busio (Alistar)"
-     ],
-     "victim": "Keria (Nautilus)"
-    },
-    "kills": "16-5",
-    "penta": null,
-    "penta_prob": 0.042,
-    "mvp": "Doran (Gwen)",
-    "key": "T1 ganó la pelea del alma de dragón y cerró con el Barón"
-   },
-   {
-    "n": 3,
-    "rfs": "KC",
-    "rfs_reason": "perdió la partida 2",
-    "rfs_choice": "first",
-    "rfs_why": "KC quiere asegurar un campeón de prioridad de su pool (Rumble, Kalista, Renata Glasc). Pero Rumble y Kalista quedaron baneados, así que KC abrió con Nocturne.",
-    "other_why": "T1 se queda con el lado azul (mejor acceso a objetivos)",
-    "blue": "T1",
-    "red": "KC",
-    "first": "KC",
-    "second": "T1",
-    "log": [
-     {
-      "k": "ban",
-      "t": "KC",
-      "ch": "Orianna",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "T1",
-      "ch": "Kalista",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "KC",
-      "ch": "Renata Glasc",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "T1",
-      "ch": "Jarvan IV",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "KC",
-      "ch": "Rakan",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "T1",
-      "ch": "Rumble",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "pick",
-      "t": "KC",
-      "ch": "Nocturne",
-      "role": "Jungla",
-      "player": "Yike"
-     },
-     {
-      "k": "pick",
-      "t": "T1",
-      "ch": "Jhin",
-      "role": "ADC",
-      "player": "Peyz"
-     },
-     {
-      "k": "pick",
       "t": "T1",
       "ch": "Bard",
       "role": "Support",
       "player": "Keria"
      },
      {
+      "k": "ban",
+      "t": "T1",
+      "ch": "Camille",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "KC",
+      "ch": "Qiyana",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "T1",
+      "ch": "Renata Glasc",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "KC",
+      "ch": "Ambessa",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "pick",
+      "t": "T1",
+      "ch": "Nocturne",
+      "role": "Jungla",
+      "player": "Oner"
+     },
+     {
       "k": "pick",
       "t": "KC",
-      "ch": "Seraphine",
+      "ch": "Lulu",
       "role": "Support",
       "player": "Busio"
      },
      {
       "k": "pick",
       "t": "KC",
-      "ch": "Ashe",
-      "role": "ADC",
-      "player": "Caliste"
-     },
-     {
-      "k": "pick",
-      "t": "T1",
-      "ch": "Qiyana",
-      "role": "Jungla",
-      "player": "Oner"
-     },
-     {
-      "k": "ban",
-      "t": "T1",
-      "ch": "Ambessa",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "KC",
-      "ch": "Jayce",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "T1",
-      "ch": "Shen",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "KC",
-      "ch": "Akali",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "pick",
-      "t": "T1",
-      "ch": "Ahri",
-      "role": "Mid",
-      "player": "Faker"
-     },
-     {
-      "k": "pick",
-      "t": "KC",
-      "ch": "Locke",
-      "role": "Mid",
-      "player": "kyeahoo"
-     },
-     {
-      "k": "pick",
-      "t": "KC",
-      "ch": "Galio",
+      "ch": "Jax",
       "role": "Top",
       "player": "Canna"
      },
      {
       "k": "pick",
       "t": "T1",
-      "ch": "Olaf",
+      "ch": "Shen",
       "role": "Top",
       "player": "Doran"
      }
     ],
     "picks": {
      "KC": {
-      "Top": "Galio",
-      "Jungla": "Nocturne",
-      "Mid": "Locke",
-      "ADC": "Ashe",
-      "Support": "Seraphine"
+      "Top": "Jax",
+      "Jungla": "Jarvan IV",
+      "Mid": "Viktor",
+      "ADC": "Sivir",
+      "Support": "Lulu"
      },
      "T1": {
-      "Top": "Olaf",
-      "Jungla": "Qiyana",
+      "Top": "Shen",
+      "Jungla": "Nocturne",
       "Mid": "Ahri",
-      "ADC": "Jhin",
+      "ADC": "Caitlyn",
       "Support": "Bard"
      }
     },
@@ -1996,34 +1788,241 @@ const SIM = {
      ]
     },
     "comps": {
-     "KC": "Dive / all-in + teamfight / wombo combo",
-     "T1": "Pick + early / escaramuzas"
+     "KC": "Escalado + teamfight / wombo combo",
+     "T1": "Pick + dive / all-in"
     },
     "winner": "T1",
-    "why": "La compo de T1 (pick) se impuso a la de KC (dive / all-in); Faker (Ahri) fue el jugador decisivo.",
-    "duration": "29:55",
-    "dmin": 29.9,
+    "why": "La compo de T1 (pick) se impuso a la de KC (escalado); Keria (Bard) fue el jugador decisivo.",
+    "duration": "39:32",
+    "dmin": 39.5,
     "fb": {
-     "time": "4:59",
-     "type": "escaramuza en el río por la scuttle/dragón",
+     "time": "8:10",
+     "type": "solo kill en línea",
      "team": "KC",
-     "killer": "Yike (Nocturne)",
-     "assists": [
-      "kyeahoo (Locke)",
-      "Busio (Seraphine)"
-     ],
-     "victim": "Oner (Qiyana)"
+     "killer": "kyeahoo (Viktor)",
+     "assists": [],
+     "victim": "Faker (Ahri)"
     },
-    "kills": "16-7",
+    "kills": "23-10",
+    "penta": null,
+    "penta_prob": 0.016,
+    "mvp": "Keria (Bard)",
+    "key": "Partida larga: T1 ganó la pelea del Elder tras ir abajo en oro"
+   },
+   {
+    "n": 3,
+    "rfs": "KC",
+    "rfs_reason": "perdió la partida 2",
+    "rfs_choice": "first",
+    "rfs_why": "KC quiere asegurar un campeón de prioridad de su pool (Rumble, Kalista). KC abrió con Kalista.",
+    "other_why": "T1 se queda con el lado azul (mejor acceso a objetivos)",
+    "blue": "T1",
+    "red": "KC",
+    "first": "KC",
+    "second": "T1",
+    "log": [
+     {
+      "k": "ban",
+      "t": "KC",
+      "ch": "Jayce",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "T1",
+      "ch": "Lee Sin",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "KC",
+      "ch": "Renata Glasc",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "T1",
+      "ch": "Orianna",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "KC",
+      "ch": "Ambessa",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "T1",
+      "ch": "Cassiopeia",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "pick",
+      "t": "KC",
+      "ch": "Kalista",
+      "role": "ADC",
+      "player": "Caliste"
+     },
+     {
+      "k": "pick",
+      "t": "T1",
+      "ch": "Ashe",
+      "role": "ADC",
+      "player": "Peyz"
+     },
+     {
+      "k": "pick",
+      "t": "T1",
+      "ch": "Seraphine",
+      "role": "Support",
+      "player": "Keria"
+     },
+     {
+      "k": "pick",
+      "t": "KC",
+      "ch": "Alistar",
+      "role": "Support",
+      "player": "Busio"
+     },
+     {
+      "k": "pick",
+      "t": "KC",
+      "ch": "Pantheon",
+      "role": "Jungla",
+      "player": "Yike"
+     },
+     {
+      "k": "pick",
+      "t": "T1",
+      "ch": "Qiyana",
+      "role": "Jungla",
+      "player": "Oner"
+     },
+     {
+      "k": "ban",
+      "t": "T1",
+      "ch": "Taliyah",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "KC",
+      "ch": "Locke",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "T1",
+      "ch": "Rumble",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "KC",
+      "ch": "Tristana",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "pick",
+      "t": "T1",
+      "ch": "Anivia",
+      "role": "Mid",
+      "player": "Faker"
+     },
+     {
+      "k": "pick",
+      "t": "KC",
+      "ch": "Sylas",
+      "role": "Mid",
+      "player": "kyeahoo"
+     },
+     {
+      "k": "pick",
+      "t": "KC",
+      "ch": "Camille",
+      "role": "Top",
+      "player": "Canna"
+     },
+     {
+      "k": "pick",
+      "t": "T1",
+      "ch": "Olaf",
+      "role": "Top",
+      "player": "Doran"
+     }
+    ],
+    "picks": {
+     "KC": {
+      "Top": "Camille",
+      "Jungla": "Pantheon",
+      "Mid": "Sylas",
+      "ADC": "Kalista",
+      "Support": "Alistar"
+     },
+     "T1": {
+      "Top": "Olaf",
+      "Jungla": "Qiyana",
+      "Mid": "Anivia",
+      "ADC": "Ashe",
+      "Support": "Seraphine"
+     }
+    },
+    "players": {
+     "KC": [
+      "Canna",
+      "Yike",
+      "kyeahoo",
+      "Caliste",
+      "Busio"
+     ],
+     "T1": [
+      "Doran",
+      "Oner",
+      "Faker",
+      "Peyz",
+      "Keria"
+     ]
+    },
+    "comps": {
+     "KC": "Dive / all-in + teamfight / wombo combo",
+     "T1": "Teamfight / wombo combo + poke / asedio"
+    },
+    "winner": "T1",
+    "why": "La compo de T1 (teamfight / wombo combo) se impuso a la de KC (dive / all-in); Peyz (Ashe) fue el jugador decisivo.",
+    "duration": "26:41",
+    "dmin": 26.7,
+    "fb": {
+     "time": "5:42",
+     "type": "escaramuza en el río por la scuttle/dragón",
+     "team": "T1",
+     "killer": "Oner (Qiyana)",
+     "assists": [
+      "Faker (Anivia)",
+      "Keria (Seraphine)"
+     ],
+     "victim": "Yike (Pantheon)"
+    },
+    "kills": "15-4",
     "penta": null,
     "penta_prob": 0.031,
-    "mvp": "Faker (Ahri)",
-    "key": "T1 ganó la pelea del alma de dragón y cerró con el Barón"
+    "mvp": "Peyz (Ashe)",
+    "key": "T1 convirtió la ventaja temprana en torres y Barón sin dar opción de pelea"
    }
   ],
   "pentas": [],
-  "p_any_penta": 0.087,
-  "avg_min": 33.7,
+  "p_any_penta": 0.079,
+  "avg_min": 32.9,
   "mode": "ambos"
  },
  "qf4": {
@@ -2049,7 +2048,7 @@ const SIM = {
     "rfs": "LYON",
     "rfs_reason": "ganó el sorteo con moneda",
     "rfs_choice": "first",
-    "rfs_why": "LYON quiere asegurar un campeón de prioridad de su pool (Rumble, Nocturne, Yunara, Lulu). LYON abrió con Lulu.",
+    "rfs_why": "LYON quiere asegurar un campeón de prioridad de su pool (Rumble, Nocturne, Yunara). Pero Rumble y Nocturne quedaron baneados, así que LYON abrió con Xin Zhao.",
     "other_why": "GEN se queda con el lado azul (mejor acceso a objetivos)",
     "blue": "GEN",
     "red": "LYON",
@@ -2101,9 +2100,9 @@ const SIM = {
      {
       "k": "pick",
       "t": "LYON",
-      "ch": "Lulu",
-      "role": "Support",
-      "player": "Isles"
+      "ch": "Xin Zhao",
+      "role": "Jungla",
+      "player": "Inspired"
      },
      {
       "k": "pick",
@@ -2122,37 +2121,23 @@ const SIM = {
      {
       "k": "pick",
       "t": "LYON",
+      "ch": "Kalista",
+      "role": "ADC",
+      "player": "Berserker"
+     },
+     {
+      "k": "pick",
+      "t": "LYON",
+      "ch": "Renata Glasc",
+      "role": "Support",
+      "player": "Isles"
+     },
+     {
+      "k": "pick",
+      "t": "GEN",
       "ch": "Vi",
       "role": "Jungla",
-      "player": "Inspired"
-     },
-     {
-      "k": "pick",
-      "t": "LYON",
-      "ch": "Taliyah",
-      "role": "Mid",
-      "player": "Saint"
-     },
-     {
-      "k": "pick",
-      "t": "GEN",
-      "ch": "Jayce",
-      "role": "Jungla",
       "player": "Canyon"
-     },
-     {
-      "k": "ban",
-      "t": "GEN",
-      "ch": "K'Sante",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "LYON",
-      "ch": "Orianna",
-      "role": null,
-      "player": null
      },
      {
       "k": "ban",
@@ -2169,6 +2154,374 @@ const SIM = {
       "player": null
      },
      {
+      "k": "ban",
+      "t": "GEN",
+      "ch": "K'Sante",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "LYON",
+      "ch": "Orianna",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "pick",
+      "t": "GEN",
+      "ch": "Jayce",
+      "role": "Top",
+      "player": "Kiin"
+     },
+     {
+      "k": "pick",
+      "t": "LYON",
+      "ch": "Anivia",
+      "role": "Mid",
+      "player": "Saint"
+     },
+     {
+      "k": "pick",
+      "t": "LYON",
+      "ch": "Gnar",
+      "role": "Top",
+      "player": "Dhokla"
+     },
+     {
+      "k": "pick",
+      "t": "GEN",
+      "ch": "Locke",
+      "role": "Mid",
+      "player": "Chovy"
+     }
+    ],
+    "picks": {
+     "GEN": {
+      "Top": "Jayce",
+      "Jungla": "Vi",
+      "Mid": "Locke",
+      "ADC": "Jhin",
+      "Support": "Nautilus"
+     },
+     "LYON": {
+      "Top": "Gnar",
+      "Jungla": "Xin Zhao",
+      "Mid": "Anivia",
+      "ADC": "Kalista",
+      "Support": "Renata Glasc"
+     }
+    },
+    "players": {
+     "GEN": [
+      "Kiin",
+      "Canyon",
+      "Chovy",
+      "Ruler",
+      "Duro"
+     ],
+     "LYON": [
+      "Dhokla",
+      "Inspired",
+      "Saint",
+      "Berserker",
+      "Isles"
+     ]
+    },
+    "comps": {
+     "GEN": "Pick + dive / all-in",
+     "LYON": "Teamfight / wombo combo + proteger al carry"
+    },
+    "winner": "GEN",
+    "why": "La compo de GEN (pick) se impuso a la de LYON (teamfight / wombo combo); Canyon (Vi) fue el jugador decisivo.",
+    "duration": "27:11",
+    "dmin": 27.2,
+    "fb": {
+     "time": "3:58",
+     "type": "gank de la jungla",
+     "team": "GEN",
+     "killer": "Ruler (Jhin)",
+     "assists": [
+      "Canyon (Vi)",
+      "Duro (Nautilus)"
+     ],
+     "victim": "Isles (Renata Glasc)"
+    },
+    "kills": "14-7",
+    "penta": null,
+    "penta_prob": 0.034,
+    "mvp": "Canyon (Vi)",
+    "key": "GEN ganó la pelea del alma de dragón y cerró con el Barón"
+   },
+   {
+    "n": 2,
+    "rfs": "LYON",
+    "rfs_reason": "perdió la partida 1",
+    "rfs_choice": "first",
+    "rfs_why": "LYON quiere asegurar un campeón de prioridad de su pool (Rumble, Nocturne, Yunara). Pero Nocturne y Yunara quedaron baneados, así que LYON abrió con Lee Sin.",
+    "other_why": "GEN se queda con el lado azul (mejor acceso a objetivos)",
+    "blue": "GEN",
+    "red": "LYON",
+    "first": "LYON",
+    "second": "GEN",
+    "log": [
+     {
+      "k": "ban",
+      "t": "LYON",
+      "ch": "Ambessa",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "GEN",
+      "ch": "Lulu",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "LYON",
+      "ch": "Qiyana",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "GEN",
+      "ch": "Nocturne",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "LYON",
+      "ch": "Ezreal",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "GEN",
+      "ch": "Yunara",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "pick",
+      "t": "LYON",
+      "ch": "Lee Sin",
+      "role": "Jungla",
+      "player": "Inspired"
+     },
+     {
+      "k": "pick",
+      "t": "GEN",
+      "ch": "Rumble",
+      "role": "Top",
+      "player": "Kiin"
+     },
+     {
+      "k": "pick",
+      "t": "GEN",
+      "ch": "Jarvan IV",
+      "role": "Jungla",
+      "player": "Canyon"
+     },
+     {
+      "k": "pick",
+      "t": "LYON",
+      "ch": "Taliyah",
+      "role": "Mid",
+      "player": "Saint"
+     },
+     {
+      "k": "pick",
+      "t": "LYON",
+      "ch": "Lucian",
+      "role": "ADC",
+      "player": "Berserker"
+     },
+     {
+      "k": "pick",
+      "t": "GEN",
+      "ch": "Orianna",
+      "role": "Mid",
+      "player": "Chovy"
+     },
+     {
+      "k": "ban",
+      "t": "GEN",
+      "ch": "Alistar",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "LYON",
+      "ch": "Ashe",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "GEN",
+      "ch": "Galio",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "LYON",
+      "ch": "Seraphine",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "pick",
+      "t": "GEN",
+      "ch": "Caitlyn",
+      "role": "ADC",
+      "player": "Ruler"
+     },
+     {
+      "k": "pick",
+      "t": "LYON",
+      "ch": "Milio",
+      "role": "Support",
+      "player": "Isles"
+     },
+     {
+      "k": "pick",
+      "t": "LYON",
+      "ch": "Olaf",
+      "role": "Top",
+      "player": "Dhokla"
+     },
+     {
+      "k": "pick",
+      "t": "GEN",
+      "ch": "Karma",
+      "role": "Support",
+      "player": "Duro"
+     }
+    ],
+    "picks": {
+     "GEN": {
+      "Top": "Rumble",
+      "Jungla": "Jarvan IV",
+      "Mid": "Orianna",
+      "ADC": "Caitlyn",
+      "Support": "Karma"
+     },
+     "LYON": {
+      "Top": "Olaf",
+      "Jungla": "Lee Sin",
+      "Mid": "Taliyah",
+      "ADC": "Lucian",
+      "Support": "Milio"
+     }
+    },
+    "players": {
+     "GEN": [
+      "Kiin",
+      "Canyon",
+      "Chovy",
+      "Ruler",
+      "Duro"
+     ],
+     "LYON": [
+      "Dhokla",
+      "Inspired",
+      "Saint",
+      "Berserker",
+      "Isles"
+     ]
+    },
+    "comps": {
+     "GEN": "Teamfight / wombo combo + poke / asedio",
+     "LYON": "Early / escaramuzas + pick"
+    },
+    "winner": "GEN",
+    "why": "La compo de GEN (teamfight / wombo combo) se impuso a la de LYON (early / escaramuzas); Kiin (Rumble) fue el jugador decisivo.",
+    "duration": "30:48",
+    "dmin": 30.8,
+    "fb": {
+     "time": "6:13",
+     "type": "solo kill en línea",
+     "team": "LYON",
+     "killer": "Dhokla (Olaf)",
+     "assists": [],
+     "victim": "Kiin (Rumble)"
+    },
+    "kills": "19-11",
+    "penta": null,
+    "penta_prob": 0.013,
+    "mvp": "Kiin (Rumble)",
+    "key": "GEN ganó la pelea del alma de dragón y cerró con el Barón"
+   },
+   {
+    "n": 3,
+    "rfs": "LYON",
+    "rfs_reason": "perdió la partida 2",
+    "rfs_choice": "first",
+    "rfs_why": "LYON quiere asegurar un campeón de prioridad de su pool (Nocturne, Yunara). Pero Nocturne y Yunara quedaron baneados, así que LYON abrió con Wukong.",
+    "other_why": "GEN se queda con el lado azul (mejor acceso a objetivos)",
+    "blue": "GEN",
+    "red": "LYON",
+    "first": "LYON",
+    "second": "GEN",
+    "log": [
+     {
+      "k": "ban",
+      "t": "LYON",
+      "ch": "Nocturne",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "GEN",
+      "ch": "Ezreal",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "LYON",
+      "ch": "Ambessa",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "GEN",
+      "ch": "Qiyana",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "LYON",
+      "ch": "Camille",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "GEN",
+      "ch": "Yunara",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "pick",
+      "t": "LYON",
+      "ch": "Wukong",
+      "role": "Jungla",
+      "player": "Inspired"
+     },
+     {
       "k": "pick",
       "t": "GEN",
       "ch": "Renekton",
@@ -2177,10 +2530,73 @@ const SIM = {
      },
      {
       "k": "pick",
+      "t": "GEN",
+      "ch": "Ashe",
+      "role": "ADC",
+      "player": "Ruler"
+     },
+     {
+      "k": "pick",
       "t": "LYON",
-      "ch": "Zeri",
+      "ch": "Syndra",
+      "role": "Mid",
+      "player": "Saint"
+     },
+     {
+      "k": "pick",
+      "t": "LYON",
+      "ch": "Corki",
       "role": "ADC",
       "player": "Berserker"
+     },
+     {
+      "k": "pick",
+      "t": "GEN",
+      "ch": "Seraphine",
+      "role": "Support",
+      "player": "Duro"
+     },
+     {
+      "k": "ban",
+      "t": "GEN",
+      "ch": "Lulu",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "LYON",
+      "ch": "Akali",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "GEN",
+      "ch": "Alistar",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "LYON",
+      "ch": "LeBlanc",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "pick",
+      "t": "GEN",
+      "ch": "Skarner",
+      "role": "Jungla",
+      "player": "Canyon"
+     },
+     {
+      "k": "pick",
+      "t": "LYON",
+      "ch": "Leona",
+      "role": "Support",
+      "player": "Isles"
      },
      {
       "k": "pick",
@@ -2200,17 +2616,17 @@ const SIM = {
     "picks": {
      "GEN": {
       "Top": "Renekton",
-      "Jungla": "Jayce",
+      "Jungla": "Skarner",
       "Mid": "Cassiopeia",
-      "ADC": "Jhin",
-      "Support": "Nautilus"
+      "ADC": "Ashe",
+      "Support": "Seraphine"
      },
      "LYON": {
       "Top": "Galio",
-      "Jungla": "Vi",
-      "Mid": "Taliyah",
-      "ADC": "Zeri",
-      "Support": "Lulu"
+      "Jungla": "Wukong",
+      "Mid": "Syndra",
+      "ADC": "Corki",
+      "Support": "Leona"
      }
     },
     "players": {
@@ -2230,449 +2646,31 @@ const SIM = {
      ]
     },
     "comps": {
-     "GEN": "Dive / all-in + poke / asedio",
-     "LYON": "Dive / all-in + pick"
+     "GEN": "Teamfight / wombo combo + dive / all-in",
+     "LYON": "Dive / all-in + teamfight / wombo combo"
     },
     "winner": "GEN",
-    "why": "La compo de GEN (dive / all-in) se impuso a la de LYON (dive / all-in); Ruler (Jhin) fue el jugador decisivo.",
-    "duration": "32:02",
-    "dmin": 32.0,
+    "why": "La compo de GEN (teamfight / wombo combo) se impuso a la de LYON (dive / all-in); Chovy (Cassiopeia) fue el jugador decisivo.",
+    "duration": "27:39",
+    "dmin": 27.7,
     "fb": {
-     "time": "8:31",
+     "time": "8:16",
      "type": "solo kill en línea",
      "team": "GEN",
      "killer": "Kiin (Renekton)",
      "assists": [],
      "victim": "Dhokla (Galio)"
     },
-    "kills": "20-8",
-    "penta": null,
-    "penta_prob": 0.026,
-    "mvp": "Ruler (Jhin)",
-    "key": "GEN ganó la pelea del alma de dragón y cerró con el Barón"
-   },
-   {
-    "n": 2,
-    "rfs": "LYON",
-    "rfs_reason": "perdió la partida 1",
-    "rfs_choice": "first",
-    "rfs_why": "LYON quiere asegurar un campeón de prioridad de su pool (Rumble, Nocturne, Yunara). Pero Rumble y Nocturne quedaron baneados, así que LYON abrió con Ezreal.",
-    "other_why": "GEN se queda con el lado azul (mejor acceso a objetivos)",
-    "blue": "GEN",
-    "red": "LYON",
-    "first": "LYON",
-    "second": "GEN",
-    "log": [
-     {
-      "k": "ban",
-      "t": "LYON",
-      "ch": "Rumble",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "GEN",
-      "ch": "Nocturne",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "LYON",
-      "ch": "Ambessa",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "GEN",
-      "ch": "Yunara",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "LYON",
-      "ch": "Qiyana",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "GEN",
-      "ch": "Alistar",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "pick",
-      "t": "LYON",
-      "ch": "Ezreal",
-      "role": "ADC",
-      "player": "Berserker"
-     },
-     {
-      "k": "pick",
-      "t": "GEN",
-      "ch": "Kalista",
-      "role": "ADC",
-      "player": "Ruler"
-     },
-     {
-      "k": "pick",
-      "t": "GEN",
-      "ch": "Renata Glasc",
-      "role": "Support",
-      "player": "Duro"
-     },
-     {
-      "k": "pick",
-      "t": "LYON",
-      "ch": "Karma",
-      "role": "Support",
-      "player": "Isles"
-     },
-     {
-      "k": "pick",
-      "t": "LYON",
-      "ch": "Xin Zhao",
-      "role": "Jungla",
-      "player": "Inspired"
-     },
-     {
-      "k": "pick",
-      "t": "GEN",
-      "ch": "Jarvan IV",
-      "role": "Jungla",
-      "player": "Canyon"
-     },
-     {
-      "k": "ban",
-      "t": "GEN",
-      "ch": "Syndra",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "LYON",
-      "ch": "Camille",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "GEN",
-      "ch": "Akali",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "LYON",
-      "ch": "Orianna",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "pick",
-      "t": "GEN",
-      "ch": "Ornn",
-      "role": "Top",
-      "player": "Kiin"
-     },
-     {
-      "k": "pick",
-      "t": "LYON",
-      "ch": "LeBlanc",
-      "role": "Mid",
-      "player": "Saint"
-     },
-     {
-      "k": "pick",
-      "t": "LYON",
-      "ch": "K'Sante",
-      "role": "Top",
-      "player": "Dhokla"
-     },
-     {
-      "k": "pick",
-      "t": "GEN",
-      "ch": "Anivia",
-      "role": "Mid",
-      "player": "Chovy"
-     }
-    ],
-    "picks": {
-     "GEN": {
-      "Top": "Ornn",
-      "Jungla": "Jarvan IV",
-      "Mid": "Anivia",
-      "ADC": "Kalista",
-      "Support": "Renata Glasc"
-     },
-     "LYON": {
-      "Top": "K'Sante",
-      "Jungla": "Xin Zhao",
-      "Mid": "LeBlanc",
-      "ADC": "Ezreal",
-      "Support": "Karma"
-     }
-    },
-    "players": {
-     "GEN": [
-      "Kiin",
-      "Canyon",
-      "Chovy",
-      "Ruler",
-      "Duro"
-     ],
-     "LYON": [
-      "Dhokla",
-      "Inspired",
-      "Saint",
-      "Berserker",
-      "Isles"
-     ]
-    },
-    "comps": {
-     "GEN": "Teamfight / wombo combo + dive / all-in",
-     "LYON": "Dive / all-in + poke / asedio"
-    },
-    "winner": "GEN",
-    "why": "La compo de GEN (teamfight / wombo combo) se impuso a la de LYON (dive / all-in); Chovy (Anivia) fue el jugador decisivo.",
-    "duration": "29:29",
-    "dmin": 29.5,
-    "fb": {
-     "time": "2:24",
-     "type": "2v2 en bot a nivel 2-3",
-     "team": "GEN",
-     "killer": "Ruler (Kalista)",
-     "assists": [
-      "Duro (Renata Glasc)"
-     ],
-     "victim": "Isles (Karma)"
-    },
-    "kills": "17-8",
-    "penta": null,
-    "penta_prob": 0.031,
-    "mvp": "Chovy (Anivia)",
-    "key": "GEN ganó la pelea del alma de dragón y cerró con el Barón"
-   },
-   {
-    "n": 3,
-    "rfs": "LYON",
-    "rfs_reason": "perdió la partida 2",
-    "rfs_choice": "first",
-    "rfs_why": "LYON quiere asegurar un campeón de prioridad de su pool (Rumble, Nocturne, Yunara). Pero Nocturne y Yunara quedaron baneados, así que LYON abrió con Wukong.",
-    "other_why": "GEN se queda con el lado azul (mejor acceso a objetivos)",
-    "blue": "GEN",
-    "red": "LYON",
-    "first": "LYON",
-    "second": "GEN",
-    "log": [
-     {
-      "k": "ban",
-      "t": "LYON",
-      "ch": "Nocturne",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "GEN",
-      "ch": "Qiyana",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "LYON",
-      "ch": "Ambessa",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "GEN",
-      "ch": "Yunara",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "LYON",
-      "ch": "Akali",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "GEN",
-      "ch": "Lee Sin",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "pick",
-      "t": "LYON",
-      "ch": "Wukong",
-      "role": "Jungla",
-      "player": "Inspired"
-     },
-     {
-      "k": "pick",
-      "t": "GEN",
-      "ch": "Rumble",
-      "role": "Top",
-      "player": "Kiin"
-     },
-     {
-      "k": "pick",
-      "t": "GEN",
-      "ch": "Alistar",
-      "role": "Support",
-      "player": "Duro"
-     },
-     {
-      "k": "pick",
-      "t": "LYON",
-      "ch": "Syndra",
-      "role": "Mid",
-      "player": "Saint"
-     },
-     {
-      "k": "pick",
-      "t": "LYON",
-      "ch": "Seraphine",
-      "role": "Support",
-      "player": "Isles"
-     },
-     {
-      "k": "pick",
-      "t": "GEN",
-      "ch": "Ashe",
-      "role": "ADC",
-      "player": "Ruler"
-     },
-     {
-      "k": "ban",
-      "t": "GEN",
-      "ch": "Olaf",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "LYON",
-      "ch": "Locke",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "GEN",
-      "ch": "Lucian",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "LYON",
-      "ch": "Pantheon",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "pick",
-      "t": "GEN",
-      "ch": "Orianna",
-      "role": "Mid",
-      "player": "Chovy"
-     },
-     {
-      "k": "pick",
-      "t": "LYON",
-      "ch": "Caitlyn",
-      "role": "ADC",
-      "player": "Berserker"
-     },
-     {
-      "k": "pick",
-      "t": "LYON",
-      "ch": "Gnar",
-      "role": "Top",
-      "player": "Dhokla"
-     },
-     {
-      "k": "pick",
-      "t": "GEN",
-      "ch": "Sejuani",
-      "role": "Jungla",
-      "player": "Canyon"
-     }
-    ],
-    "picks": {
-     "GEN": {
-      "Top": "Rumble",
-      "Jungla": "Sejuani",
-      "Mid": "Orianna",
-      "ADC": "Ashe",
-      "Support": "Alistar"
-     },
-     "LYON": {
-      "Top": "Gnar",
-      "Jungla": "Wukong",
-      "Mid": "Syndra",
-      "ADC": "Caitlyn",
-      "Support": "Seraphine"
-     }
-    },
-    "players": {
-     "GEN": [
-      "Kiin",
-      "Canyon",
-      "Chovy",
-      "Ruler",
-      "Duro"
-     ],
-     "LYON": [
-      "Dhokla",
-      "Inspired",
-      "Saint",
-      "Berserker",
-      "Isles"
-     ]
-    },
-    "comps": {
-     "GEN": "Teamfight / wombo combo + dive / all-in",
-     "LYON": "Teamfight / wombo combo + poke / asedio"
-    },
-    "winner": "GEN",
-    "why": "La compo de GEN (teamfight / wombo combo) se impuso a la de LYON (teamfight / wombo combo); Ruler (Ashe) fue el jugador decisivo.",
-    "duration": "27:27",
-    "dmin": 27.5,
-    "fb": {
-     "time": "3:27",
-     "type": "gank de la jungla",
-     "team": "LYON",
-     "killer": "Saint (Syndra)",
-     "assists": [
-      "Inspired (Wukong)"
-     ],
-     "victim": "Chovy (Orianna)"
-    },
-    "kills": "20-10",
+    "kills": "18-6",
     "penta": null,
     "penta_prob": 0.013,
-    "mvp": "Ruler (Ashe)",
+    "mvp": "Chovy (Cassiopeia)",
     "key": "GEN ganó la pelea del alma de dragón y cerró con el Barón"
    }
   ],
   "pentas": [],
-  "p_any_penta": 0.068,
-  "avg_min": 29.7,
+  "p_any_penta": 0.059,
+  "avg_min": 28.6,
   "mode": "ambos"
  },
  "sfA_pct": {
@@ -2757,9 +2755,9 @@ const SIM = {
      {
       "k": "pick",
       "t": "DK",
-      "ch": "Nautilus",
-      "role": "Support",
-      "player": "Career"
+      "ch": "Cassiopeia",
+      "role": "Mid",
+      "player": "ShowMaker"
      },
      {
       "k": "pick",
@@ -2785,9 +2783,9 @@ const SIM = {
      {
       "k": "pick",
       "t": "DK",
-      "ch": "Lee Sin",
-      "role": "Jungla",
-      "player": "Lucid"
+      "ch": "Nautilus",
+      "role": "Support",
+      "player": "Career"
      },
      {
       "k": "ban",
@@ -2799,7 +2797,7 @@ const SIM = {
      {
       "k": "ban",
       "t": "T1",
-      "ch": "Cassiopeia",
+      "ch": "Jarvan IV",
       "role": null,
       "player": null
      },
@@ -2813,28 +2811,28 @@ const SIM = {
      {
       "k": "ban",
       "t": "T1",
-      "ch": "K'Sante",
+      "ch": "Lee Sin",
       "role": null,
       "player": null
      },
      {
       "k": "pick",
       "t": "DK",
-      "ch": "Viktor",
-      "role": "Mid",
-      "player": "ShowMaker"
+      "ch": "Nocturne",
+      "role": "Jungla",
+      "player": "Lucid"
      },
      {
       "k": "pick",
       "t": "T1",
-      "ch": "Anivia",
+      "ch": "Locke",
       "role": "Mid",
       "player": "Faker"
      },
      {
       "k": "pick",
       "t": "T1",
-      "ch": "Renekton",
+      "ch": "Gnar",
       "role": "Top",
       "player": "Doran"
      },
@@ -2849,15 +2847,15 @@ const SIM = {
     "picks": {
      "DK": {
       "Top": "Olaf",
-      "Jungla": "Lee Sin",
-      "Mid": "Viktor",
+      "Jungla": "Nocturne",
+      "Mid": "Cassiopeia",
       "ADC": "Kai'Sa",
       "Support": "Nautilus"
      },
      "T1": {
-      "Top": "Renekton",
+      "Top": "Gnar",
       "Jungla": "Qiyana",
-      "Mid": "Anivia",
+      "Mid": "Locke",
       "ADC": "Jhin",
       "Support": "Bard"
      }
@@ -2880,35 +2878,35 @@ const SIM = {
     },
     "comps": {
      "DK": "Dive / all-in + pick",
-     "T1": "Pick + poke / asedio"
+     "T1": "Pick + teamfight / wombo combo"
     },
     "winner": "DK",
-    "why": "La compo de DK (dive / all-in) se impuso a la de T1 (pick); Lucid (Lee Sin) fue el jugador decisivo.",
-    "duration": "24:11",
-    "dmin": 24.2,
+    "why": "La compo de DK (dive / all-in) se impuso a la de T1 (pick); Lucid (Nocturne) fue el jugador decisivo.",
+    "duration": "33:14",
+    "dmin": 33.2,
     "fb": {
      "time": "5:39",
      "type": "gank de la jungla",
      "team": "DK",
      "killer": "Smash (Kai'Sa)",
      "assists": [
-      "Lucid (Lee Sin)",
+      "Lucid (Nocturne)",
       "Career (Nautilus)"
      ],
      "victim": "Keria (Bard)"
     },
-    "kills": "14-8",
+    "kills": "13-7",
     "penta": null,
-    "penta_prob": 0.042,
-    "mvp": "Lucid (Lee Sin)",
-    "key": "DK convirtió la ventaja temprana en torres y Barón sin dar opción de pelea"
+    "penta_prob": 0.05,
+    "mvp": "Lucid (Nocturne)",
+    "key": "DK ganó la pelea del alma de dragón y cerró con el Barón"
    },
    {
     "n": 2,
     "rfs": "T1",
     "rfs_reason": "perdió la partida 1",
     "rfs_choice": "first",
-    "rfs_why": "T1 quiere asegurar un campeón de prioridad de su pool (Jayce, Ambessa, Vi, Orianna). Pero Jayce y Ambessa quedaron baneados, así que T1 abrió con Karma.",
+    "rfs_why": "T1 quiere asegurar un campeón de prioridad de su pool (Jayce, Ambessa, Vi, Orianna). T1 abrió con Orianna.",
     "other_why": "DK se queda con el lado azul (mejor acceso a objetivos)",
     "blue": "DK",
     "red": "T1",
@@ -2925,21 +2923,21 @@ const SIM = {
      {
       "k": "ban",
       "t": "DK",
-      "ch": "Vi",
+      "ch": "Jayce",
       "role": null,
       "player": null
      },
      {
       "k": "ban",
       "t": "T1",
-      "ch": "Jarvan IV",
+      "ch": "Kalista",
       "role": null,
       "player": null
      },
      {
       "k": "ban",
       "t": "DK",
-      "ch": "Jayce",
+      "ch": "Vi",
       "role": null,
       "player": null
      },
@@ -2953,28 +2951,28 @@ const SIM = {
      {
       "k": "ban",
       "t": "DK",
-      "ch": "Orianna",
+      "ch": "Lee Sin",
       "role": null,
       "player": null
      },
      {
       "k": "pick",
       "t": "T1",
-      "ch": "Karma",
-      "role": "Support",
-      "player": "Keria"
+      "ch": "Orianna",
+      "role": "Mid",
+      "player": "Faker"
      },
      {
       "k": "pick",
       "t": "DK",
-      "ch": "Caitlyn",
-      "role": "ADC",
-      "player": "Smash"
+      "ch": "Jarvan IV",
+      "role": "Jungla",
+      "player": "Lucid"
      },
      {
       "k": "pick",
       "t": "DK",
-      "ch": "Cassiopeia",
+      "ch": "Akali",
       "role": "Mid",
       "player": "ShowMaker"
      },
@@ -2988,16 +2986,16 @@ const SIM = {
      {
       "k": "pick",
       "t": "T1",
-      "ch": "Ahri",
-      "role": "Mid",
-      "player": "Faker"
+      "ch": "Karma",
+      "role": "Support",
+      "player": "Keria"
      },
      {
       "k": "pick",
       "t": "DK",
-      "ch": "Seraphine",
-      "role": "Support",
-      "player": "Career"
+      "ch": "Yunara",
+      "role": "ADC",
+      "player": "Smash"
      },
      {
       "k": "ban",
@@ -3009,65 +3007,65 @@ const SIM = {
      {
       "k": "ban",
       "t": "T1",
-      "ch": "Nocturne",
+      "ch": "Lulu",
       "role": null,
       "player": null
      },
      {
       "k": "ban",
       "t": "DK",
-      "ch": "Skarner",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "T1",
-      "ch": "K'Sante",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "pick",
-      "t": "DK",
-      "ch": "Wukong",
-      "role": "Jungla",
-      "player": "Lucid"
-     },
-     {
-      "k": "pick",
-      "t": "T1",
       "ch": "Pantheon",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "T1",
+      "ch": "Rumble",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "pick",
+      "t": "DK",
+      "ch": "Milio",
+      "role": "Support",
+      "player": "Career"
+     },
+     {
+      "k": "pick",
+      "t": "T1",
+      "ch": "Wukong",
       "role": "Jungla",
       "player": "Oner"
      },
      {
       "k": "pick",
       "t": "T1",
-      "ch": "Rumble",
+      "ch": "Galio",
       "role": "Top",
       "player": "Doran"
      },
      {
       "k": "pick",
       "t": "DK",
-      "ch": "Galio",
+      "ch": "K'Sante",
       "role": "Top",
       "player": "Siwoo"
      }
     ],
     "picks": {
      "DK": {
-      "Top": "Galio",
-      "Jungla": "Wukong",
-      "Mid": "Cassiopeia",
-      "ADC": "Caitlyn",
-      "Support": "Seraphine"
+      "Top": "K'Sante",
+      "Jungla": "Jarvan IV",
+      "Mid": "Akali",
+      "ADC": "Yunara",
+      "Support": "Milio"
      },
      "T1": {
-      "Top": "Rumble",
-      "Jungla": "Pantheon",
-      "Mid": "Ahri",
+      "Top": "Galio",
+      "Jungla": "Wukong",
+      "Mid": "Orianna",
       "ADC": "Ezreal",
       "Support": "Karma"
      }
@@ -3089,36 +3087,35 @@ const SIM = {
      ]
     },
     "comps": {
-     "DK": "Teamfight / wombo combo + dive / all-in",
-     "T1": "Poke / asedio + pick"
+     "DK": "Dive / all-in + proteger al carry",
+     "T1": "Teamfight / wombo combo + dive / all-in"
     },
     "winner": "DK",
-    "why": "La compo de DK (teamfight / wombo combo) se impuso a la de T1 (poke / asedio); Career (Seraphine) fue el jugador decisivo.",
-    "duration": "30:48",
-    "dmin": 30.8,
+    "why": "La compo de DK (dive / all-in) se impuso a la de T1 (teamfight / wombo combo); Siwoo (K'Sante) fue el jugador decisivo.",
+    "duration": "22:55",
+    "dmin": 22.9,
     "fb": {
-     "time": "5:23",
-     "type": "escaramuza en el río por la scuttle/dragón",
-     "team": "DK",
-     "killer": "Lucid (Wukong)",
+     "time": "2:53",
+     "type": "2v2 en bot a nivel 2-3",
+     "team": "T1",
+     "killer": "Peyz (Ezreal)",
      "assists": [
-      "ShowMaker (Cassiopeia)",
-      "Career (Seraphine)"
+      "Keria (Karma)"
      ],
-     "victim": "Oner (Pantheon)"
+     "victim": "Career (Milio)"
     },
-    "kills": "13-6",
+    "kills": "9-4",
     "penta": null,
-    "penta_prob": 0.013,
-    "mvp": "Career (Seraphine)",
-    "key": "DK ganó la pelea del alma de dragón y cerró con el Barón"
+    "penta_prob": 0.039,
+    "mvp": "Siwoo (K'Sante)",
+    "key": "DK convirtió la ventaja temprana en torres y Barón sin dar opción de pelea"
    },
    {
     "n": 3,
     "rfs": "T1",
     "rfs_reason": "perdió la partida 2",
     "rfs_choice": "first",
-    "rfs_why": "T1 quiere asegurar un campeón de prioridad de su pool (Jayce, Ambessa, Vi, Orianna). Pero Jayce y Ambessa quedaron baneados, así que T1 abrió con Jarvan IV.",
+    "rfs_why": "T1 quiere asegurar un campeón de prioridad de su pool (Jayce, Ambessa, Vi). Pero Ambessa y Vi quedaron baneados, así que T1 abrió con Lee Sin.",
     "other_why": "DK se queda con el lado azul (mejor acceso a objetivos)",
     "blue": "DK",
     "red": "T1",
@@ -3128,21 +3125,7 @@ const SIM = {
      {
       "k": "ban",
       "t": "T1",
-      "ch": "Vi",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "DK",
-      "ch": "Syndra",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "T1",
-      "ch": "Renata Glasc",
+      "ch": "Viktor",
       "role": null,
       "player": null
      },
@@ -3156,130 +3139,144 @@ const SIM = {
      {
       "k": "ban",
       "t": "T1",
-      "ch": "Poppy",
+      "ch": "Renata Glasc",
       "role": null,
       "player": null
      },
      {
       "k": "ban",
       "t": "DK",
-      "ch": "Jayce",
+      "ch": "Syndra",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "T1",
+      "ch": "Vi",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "DK",
+      "ch": "Rakan",
       "role": null,
       "player": null
      },
      {
       "k": "pick",
       "t": "T1",
-      "ch": "Jarvan IV",
+      "ch": "Lee Sin",
       "role": "Jungla",
       "player": "Oner"
      },
      {
       "k": "pick",
       "t": "DK",
-      "ch": "Lulu",
-      "role": "Support",
-      "player": "Career"
-     },
-     {
-      "k": "pick",
-      "t": "DK",
-      "ch": "Yunara",
+      "ch": "Caitlyn",
       "role": "ADC",
       "player": "Smash"
      },
      {
       "k": "pick",
+      "t": "DK",
+      "ch": "Seraphine",
+      "role": "Support",
+      "player": "Career"
+     },
+     {
+      "k": "pick",
       "t": "T1",
-      "ch": "Orianna",
+      "ch": "Ahri",
       "role": "Mid",
       "player": "Faker"
      },
      {
       "k": "pick",
       "t": "T1",
-      "ch": "Alistar",
-      "role": "Support",
-      "player": "Keria"
-     },
-     {
-      "k": "pick",
-      "t": "DK",
-      "ch": "Locke",
-      "role": "Mid",
-      "player": "ShowMaker"
-     },
-     {
-      "k": "ban",
-      "t": "DK",
-      "ch": "Ambessa",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "T1",
-      "ch": "Skarner",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "DK",
-      "ch": "Gwen",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "T1",
-      "ch": "K'Sante",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "pick",
-      "t": "DK",
-      "ch": "Nocturne",
-      "role": "Jungla",
-      "player": "Lucid"
-     },
-     {
-      "k": "pick",
-      "t": "T1",
-      "ch": "Xayah",
-      "role": "ADC",
-      "player": "Peyz"
-     },
-     {
-      "k": "pick",
-      "t": "T1",
-      "ch": "Camille",
+      "ch": "Jayce",
       "role": "Top",
       "player": "Doran"
      },
      {
       "k": "pick",
       "t": "DK",
-      "ch": "Shen",
+      "ch": "Skarner",
+      "role": "Jungla",
+      "player": "Lucid"
+     },
+     {
+      "k": "ban",
+      "t": "DK",
+      "ch": "Alistar",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "T1",
+      "ch": "Yorick",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "DK",
+      "ch": "Poppy",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "T1",
+      "ch": "Ambessa",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "pick",
+      "t": "DK",
+      "ch": "Sylas",
+      "role": "Mid",
+      "player": "ShowMaker"
+     },
+     {
+      "k": "pick",
+      "t": "T1",
+      "ch": "Jinx",
+      "role": "ADC",
+      "player": "Peyz"
+     },
+     {
+      "k": "pick",
+      "t": "T1",
+      "ch": "Lulu",
+      "role": "Support",
+      "player": "Keria"
+     },
+     {
+      "k": "pick",
+      "t": "DK",
+      "ch": "Rumble",
       "role": "Top",
       "player": "Siwoo"
      }
     ],
     "picks": {
      "DK": {
-      "Top": "Shen",
-      "Jungla": "Nocturne",
-      "Mid": "Locke",
-      "ADC": "Yunara",
-      "Support": "Lulu"
+      "Top": "Rumble",
+      "Jungla": "Skarner",
+      "Mid": "Sylas",
+      "ADC": "Caitlyn",
+      "Support": "Seraphine"
      },
      "T1": {
-      "Top": "Camille",
-      "Jungla": "Jarvan IV",
-      "Mid": "Orianna",
-      "ADC": "Xayah",
-      "Support": "Alistar"
+      "Top": "Jayce",
+      "Jungla": "Lee Sin",
+      "Mid": "Ahri",
+      "ADC": "Jinx",
+      "Support": "Lulu"
      }
     },
     "players": {
@@ -3299,27 +3296,28 @@ const SIM = {
      ]
     },
     "comps": {
-     "DK": "Dive / all-in + proteger al carry",
-     "T1": "Dive / all-in + teamfight / wombo combo"
+     "DK": "Teamfight / wombo combo + dive / all-in",
+     "T1": "Pick + early / escaramuzas"
     },
     "winner": "T1",
-    "why": "La compo de T1 (dive / all-in) se impuso a la de DK (dive / all-in); Faker (Orianna) fue el jugador decisivo.",
-    "duration": "33:23",
-    "dmin": 33.4,
+    "why": "La compo de T1 (pick) se impuso a la de DK (teamfight / wombo combo); Peyz (Jinx) fue el jugador decisivo.",
+    "duration": "33:53",
+    "dmin": 33.9,
     "fb": {
-     "time": "2:30",
-     "type": "2v2 en bot a nivel 2-3",
-     "team": "DK",
-     "killer": "Smash (Yunara)",
+     "time": "6:34",
+     "type": "gank de la jungla",
+     "team": "T1",
+     "killer": "Peyz (Jinx)",
      "assists": [
-      "Career (Lulu)"
+      "Oner (Lee Sin)",
+      "Keria (Lulu)"
      ],
-     "victim": "Keria (Alistar)"
+     "victim": "Smash (Caitlyn)"
     },
-    "kills": "16-11",
+    "kills": "19-12",
     "penta": null,
-    "penta_prob": 0.037,
-    "mvp": "Faker (Orianna)",
+    "penta_prob": 0.016,
+    "mvp": "Peyz (Jinx)",
     "key": "T1 ganó la pelea del alma de dragón y cerró con el Barón"
    },
    {
@@ -3327,27 +3325,13 @@ const SIM = {
     "rfs": "DK",
     "rfs_reason": "perdió la partida 3",
     "rfs_choice": "first",
-    "rfs_why": "DK quiere asegurar un campeón de prioridad de su pool (Vi, Syndra, Kalista, Renata Glasc). DK abrió con Vi.",
+    "rfs_why": "DK quiere asegurar un campeón de prioridad de su pool (Vi, Syndra, Kalista). Pero Vi y Syndra quedaron baneados, así que DK abrió con Xin Zhao.",
     "other_why": "T1 se queda con el lado azul (mejor acceso a objetivos)",
     "blue": "T1",
     "red": "DK",
     "first": "DK",
     "second": "T1",
     "log": [
-     {
-      "k": "ban",
-      "t": "DK",
-      "ch": "Rakan",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "T1",
-      "ch": "Kalista",
-      "role": null,
-      "player": null
-     },
      {
       "k": "ban",
       "t": "DK",
@@ -3358,137 +3342,151 @@ const SIM = {
      {
       "k": "ban",
       "t": "T1",
+      "ch": "Viktor",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "DK",
+      "ch": "Kalista",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "T1",
+      "ch": "Poppy",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "DK",
       "ch": "Renata Glasc",
       "role": null,
       "player": null
      },
      {
       "k": "ban",
-      "t": "DK",
-      "ch": "LeBlanc",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
       "t": "T1",
-      "ch": "Ambessa",
+      "ch": "Vi",
       "role": null,
       "player": null
      },
      {
       "k": "pick",
       "t": "DK",
-      "ch": "Vi",
+      "ch": "Xin Zhao",
       "role": "Jungla",
       "player": "Lucid"
      },
      {
       "k": "pick",
       "t": "T1",
-      "ch": "Skarner",
-      "role": "Jungla",
-      "player": "Oner"
-     },
-     {
-      "k": "pick",
-      "t": "T1",
-      "ch": "Leona",
-      "role": "Support",
-      "player": "Keria"
-     },
-     {
-      "k": "pick",
-      "t": "DK",
-      "ch": "Poppy",
-      "role": "Support",
-      "player": "Career"
-     },
-     {
-      "k": "pick",
-      "t": "DK",
-      "ch": "Ashe",
-      "role": "ADC",
-      "player": "Smash"
-     },
-     {
-      "k": "pick",
-      "t": "T1",
-      "ch": "Lucian",
-      "role": "ADC",
-      "player": "Peyz"
-     },
-     {
-      "k": "ban",
-      "t": "T1",
-      "ch": "Jayce",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "DK",
-      "ch": "Akali",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "T1",
-      "ch": "Ornn",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "DK",
-      "ch": "K'Sante",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "pick",
-      "t": "T1",
-      "ch": "Yone",
+      "ch": "Taliyah",
       "role": "Mid",
       "player": "Faker"
      },
      {
       "k": "pick",
+      "t": "T1",
+      "ch": "Pantheon",
+      "role": "Jungla",
+      "player": "Oner"
+     },
+     {
+      "k": "pick",
       "t": "DK",
-      "ch": "Annie",
+      "ch": "Vex",
       "role": "Mid",
       "player": "ShowMaker"
      },
      {
       "k": "pick",
       "t": "DK",
-      "ch": "Gnar",
+      "ch": "Lucian",
+      "role": "ADC",
+      "player": "Smash"
+     },
+     {
+      "k": "pick",
+      "t": "T1",
+      "ch": "Ambessa",
+      "role": "Top",
+      "player": "Doran"
+     },
+     {
+      "k": "ban",
+      "t": "T1",
+      "ch": "Jax",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "DK",
+      "ch": "Zeri",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "T1",
+      "ch": "Renekton",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "DK",
+      "ch": "Neeko",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "pick",
+      "t": "T1",
+      "ch": "Rakan",
+      "role": "Support",
+      "player": "Keria"
+     },
+     {
+      "k": "pick",
+      "t": "DK",
+      "ch": "Alistar",
+      "role": "Support",
+      "player": "Career"
+     },
+     {
+      "k": "pick",
+      "t": "DK",
+      "ch": "Ornn",
       "role": "Top",
       "player": "Siwoo"
      },
      {
       "k": "pick",
       "t": "T1",
-      "ch": "Irelia",
-      "role": "Top",
-      "player": "Doran"
+      "ch": "Xayah",
+      "role": "ADC",
+      "player": "Peyz"
      }
     ],
     "picks": {
      "DK": {
-      "Top": "Gnar",
-      "Jungla": "Vi",
-      "Mid": "Annie",
-      "ADC": "Ashe",
-      "Support": "Poppy"
+      "Top": "Ornn",
+      "Jungla": "Xin Zhao",
+      "Mid": "Vex",
+      "ADC": "Lucian",
+      "Support": "Alistar"
      },
      "T1": {
-      "Top": "Irelia",
-      "Jungla": "Skarner",
-      "Mid": "Yone",
-      "ADC": "Lucian",
-      "Support": "Leona"
+      "Top": "Ambessa",
+      "Jungla": "Pantheon",
+      "Mid": "Taliyah",
+      "ADC": "Xayah",
+      "Support": "Rakan"
      }
     },
     "players": {
@@ -3509,33 +3507,32 @@ const SIM = {
     },
     "comps": {
      "DK": "Dive / all-in + teamfight / wombo combo",
-     "T1": "Dive / all-in + pick"
+     "T1": "Early / escaramuzas + dive / all-in"
     },
     "winner": "DK",
-    "why": "La compo de DK (dive / all-in) se impuso a la de T1 (dive / all-in); Career (Poppy) fue el jugador decisivo.",
-    "duration": "36:00",
-    "dmin": 36.0,
+    "why": "La compo de DK (dive / all-in) se impuso a la de T1 (early / escaramuzas); Siwoo (Ornn) fue el jugador decisivo.",
+    "duration": "29:30",
+    "dmin": 29.5,
     "fb": {
-     "time": "4:02",
-     "type": "gank de la jungla",
-     "team": "T1",
-     "killer": "Peyz (Lucian)",
+     "time": "2:30",
+     "type": "2v2 en bot a nivel 2-3",
+     "team": "DK",
+     "killer": "Smash (Lucian)",
      "assists": [
-      "Oner (Skarner)",
-      "Keria (Leona)"
+      "Career (Alistar)"
      ],
-     "victim": "Smash (Ashe)"
+     "victim": "Peyz (Xayah)"
     },
-    "kills": "18-10",
+    "kills": "9-6",
     "penta": null,
-    "penta_prob": 0.016,
-    "mvp": "Career (Poppy)",
-    "key": "Partida larga: DK ganó la pelea del Elder tras ir abajo en oro"
+    "penta_prob": 0.013,
+    "mvp": "Siwoo (Ornn)",
+    "key": "DK ganó la pelea del alma de dragón y cerró con el Barón"
    }
   ],
   "pentas": [],
-  "p_any_penta": 0.104,
-  "avg_min": 31.1,
+  "p_any_penta": 0.113,
+  "avg_min": 29.9,
   "mode": "pct"
  },
  "sfA_pk": {
@@ -3561,7 +3558,7 @@ const SIM = {
     "rfs": "DK",
     "rfs_reason": "ganó el sorteo con moneda",
     "rfs_choice": "first",
-    "rfs_why": "DK quiere asegurar un campeón de prioridad de su pool (Vi, Syndra, Kalista, Renata Glasc). DK abrió con Nautilus.",
+    "rfs_why": "DK quiere asegurar un campeón de prioridad de su pool (Vi, Syndra, Kalista). Pero Vi y Syndra quedaron baneados, así que DK abrió con Cassiopeia.",
     "other_why": "T1 se queda con el lado azul (mejor acceso a objetivos)",
     "blue": "T1",
     "red": "DK",
@@ -3609,34 +3606,6 @@ const SIM = {
       "ch": "Renata Glasc",
       "role": null,
       "player": null
-     },
-     {
-      "k": "pick",
-      "t": "DK",
-      "ch": "Nautilus",
-      "role": "Support",
-      "player": "Career"
-     },
-     {
-      "k": "pick",
-      "t": "T1",
-      "ch": "Jhin",
-      "role": "ADC",
-      "player": "Peyz"
-     },
-     {
-      "k": "pick",
-      "t": "T1",
-      "ch": "Rakan",
-      "role": "Support",
-      "player": "Keria"
-     },
-     {
-      "k": "pick",
-      "t": "DK",
-      "ch": "Kai'Sa",
-      "role": "ADC",
-      "player": "Smash"
      },
      {
       "k": "pick",
@@ -3653,23 +3622,37 @@ const SIM = {
       "player": "Oner"
      },
      {
+      "k": "pick",
+      "t": "T1",
+      "ch": "Jhin",
+      "role": "ADC",
+      "player": "Peyz"
+     },
+     {
+      "k": "pick",
+      "t": "DK",
+      "ch": "Kalista",
+      "role": "ADC",
+      "player": "Smash"
+     },
+     {
+      "k": "pick",
+      "t": "DK",
+      "ch": "Nautilus",
+      "role": "Support",
+      "player": "Career"
+     },
+     {
+      "k": "pick",
+      "t": "T1",
+      "ch": "Bard",
+      "role": "Support",
+      "player": "Keria"
+     },
+     {
       "k": "ban",
       "t": "T1",
       "ch": "Jarvan IV",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "DK",
-      "ch": "Rumble",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "T1",
-      "ch": "Olaf",
       "role": null,
       "player": null
      },
@@ -3681,9 +3664,23 @@ const SIM = {
       "player": null
      },
      {
+      "k": "ban",
+      "t": "T1",
+      "ch": "K'Sante",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "DK",
+      "ch": "Akali",
+      "role": null,
+      "player": null
+     },
+     {
       "k": "pick",
       "t": "T1",
-      "ch": "Akali",
+      "ch": "LeBlanc",
       "role": "Mid",
       "player": "Faker"
      },
@@ -3697,451 +3694,31 @@ const SIM = {
      {
       "k": "pick",
       "t": "DK",
-      "ch": "K'Sante",
+      "ch": "Rumble",
       "role": "Top",
       "player": "Siwoo"
      },
      {
       "k": "pick",
       "t": "T1",
-      "ch": "Gwen",
+      "ch": "Ornn",
       "role": "Top",
       "player": "Doran"
      }
     ],
     "picks": {
      "DK": {
-      "Top": "K'Sante",
+      "Top": "Rumble",
       "Jungla": "Wukong",
       "Mid": "Cassiopeia",
-      "ADC": "Kai'Sa",
+      "ADC": "Kalista",
       "Support": "Nautilus"
      },
      "T1": {
-      "Top": "Gwen",
-      "Jungla": "Lee Sin",
-      "Mid": "Akali",
-      "ADC": "Jhin",
-      "Support": "Rakan"
-     }
-    },
-    "players": {
-     "DK": [
-      "Siwoo",
-      "Lucid",
-      "ShowMaker",
-      "Smash",
-      "Career"
-     ],
-     "T1": [
-      "Doran",
-      "Oner",
-      "Faker",
-      "Peyz",
-      "Keria"
-     ]
-    },
-    "comps": {
-     "DK": "Dive / all-in + teamfight / wombo combo",
-     "T1": "Pick + dive / all-in"
-    },
-    "winner": "T1",
-    "why": "La compo de T1 (pick) se impuso a la de DK (dive / all-in); Oner (Lee Sin) fue el jugador decisivo.",
-    "duration": "27:00",
-    "dmin": 27.0,
-    "fb": {
-     "time": "6:20",
-     "type": "gank de la jungla",
-     "team": "DK",
-     "killer": "Smash (Kai'Sa)",
-     "assists": [
-      "Lucid (Wukong)",
-      "Career (Nautilus)"
-     ],
-     "victim": "Peyz (Jhin)"
-    },
-    "kills": "9-4",
-    "penta": null,
-    "penta_prob": 0.034,
-    "mvp": "Oner (Lee Sin)",
-    "key": "T1 ganó la pelea del alma de dragón y cerró con el Barón"
-   },
-   {
-    "n": 2,
-    "rfs": "DK",
-    "rfs_reason": "perdió la partida 1",
-    "rfs_choice": "first",
-    "rfs_why": "DK quiere asegurar un campeón de prioridad de su pool (Vi, Syndra, Kalista, Renata Glasc). DK abrió con Vi.",
-    "other_why": "T1 se queda con el lado azul (mejor acceso a objetivos)",
-    "blue": "T1",
-    "red": "DK",
-    "first": "DK",
-    "second": "T1",
-    "log": [
-     {
-      "k": "ban",
-      "t": "DK",
-      "ch": "Jayce",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "T1",
-      "ch": "Kalista",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "DK",
-      "ch": "Orianna",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "T1",
-      "ch": "Caitlyn",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "DK",
-      "ch": "Syndra",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "T1",
-      "ch": "Viktor",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "pick",
-      "t": "DK",
-      "ch": "Vi",
-      "role": "Jungla",
-      "player": "Lucid"
-     },
-     {
-      "k": "pick",
-      "t": "T1",
-      "ch": "Ahri",
-      "role": "Mid",
-      "player": "Faker"
-     },
-     {
-      "k": "pick",
-      "t": "T1",
-      "ch": "Yunara",
-      "role": "ADC",
-      "player": "Peyz"
-     },
-     {
-      "k": "pick",
-      "t": "DK",
-      "ch": "Lulu",
-      "role": "Support",
-      "player": "Career"
-     },
-     {
-      "k": "pick",
-      "t": "DK",
-      "ch": "Jinx",
-      "role": "ADC",
-      "player": "Smash"
-     },
-     {
-      "k": "pick",
-      "t": "T1",
-      "ch": "Karma",
-      "role": "Support",
-      "player": "Keria"
-     },
-     {
-      "k": "ban",
-      "t": "T1",
-      "ch": "Ambessa",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "DK",
-      "ch": "Nocturne",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "T1",
-      "ch": "Ornn",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "DK",
-      "ch": "Jarvan IV",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "pick",
-      "t": "T1",
-      "ch": "Qiyana",
-      "role": "Jungla",
-      "player": "Oner"
-     },
-     {
-      "k": "pick",
-      "t": "DK",
-      "ch": "Sylas",
-      "role": "Mid",
-      "player": "ShowMaker"
-     },
-     {
-      "k": "pick",
-      "t": "DK",
-      "ch": "Olaf",
-      "role": "Top",
-      "player": "Siwoo"
-     },
-     {
-      "k": "pick",
-      "t": "T1",
-      "ch": "Jax",
-      "role": "Top",
-      "player": "Doran"
-     }
-    ],
-    "picks": {
-     "DK": {
-      "Top": "Olaf",
-      "Jungla": "Vi",
-      "Mid": "Sylas",
-      "ADC": "Jinx",
-      "Support": "Lulu"
-     },
-     "T1": {
-      "Top": "Jax",
-      "Jungla": "Qiyana",
-      "Mid": "Ahri",
-      "ADC": "Yunara",
-      "Support": "Karma"
-     }
-    },
-    "players": {
-     "DK": [
-      "Siwoo",
-      "Lucid",
-      "ShowMaker",
-      "Smash",
-      "Career"
-     ],
-     "T1": [
-      "Doran",
-      "Oner",
-      "Faker",
-      "Peyz",
-      "Keria"
-     ]
-    },
-    "comps": {
-     "DK": "Dive / all-in + early / escaramuzas",
-     "T1": "Pick + proteger al carry"
-    },
-    "winner": "DK",
-    "why": "La compo de DK (dive / all-in) se impuso a la de T1 (pick); Lucid (Vi) fue el jugador decisivo.",
-    "duration": "34:16",
-    "dmin": 34.3,
-    "fb": {
-     "time": "7:37",
-     "type": "escaramuza en el río por la scuttle/dragón",
-     "team": "DK",
-     "killer": "Lucid (Vi)",
-     "assists": [
-      "ShowMaker (Sylas)",
-      "Career (Lulu)"
-     ],
-     "victim": "Oner (Qiyana)"
-    },
-    "kills": "13-8",
-    "penta": null,
-    "penta_prob": 0.016,
-    "mvp": "Lucid (Vi)",
-    "key": "Partida larga: DK ganó la pelea del Elder"
-   },
-   {
-    "n": 3,
-    "rfs": "T1",
-    "rfs_reason": "perdió la partida 2",
-    "rfs_choice": "first",
-    "rfs_why": "T1 quiere asegurar un campeón de prioridad de su pool (Jayce, Ambessa, Orianna). T1 abrió con Orianna.",
-    "other_why": "DK se queda con el lado azul (mejor acceso a objetivos)",
-    "blue": "DK",
-    "red": "T1",
-    "first": "T1",
-    "second": "DK",
-    "log": [
-     {
-      "k": "ban",
-      "t": "T1",
-      "ch": "Syndra",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "DK",
-      "ch": "Kalista",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "T1",
-      "ch": "Renata Glasc",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "DK",
-      "ch": "Alistar",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "T1",
-      "ch": "Jarvan IV",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "DK",
-      "ch": "Jayce",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "pick",
-      "t": "T1",
-      "ch": "Orianna",
-      "role": "Mid",
-      "player": "Faker"
-     },
-     {
-      "k": "pick",
-      "t": "DK",
-      "ch": "Locke",
-      "role": "Mid",
-      "player": "ShowMaker"
-     },
-     {
-      "k": "pick",
-      "t": "DK",
-      "ch": "Nocturne",
-      "role": "Jungla",
-      "player": "Lucid"
-     },
-     {
-      "k": "pick",
-      "t": "T1",
-      "ch": "Caitlyn",
-      "role": "ADC",
-      "player": "Peyz"
-     },
-     {
-      "k": "pick",
-      "t": "T1",
-      "ch": "Bard",
-      "role": "Support",
-      "player": "Keria"
-     },
-     {
-      "k": "pick",
-      "t": "DK",
-      "ch": "Poppy",
-      "role": "Support",
-      "player": "Career"
-     },
-     {
-      "k": "ban",
-      "t": "DK",
-      "ch": "Ambessa",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "T1",
-      "ch": "Shen",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "DK",
-      "ch": "Rumble",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "T1",
-      "ch": "Ashe",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "pick",
-      "t": "DK",
-      "ch": "Varus",
-      "role": "ADC",
-      "player": "Smash"
-     },
-     {
-      "k": "pick",
-      "t": "T1",
-      "ch": "Skarner",
-      "role": "Jungla",
-      "player": "Oner"
-     },
-     {
-      "k": "pick",
-      "t": "T1",
-      "ch": "Renekton",
-      "role": "Top",
-      "player": "Doran"
-     },
-     {
-      "k": "pick",
-      "t": "DK",
-      "ch": "Ornn",
-      "role": "Top",
-      "player": "Siwoo"
-     }
-    ],
-    "picks": {
-     "DK": {
       "Top": "Ornn",
-      "Jungla": "Nocturne",
-      "Mid": "Locke",
-      "ADC": "Varus",
-      "Support": "Poppy"
-     },
-     "T1": {
-      "Top": "Renekton",
-      "Jungla": "Skarner",
-      "Mid": "Orianna",
-      "ADC": "Caitlyn",
+      "Jungla": "Lee Sin",
+      "Mid": "LeBlanc",
+      "ADC": "Jhin",
       "Support": "Bard"
      }
     },
@@ -4162,52 +3739,64 @@ const SIM = {
      ]
     },
     "comps": {
-     "DK": "Dive / all-in + pick",
-     "T1": "Dive / all-in + pick"
+     "DK": "Teamfight / wombo combo + dive / all-in",
+     "T1": "Pick + early / escaramuzas"
     },
-    "winner": "DK",
-    "why": "La compo de DK (dive / all-in) se impuso a la de T1 (dive / all-in); ShowMaker (Locke) fue el jugador decisivo.",
-    "duration": "28:48",
-    "dmin": 28.8,
+    "winner": "T1",
+    "why": "La compo de T1 (pick) se impuso a la de DK (teamfight / wombo combo); Oner (Lee Sin) fue el jugador decisivo.",
+    "duration": "30:51",
+    "dmin": 30.9,
     "fb": {
-     "time": "7:22",
-     "type": "gank de la jungla",
-     "team": "T1",
-     "killer": "Doran (Renekton)",
-     "assists": [
-      "Oner (Skarner)"
-     ],
-     "victim": "Siwoo (Ornn)"
+     "time": "7:41",
+     "type": "solo kill en línea",
+     "team": "DK",
+     "killer": "Siwoo (Rumble)",
+     "assists": [],
+     "victim": "Doran (Ornn)"
     },
-    "kills": "12-10",
+    "kills": "10-7",
     "penta": null,
-    "penta_prob": 0.034,
-    "mvp": "ShowMaker (Locke)",
-    "key": "DK ganó la pelea del alma de dragón y cerró con el Barón"
+    "penta_prob": 0.026,
+    "mvp": "Oner (Lee Sin)",
+    "key": "T1 ganó la pelea del alma de dragón y cerró con el Barón"
    },
    {
-    "n": 4,
-    "rfs": "T1",
-    "rfs_reason": "perdió la partida 3",
-    "rfs_choice": "second",
-    "rfs_why": "T1 quiere el último pick para darle counter a su top",
-    "other_why": "DK toma el lado azul y juega con primer pick. DK abrió con Syndra.",
-    "blue": "DK",
-    "red": "T1",
+    "n": 2,
+    "rfs": "DK",
+    "rfs_reason": "perdió la partida 1",
+    "rfs_choice": "first",
+    "rfs_why": "DK quiere asegurar un campeón de prioridad de su pool (Vi, Syndra). Pero Vi y Syndra quedaron baneados, así que DK abrió con Viktor.",
+    "other_why": "T1 se queda con el lado azul (mejor acceso a objetivos)",
+    "blue": "T1",
+    "red": "DK",
     "first": "DK",
     "second": "T1",
     "log": [
      {
       "k": "ban",
       "t": "DK",
-      "ch": "Kalista",
+      "ch": "Jayce",
       "role": null,
       "player": null
      },
      {
       "k": "ban",
       "t": "T1",
-      "ch": "Renata Glasc",
+      "ch": "Vi",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "DK",
+      "ch": "Jarvan IV",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "T1",
+      "ch": "Syndra",
       "role": null,
       "player": null
      },
@@ -4221,44 +3810,86 @@ const SIM = {
      {
       "k": "ban",
       "t": "T1",
-      "ch": "Alistar",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "DK",
-      "ch": "Anivia",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "T1",
-      "ch": "Rumble",
+      "ch": "Kai'Sa",
       "role": null,
       "player": null
      },
      {
       "k": "pick",
       "t": "DK",
-      "ch": "Syndra",
+      "ch": "Viktor",
       "role": "Mid",
       "player": "ShowMaker"
      },
      {
       "k": "pick",
       "t": "T1",
-      "ch": "Jarvan IV",
+      "ch": "Orianna",
+      "role": "Mid",
+      "player": "Faker"
+     },
+     {
+      "k": "pick",
+      "t": "T1",
+      "ch": "Nocturne",
       "role": "Jungla",
       "player": "Oner"
      },
      {
       "k": "pick",
+      "t": "DK",
+      "ch": "Caitlyn",
+      "role": "ADC",
+      "player": "Smash"
+     },
+     {
+      "k": "pick",
+      "t": "DK",
+      "ch": "Karma",
+      "role": "Support",
+      "player": "Career"
+     },
+     {
+      "k": "pick",
       "t": "T1",
-      "ch": "LeBlanc",
-      "role": "Mid",
-      "player": "Faker"
+      "ch": "Yunara",
+      "role": "ADC",
+      "player": "Peyz"
+     },
+     {
+      "k": "ban",
+      "t": "T1",
+      "ch": "Olaf",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "DK",
+      "ch": "Lulu",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "T1",
+      "ch": "Qiyana",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "DK",
+      "ch": "Rakan",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "pick",
+      "t": "T1",
+      "ch": "Milio",
+      "role": "Support",
+      "player": "Keria"
      },
      {
       "k": "pick",
@@ -4270,88 +3901,32 @@ const SIM = {
      {
       "k": "pick",
       "t": "DK",
-      "ch": "Seraphine",
-      "role": "Support",
-      "player": "Career"
-     },
-     {
-      "k": "pick",
-      "t": "T1",
-      "ch": "Jayce",
-      "role": "Top",
-      "player": "Doran"
-     },
-     {
-      "k": "ban",
-      "t": "T1",
-      "ch": "Ezreal",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "DK",
-      "ch": "Leona",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "T1",
-      "ch": "Yorick",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "DK",
-      "ch": "Xayah",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "pick",
-      "t": "T1",
-      "ch": "Draven",
-      "role": "ADC",
-      "player": "Peyz"
-     },
-     {
-      "k": "pick",
-      "t": "DK",
-      "ch": "Ashe",
-      "role": "ADC",
-      "player": "Smash"
-     },
-     {
-      "k": "pick",
-      "t": "DK",
-      "ch": "Camille",
+      "ch": "K'Sante",
       "role": "Top",
       "player": "Siwoo"
      },
      {
       "k": "pick",
       "t": "T1",
-      "ch": "Thresh",
-      "role": "Support",
-      "player": "Keria"
+      "ch": "Shen",
+      "role": "Top",
+      "player": "Doran"
      }
     ],
     "picks": {
      "DK": {
-      "Top": "Camille",
+      "Top": "K'Sante",
       "Jungla": "Pantheon",
-      "Mid": "Syndra",
-      "ADC": "Ashe",
-      "Support": "Seraphine"
+      "Mid": "Viktor",
+      "ADC": "Caitlyn",
+      "Support": "Karma"
      },
      "T1": {
-      "Top": "Jayce",
-      "Jungla": "Jarvan IV",
-      "Mid": "LeBlanc",
-      "ADC": "Draven",
-      "Support": "Thresh"
+      "Top": "Shen",
+      "Jungla": "Nocturne",
+      "Mid": "Orianna",
+      "ADC": "Yunara",
+      "Support": "Milio"
      }
     },
     "players": {
@@ -4371,137 +3946,66 @@ const SIM = {
      ]
     },
     "comps": {
-     "DK": "Pick + teamfight / wombo combo",
-     "T1": "Early / escaramuzas + pick"
+     "DK": "Poke / asedio + proteger al carry",
+     "T1": "Proteger al carry + dive / all-in"
     },
-    "winner": "T1",
-    "why": "La compo de T1 (early / escaramuzas) se impuso a la de DK (pick); Doran (Jayce) fue el jugador decisivo.",
-    "duration": "25:00",
-    "dmin": 25.0,
+    "winner": "DK",
+    "why": "La compo de DK (poke / asedio) se impuso a la de T1 (proteger al carry); Siwoo (K'Sante) fue el jugador decisivo.",
+    "duration": "33:37",
+    "dmin": 33.6,
     "fb": {
-     "time": "4:45",
-     "type": "escaramuza en el río por la scuttle/dragón",
+     "time": "2:24",
+     "type": "2v2 en bot a nivel 2-3",
      "team": "T1",
-     "killer": "Oner (Jarvan IV)",
+     "killer": "Peyz (Yunara)",
      "assists": [
-      "Faker (LeBlanc)",
-      "Keria (Thresh)"
+      "Keria (Milio)"
      ],
-     "victim": "Lucid (Pantheon)"
+     "victim": "Career (Karma)"
     },
-    "kills": "9-4",
+    "kills": "14-8",
     "penta": null,
-    "penta_prob": 0.013,
-    "mvp": "Doran (Jayce)",
-    "key": "T1 convirtió la ventaja temprana en torres y Barón sin dar opción de pelea"
+    "penta_prob": 0.016,
+    "mvp": "Siwoo (K'Sante)",
+    "key": "DK ganó la pelea del alma de dragón y cerró con el Barón"
    },
    {
-    "n": 5,
-    "rfs": "DK",
-    "rfs_reason": "perdió la partida 4",
+    "n": 3,
+    "rfs": "T1",
+    "rfs_reason": "perdió la partida 2",
     "rfs_choice": "first",
-    "rfs_why": "DK quiere asegurar un campeón de prioridad de su pool (Kalista, Renata Glasc). Pero Kalista y Renata Glasc quedaron baneados, así que DK abrió con Xin Zhao.",
-    "other_why": "T1 se queda con el lado azul (mejor acceso a objetivos)",
-    "blue": "T1",
-    "red": "DK",
-    "first": "DK",
-    "second": "T1",
+    "rfs_why": "T1 quiere asegurar un campeón de prioridad de su pool (Jayce, Ambessa, Vi). Pero Jayce y Ambessa quedaron baneados, así que T1 abrió con Ahri.",
+    "other_why": "DK se queda con el lado azul (mejor acceso a objetivos)",
+    "blue": "DK",
+    "red": "T1",
+    "first": "T1",
+    "second": "DK",
     "log": [
      {
       "k": "ban",
-      "t": "DK",
-      "ch": "Neeko",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
       "t": "T1",
-      "ch": "Viktor",
+      "ch": "Jarvan IV",
       "role": null,
       "player": null
      },
      {
       "k": "ban",
       "t": "DK",
-      "ch": "Alistar",
+      "ch": "Vi",
       "role": null,
       "player": null
      },
      {
       "k": "ban",
       "t": "T1",
-      "ch": "Kalista",
+      "ch": "Poppy",
       "role": null,
       "player": null
      },
      {
       "k": "ban",
       "t": "DK",
-      "ch": "Galio",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "T1",
-      "ch": "Ambessa",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "pick",
-      "t": "DK",
-      "ch": "Xin Zhao",
-      "role": "Jungla",
-      "player": "Lucid"
-     },
-     {
-      "k": "pick",
-      "t": "T1",
-      "ch": "Taliyah",
-      "role": "Mid",
-      "player": "Faker"
-     },
-     {
-      "k": "pick",
-      "t": "T1",
-      "ch": "Leona",
-      "role": "Support",
-      "player": "Keria"
-     },
-     {
-      "k": "pick",
-      "t": "DK",
-      "ch": "Annie",
-      "role": "Mid",
-      "player": "ShowMaker"
-     },
-     {
-      "k": "pick",
-      "t": "DK",
-      "ch": "Rumble",
-      "role": "Top",
-      "player": "Siwoo"
-     },
-     {
-      "k": "pick",
-      "t": "T1",
-      "ch": "Ezreal",
-      "role": "ADC",
-      "player": "Peyz"
-     },
-     {
-      "k": "ban",
-      "t": "T1",
-      "ch": "Zeri",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "DK",
-      "ch": "Gnar",
+      "ch": "Syndra",
       "role": null,
       "player": null
      },
@@ -4515,52 +4019,332 @@ const SIM = {
      {
       "k": "ban",
       "t": "DK",
-      "ch": "Shen",
+      "ch": "Jayce",
       "role": null,
       "player": null
      },
      {
       "k": "pick",
       "t": "T1",
-      "ch": "Trundle",
+      "ch": "Ahri",
+      "role": "Mid",
+      "player": "Faker"
+     },
+     {
+      "k": "pick",
+      "t": "DK",
+      "ch": "Qiyana",
+      "role": "Jungla",
+      "player": "Lucid"
+     },
+     {
+      "k": "pick",
+      "t": "DK",
+      "ch": "Locke",
+      "role": "Mid",
+      "player": "ShowMaker"
+     },
+     {
+      "k": "pick",
+      "t": "T1",
+      "ch": "Xin Zhao",
       "role": "Jungla",
       "player": "Oner"
      },
      {
       "k": "pick",
-      "t": "DK",
-      "ch": "Ziggs",
+      "t": "T1",
+      "ch": "Ezreal",
       "role": "ADC",
-      "player": "Smash"
+      "player": "Peyz"
      },
      {
       "k": "pick",
       "t": "DK",
-      "ch": "Braum",
+      "ch": "Kai'Sa",
+      "role": "ADC",
+      "player": "Smash"
+     },
+     {
+      "k": "ban",
+      "t": "DK",
+      "ch": "Ambessa",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "T1",
+      "ch": "Lulu",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "DK",
+      "ch": "Gnar",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "T1",
+      "ch": "Olaf",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "pick",
+      "t": "DK",
+      "ch": "Alistar",
       "role": "Support",
       "player": "Career"
      },
      {
       "k": "pick",
       "t": "T1",
-      "ch": "Aatrox",
+      "ch": "Rakan",
+      "role": "Support",
+      "player": "Keria"
+     },
+     {
+      "k": "pick",
+      "t": "T1",
+      "ch": "Kled",
       "role": "Top",
       "player": "Doran"
+     },
+     {
+      "k": "pick",
+      "t": "DK",
+      "ch": "Renekton",
+      "role": "Top",
+      "player": "Siwoo"
      }
     ],
     "picks": {
      "DK": {
-      "Top": "Rumble",
-      "Jungla": "Xin Zhao",
-      "Mid": "Annie",
-      "ADC": "Ziggs",
-      "Support": "Braum"
+      "Top": "Renekton",
+      "Jungla": "Qiyana",
+      "Mid": "Locke",
+      "ADC": "Kai'Sa",
+      "Support": "Alistar"
      },
      "T1": {
-      "Top": "Aatrox",
-      "Jungla": "Trundle",
-      "Mid": "Taliyah",
+      "Top": "Kled",
+      "Jungla": "Xin Zhao",
+      "Mid": "Ahri",
       "ADC": "Ezreal",
+      "Support": "Rakan"
+     }
+    },
+    "players": {
+     "DK": [
+      "Siwoo",
+      "Lucid",
+      "ShowMaker",
+      "Smash",
+      "Career"
+     ],
+     "T1": [
+      "Doran",
+      "Oner",
+      "Faker",
+      "Peyz",
+      "Keria"
+     ]
+    },
+    "comps": {
+     "DK": "Dive / all-in + early / escaramuzas",
+     "T1": "Dive / all-in + early / escaramuzas"
+    },
+    "winner": "DK",
+    "why": "La compo de DK (dive / all-in) se impuso a la de T1 (dive / all-in); Smash (Kai'Sa) fue el jugador decisivo.",
+    "duration": "24:29",
+    "dmin": 24.5,
+    "fb": {
+     "time": "5:18",
+     "type": "escaramuza en el río por la scuttle/dragón",
+     "team": "T1",
+     "killer": "Oner (Xin Zhao)",
+     "assists": [
+      "Faker (Ahri)",
+      "Keria (Rakan)"
+     ],
+     "victim": "Lucid (Qiyana)"
+    },
+    "kills": "8-5",
+    "penta": null,
+    "penta_prob": 0.042,
+    "mvp": "Smash (Kai'Sa)",
+    "key": "DK convirtió la ventaja temprana en torres y Barón sin dar opción de pelea"
+   },
+   {
+    "n": 4,
+    "rfs": "T1",
+    "rfs_reason": "perdió la partida 3",
+    "rfs_choice": "first",
+    "rfs_why": "T1 quiere asegurar un campeón de prioridad de su pool (Jayce, Ambessa, Vi). Pero Jayce y Vi quedaron baneados, así que T1 abrió con Jarvan IV.",
+    "other_why": "DK se queda con el lado azul (mejor acceso a objetivos)",
+    "blue": "DK",
+    "red": "T1",
+    "first": "T1",
+    "second": "DK",
+    "log": [
+     {
+      "k": "ban",
+      "t": "T1",
+      "ch": "Vi",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "DK",
+      "ch": "Syndra",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "T1",
+      "ch": "Renata Glasc",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "DK",
+      "ch": "Jayce",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "T1",
+      "ch": "Seraphine",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "DK",
+      "ch": "Anivia",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "pick",
+      "t": "T1",
+      "ch": "Jarvan IV",
+      "role": "Jungla",
+      "player": "Oner"
+     },
+     {
+      "k": "pick",
+      "t": "DK",
+      "ch": "Trundle",
+      "role": "Jungla",
+      "player": "Lucid"
+     },
+     {
+      "k": "pick",
+      "t": "DK",
+      "ch": "Aurora",
+      "role": "Mid",
+      "player": "ShowMaker"
+     },
+     {
+      "k": "pick",
+      "t": "T1",
+      "ch": "Akali",
+      "role": "Mid",
+      "player": "Faker"
+     },
+     {
+      "k": "pick",
+      "t": "T1",
+      "ch": "Ambessa",
+      "role": "Top",
+      "player": "Doran"
+     },
+     {
+      "k": "pick",
+      "t": "DK",
+      "ch": "Olaf",
+      "role": "Top",
+      "player": "Siwoo"
+     },
+     {
+      "k": "ban",
+      "t": "DK",
+      "ch": "Ashe",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "T1",
+      "ch": "Poppy",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "DK",
+      "ch": "Lulu",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "T1",
+      "ch": "Zeri",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "pick",
+      "t": "DK",
+      "ch": "Smolder",
+      "role": "ADC",
+      "player": "Smash"
+     },
+     {
+      "k": "pick",
+      "t": "T1",
+      "ch": "Draven",
+      "role": "ADC",
+      "player": "Peyz"
+     },
+     {
+      "k": "pick",
+      "t": "T1",
+      "ch": "Leona",
+      "role": "Support",
+      "player": "Keria"
+     },
+     {
+      "k": "pick",
+      "t": "DK",
+      "ch": "Nami",
+      "role": "Support",
+      "player": "Career"
+     }
+    ],
+    "picks": {
+     "DK": {
+      "Top": "Olaf",
+      "Jungla": "Trundle",
+      "Mid": "Aurora",
+      "ADC": "Smolder",
+      "Support": "Nami"
+     },
+     "T1": {
+      "Top": "Ambessa",
+      "Jungla": "Jarvan IV",
+      "Mid": "Akali",
+      "ADC": "Draven",
       "Support": "Leona"
      }
     },
@@ -4581,34 +4365,240 @@ const SIM = {
      ]
     },
     "comps": {
-     "DK": "Dive / all-in + teamfight / wombo combo",
+     "DK": "Early / escaramuzas + dive / all-in",
      "T1": "Dive / all-in + pick"
     },
     "winner": "T1",
-    "why": "La compo de T1 (dive / all-in) se impuso a la de DK (dive / all-in); Peyz (Ezreal) fue el jugador decisivo.",
-    "duration": "22:04",
-    "dmin": 22.1,
+    "why": "La compo de T1 (dive / all-in) se impuso a la de DK (early / escaramuzas); Peyz (Draven) fue el jugador decisivo.",
+    "duration": "32:22",
+    "dmin": 32.4,
     "fb": {
-     "time": "4:13",
-     "type": "gank de la jungla",
-     "team": "T1",
-     "killer": "Peyz (Ezreal)",
-     "assists": [
-      "Oner (Trundle)",
-      "Keria (Leona)"
-     ],
-     "victim": "Smash (Ziggs)"
+     "time": "8:13",
+     "type": "solo kill en línea",
+     "team": "DK",
+     "killer": "Siwoo (Olaf)",
+     "assists": [],
+     "victim": "Doran (Ambessa)"
     },
-    "kills": "14-9",
+    "kills": "18-11",
     "penta": null,
-    "penta_prob": 0.013,
-    "mvp": "Peyz (Ezreal)",
-    "key": "T1 convirtió la ventaja temprana en torres y Barón sin dar opción de pelea"
+    "penta_prob": 0.034,
+    "mvp": "Peyz (Draven)",
+    "key": "T1 ganó la pelea del alma de dragón y cerró con el Barón"
+   },
+   {
+    "n": 5,
+    "rfs": "DK",
+    "rfs_reason": "perdió la partida 4",
+    "rfs_choice": "first",
+    "rfs_why": "DK quiere asegurar un campeón de prioridad de su pool (Vi, Syndra). DK abrió con Vi.",
+    "other_why": "T1 se queda con el lado azul (mejor acceso a objetivos)",
+    "blue": "T1",
+    "red": "DK",
+    "first": "DK",
+    "second": "T1",
+    "log": [
+     {
+      "k": "ban",
+      "t": "DK",
+      "ch": "Renata Glasc",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "T1",
+      "ch": "Syndra",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "DK",
+      "ch": "Xayah",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "T1",
+      "ch": "Skarner",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "DK",
+      "ch": "Neeko",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "T1",
+      "ch": "Ashe",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "pick",
+      "t": "DK",
+      "ch": "Vi",
+      "role": "Jungla",
+      "player": "Lucid"
+     },
+     {
+      "k": "pick",
+      "t": "T1",
+      "ch": "Galio",
+      "role": "Mid",
+      "player": "Faker"
+     },
+     {
+      "k": "pick",
+      "t": "T1",
+      "ch": "Jayce",
+      "role": "Top",
+      "player": "Doran"
+     },
+     {
+      "k": "pick",
+      "t": "DK",
+      "ch": "Lulu",
+      "role": "Support",
+      "player": "Career"
+     },
+     {
+      "k": "pick",
+      "t": "DK",
+      "ch": "Zeri",
+      "role": "ADC",
+      "player": "Smash"
+     },
+     {
+      "k": "pick",
+      "t": "T1",
+      "ch": "Cho'Gath",
+      "role": "Jungla",
+      "player": "Oner"
+     },
+     {
+      "k": "ban",
+      "t": "T1",
+      "ch": "Yorick",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "DK",
+      "ch": "Seraphine",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "T1",
+      "ch": "Taliyah",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "DK",
+      "ch": "Aphelios",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "pick",
+      "t": "T1",
+      "ch": "Ziggs",
+      "role": "ADC",
+      "player": "Peyz"
+     },
+     {
+      "k": "pick",
+      "t": "DK",
+      "ch": "Anivia",
+      "role": "Mid",
+      "player": "ShowMaker"
+     },
+     {
+      "k": "pick",
+      "t": "DK",
+      "ch": "Irelia",
+      "role": "Top",
+      "player": "Siwoo"
+     },
+     {
+      "k": "pick",
+      "t": "T1",
+      "ch": "Braum",
+      "role": "Support",
+      "player": "Keria"
+     }
+    ],
+    "picks": {
+     "DK": {
+      "Top": "Irelia",
+      "Jungla": "Vi",
+      "Mid": "Anivia",
+      "ADC": "Zeri",
+      "Support": "Lulu"
+     },
+     "T1": {
+      "Top": "Jayce",
+      "Jungla": "Cho'Gath",
+      "Mid": "Galio",
+      "ADC": "Ziggs",
+      "Support": "Braum"
+     }
+    },
+    "players": {
+     "DK": [
+      "Siwoo",
+      "Lucid",
+      "ShowMaker",
+      "Smash",
+      "Career"
+     ],
+     "T1": [
+      "Doran",
+      "Oner",
+      "Faker",
+      "Peyz",
+      "Keria"
+     ]
+    },
+    "comps": {
+     "DK": "Early / escaramuzas + escalado",
+     "T1": "Dive / all-in + teamfight / wombo combo"
+    },
+    "winner": "T1",
+    "why": "La compo de T1 (dive / all-in) se impuso a la de DK (early / escaramuzas); Oner (Cho'Gath) fue el jugador decisivo.",
+    "duration": "38:26",
+    "dmin": 38.4,
+    "fb": {
+     "time": "5:24",
+     "type": "gank de la jungla",
+     "team": "DK",
+     "killer": "Siwoo (Irelia)",
+     "assists": [
+      "Lucid (Vi)"
+     ],
+     "victim": "Doran (Jayce)"
+    },
+    "kills": "22-10",
+    "penta": null,
+    "penta_prob": 0.016,
+    "mvp": "Oner (Cho'Gath)",
+    "key": "Partida larga: T1 ganó la pelea del Elder tras ir abajo en oro"
    }
   ],
   "pentas": [],
-  "p_any_penta": 0.105,
-  "avg_min": 27.4,
+  "p_any_penta": 0.127,
+  "avg_min": 32.0,
   "mode": "pickem"
  },
  "sfB": {
@@ -4634,7 +4624,7 @@ const SIM = {
     "rfs": "GEN",
     "rfs_reason": "ganó el sorteo con moneda",
     "rfs_choice": "first",
-    "rfs_why": "GEN quiere asegurar un campeón de prioridad de su pool (Ambessa, Rumble, Qiyana, Syndra). GEN abrió con Nautilus.",
+    "rfs_why": "GEN quiere asegurar un campeón de prioridad de su pool (Ambessa, Rumble, Qiyana, Syndra). Pero Ambessa y Rumble quedaron baneados, así que GEN abrió con Vi.",
     "other_why": "IG se queda con el lado azul (mejor acceso a objetivos)",
     "blue": "IG",
     "red": "GEN",
@@ -4686,23 +4676,23 @@ const SIM = {
      {
       "k": "pick",
       "t": "GEN",
-      "ch": "Nautilus",
-      "role": "Support",
-      "player": "Duro"
-     },
-     {
-      "k": "pick",
-      "t": "IG",
       "ch": "Vi",
       "role": "Jungla",
-      "player": "Wei"
+      "player": "Canyon"
      },
      {
       "k": "pick",
       "t": "IG",
-      "ch": "Lulu",
-      "role": "Support",
-      "player": "Meiko"
+      "ch": "Annie",
+      "role": "Mid",
+      "player": "Rookie"
+     },
+     {
+      "k": "pick",
+      "t": "IG",
+      "ch": "Jayce",
+      "role": "Jungla",
+      "player": "Wei"
      },
      {
       "k": "pick",
@@ -4714,9 +4704,9 @@ const SIM = {
      {
       "k": "pick",
       "t": "GEN",
-      "ch": "Rumble",
-      "role": "Top",
-      "player": "Kiin"
+      "ch": "Nautilus",
+      "role": "Support",
+      "player": "Duro"
      },
      {
       "k": "pick",
@@ -4724,6 +4714,20 @@ const SIM = {
       "ch": "Zeri",
       "role": "ADC",
       "player": "JiaQi"
+     },
+     {
+      "k": "ban",
+      "t": "IG",
+      "ch": "Rumble",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "GEN",
+      "ch": "Lulu",
+      "role": null,
+      "player": null
      },
      {
       "k": "ban",
@@ -4740,37 +4744,23 @@ const SIM = {
       "player": null
      },
      {
-      "k": "ban",
-      "t": "IG",
-      "ch": "Jarvan IV",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "GEN",
-      "ch": "Annie",
-      "role": null,
-      "player": null
-     },
-     {
       "k": "pick",
       "t": "IG",
-      "ch": "Aurora",
-      "role": "Mid",
-      "player": "Rookie"
+      "ch": "Yuumi",
+      "role": "Support",
+      "player": "Meiko"
      },
      {
       "k": "pick",
       "t": "GEN",
-      "ch": "Wukong",
-      "role": "Jungla",
-      "player": "Canyon"
+      "ch": "K'Sante",
+      "role": "Top",
+      "player": "Kiin"
      },
      {
       "k": "pick",
       "t": "GEN",
-      "ch": "Galio",
+      "ch": "Locke",
       "role": "Mid",
       "player": "Chovy"
      },
@@ -4785,17 +4775,645 @@ const SIM = {
     "picks": {
      "IG": {
       "Top": "Gnar",
-      "Jungla": "Vi",
-      "Mid": "Aurora",
+      "Jungla": "Jayce",
+      "Mid": "Annie",
       "ADC": "Zeri",
-      "Support": "Lulu"
+      "Support": "Yuumi"
+     },
+     "GEN": {
+      "Top": "K'Sante",
+      "Jungla": "Vi",
+      "Mid": "Locke",
+      "ADC": "Jhin",
+      "Support": "Nautilus"
+     }
+    },
+    "players": {
+     "IG": [
+      "TheShy",
+      "Wei",
+      "Rookie",
+      "JiaQi",
+      "Meiko"
+     ],
+     "GEN": [
+      "Kiin",
+      "Canyon",
+      "Chovy",
+      "Ruler",
+      "Duro"
+     ]
+    },
+    "comps": {
+     "IG": "Escalado + teamfight / wombo combo",
+     "GEN": "Dive / all-in + pick"
+    },
+    "winner": "GEN",
+    "why": "La compo de GEN (dive / all-in) se impuso a la de IG (escalado); Duro (Nautilus) fue el jugador decisivo.",
+    "duration": "34:02",
+    "dmin": 34.0,
+    "fb": {
+     "time": "2:39",
+     "type": "2v2 en bot a nivel 2-3",
+     "team": "IG",
+     "killer": "JiaQi (Zeri)",
+     "assists": [
+      "Meiko (Yuumi)"
+     ],
+     "victim": "Duro (Nautilus)"
+    },
+    "kills": "13-8",
+    "penta": null,
+    "penta_prob": 0.041,
+    "mvp": "Duro (Nautilus)",
+    "key": "Partida larga: GEN ganó la pelea del Elder tras ir abajo en oro"
+   },
+   {
+    "n": 2,
+    "rfs": "IG",
+    "rfs_reason": "perdió la partida 1",
+    "rfs_choice": "first",
+    "rfs_why": "IG quiere asegurar un campeón de prioridad de su pool (Nocturne, Orianna, Yunara). IG abrió con Nocturne.",
+    "other_why": "GEN se queda con el lado azul (mejor acceso a objetivos)",
+    "blue": "GEN",
+    "red": "IG",
+    "first": "IG",
+    "second": "GEN",
+    "log": [
+     {
+      "k": "ban",
+      "t": "IG",
+      "ch": "Ambessa",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "GEN",
+      "ch": "Syndra",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "IG",
+      "ch": "Qiyana",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "GEN",
+      "ch": "Yunara",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "IG",
+      "ch": "Ezreal",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "GEN",
+      "ch": "Orianna",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "pick",
+      "t": "IG",
+      "ch": "Nocturne",
+      "role": "Jungla",
+      "player": "Wei"
+     },
+     {
+      "k": "pick",
+      "t": "GEN",
+      "ch": "Rumble",
+      "role": "Top",
+      "player": "Kiin"
+     },
+     {
+      "k": "pick",
+      "t": "GEN",
+      "ch": "Jarvan IV",
+      "role": "Jungla",
+      "player": "Canyon"
+     },
+     {
+      "k": "pick",
+      "t": "IG",
+      "ch": "Ornn",
+      "role": "Top",
+      "player": "TheShy"
+     },
+     {
+      "k": "pick",
+      "t": "IG",
+      "ch": "Viktor",
+      "role": "Mid",
+      "player": "Rookie"
+     },
+     {
+      "k": "pick",
+      "t": "GEN",
+      "ch": "Ashe",
+      "role": "ADC",
+      "player": "Ruler"
+     },
+     {
+      "k": "ban",
+      "t": "GEN",
+      "ch": "Lulu",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "IG",
+      "ch": "Seraphine",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "GEN",
+      "ch": "Renata Glasc",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "IG",
+      "ch": "Akali",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "pick",
+      "t": "GEN",
+      "ch": "Alistar",
+      "role": "Support",
+      "player": "Duro"
+     },
+     {
+      "k": "pick",
+      "t": "IG",
+      "ch": "Kalista",
+      "role": "ADC",
+      "player": "JiaQi"
+     },
+     {
+      "k": "pick",
+      "t": "IG",
+      "ch": "Leona",
+      "role": "Support",
+      "player": "Meiko"
+     },
+     {
+      "k": "pick",
+      "t": "GEN",
+      "ch": "Galio",
+      "role": "Mid",
+      "player": "Chovy"
+     }
+    ],
+    "picks": {
+     "IG": {
+      "Top": "Ornn",
+      "Jungla": "Nocturne",
+      "Mid": "Viktor",
+      "ADC": "Kalista",
+      "Support": "Leona"
      },
      "GEN": {
       "Top": "Rumble",
-      "Jungla": "Wukong",
+      "Jungla": "Jarvan IV",
       "Mid": "Galio",
-      "ADC": "Jhin",
-      "Support": "Nautilus"
+      "ADC": "Ashe",
+      "Support": "Alistar"
+     }
+    },
+    "players": {
+     "IG": [
+      "TheShy",
+      "Wei",
+      "Rookie",
+      "JiaQi",
+      "Meiko"
+     ],
+     "GEN": [
+      "Kiin",
+      "Canyon",
+      "Chovy",
+      "Ruler",
+      "Duro"
+     ]
+    },
+    "comps": {
+     "IG": "Dive / all-in + pick",
+     "GEN": "Teamfight / wombo combo + dive / all-in"
+    },
+    "winner": "GEN",
+    "why": "La compo de GEN (teamfight / wombo combo) se impuso a la de IG (dive / all-in); Kiin (Rumble) fue el jugador decisivo.",
+    "duration": "26:31",
+    "dmin": 26.5,
+    "fb": {
+     "time": "3:23",
+     "type": "2v2 en bot a nivel 2-3",
+     "team": "GEN",
+     "killer": "Ruler (Ashe)",
+     "assists": [
+      "Duro (Alistar)"
+     ],
+     "victim": "JiaQi (Kalista)"
+    },
+    "kills": "16-6",
+    "penta": null,
+    "penta_prob": 0.013,
+    "mvp": "Kiin (Rumble)",
+    "key": "GEN convirtió la ventaja temprana en torres y Barón sin dar opción de pelea"
+   },
+   {
+    "n": 3,
+    "rfs": "IG",
+    "rfs_reason": "perdió la partida 2",
+    "rfs_choice": "first",
+    "rfs_why": "IG quiere asegurar un campeón de prioridad de su pool (Orianna, Yunara). IG abrió con Orianna.",
+    "other_why": "GEN se queda con el lado azul (mejor acceso a objetivos)",
+    "blue": "GEN",
+    "red": "IG",
+    "first": "IG",
+    "second": "GEN",
+    "log": [
+     {
+      "k": "ban",
+      "t": "IG",
+      "ch": "Ambessa",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "GEN",
+      "ch": "Yunara",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "IG",
+      "ch": "Syndra",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "GEN",
+      "ch": "Aurora",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "IG",
+      "ch": "Camille",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "GEN",
+      "ch": "Lee Sin",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "pick",
+      "t": "IG",
+      "ch": "Orianna",
+      "role": "Mid",
+      "player": "Rookie"
+     },
+     {
+      "k": "pick",
+      "t": "GEN",
+      "ch": "Qiyana",
+      "role": "Jungla",
+      "player": "Canyon"
+     },
+     {
+      "k": "pick",
+      "t": "GEN",
+      "ch": "Akali",
+      "role": "Mid",
+      "player": "Chovy"
+     },
+     {
+      "k": "pick",
+      "t": "IG",
+      "ch": "Pantheon",
+      "role": "Jungla",
+      "player": "Wei"
+     },
+     {
+      "k": "pick",
+      "t": "IG",
+      "ch": "Caitlyn",
+      "role": "ADC",
+      "player": "JiaQi"
+     },
+     {
+      "k": "pick",
+      "t": "GEN",
+      "ch": "Ezreal",
+      "role": "ADC",
+      "player": "Ruler"
+     },
+     {
+      "k": "ban",
+      "t": "GEN",
+      "ch": "Kled",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "IG",
+      "ch": "Renata Glasc",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "GEN",
+      "ch": "Seraphine",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "IG",
+      "ch": "Lulu",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "pick",
+      "t": "GEN",
+      "ch": "Karma",
+      "role": "Support",
+      "player": "Duro"
+     },
+     {
+      "k": "pick",
+      "t": "IG",
+      "ch": "Bard",
+      "role": "Support",
+      "player": "Meiko"
+     },
+     {
+      "k": "pick",
+      "t": "IG",
+      "ch": "Olaf",
+      "role": "Top",
+      "player": "TheShy"
+     },
+     {
+      "k": "pick",
+      "t": "GEN",
+      "ch": "Jax",
+      "role": "Top",
+      "player": "Kiin"
+     }
+    ],
+    "picks": {
+     "IG": {
+      "Top": "Olaf",
+      "Jungla": "Pantheon",
+      "Mid": "Orianna",
+      "ADC": "Caitlyn",
+      "Support": "Bard"
+     },
+     "GEN": {
+      "Top": "Jax",
+      "Jungla": "Qiyana",
+      "Mid": "Akali",
+      "ADC": "Ezreal",
+      "Support": "Karma"
+     }
+    },
+    "players": {
+     "IG": [
+      "TheShy",
+      "Wei",
+      "Rookie",
+      "JiaQi",
+      "Meiko"
+     ],
+     "GEN": [
+      "Kiin",
+      "Canyon",
+      "Chovy",
+      "Ruler",
+      "Duro"
+     ]
+    },
+    "comps": {
+     "IG": "Early / escaramuzas + pick",
+     "GEN": "Poke / asedio + pick"
+    },
+    "winner": "IG",
+    "why": "La compo de IG (early / escaramuzas) se impuso a la de GEN (poke / asedio); JiaQi (Caitlyn) fue el jugador decisivo.",
+    "duration": "30:41",
+    "dmin": 30.7,
+    "fb": {
+     "time": "5:18",
+     "type": "gank de la jungla",
+     "team": "IG",
+     "killer": "JiaQi (Caitlyn)",
+     "assists": [
+      "Wei (Pantheon)",
+      "Meiko (Bard)"
+     ],
+     "victim": "Duro (Karma)"
+    },
+    "kills": "14-12",
+    "penta": "Rookie (Orianna)",
+    "penta_prob": 0.013,
+    "mvp": "JiaQi (Caitlyn)",
+    "key": "IG ganó la pelea del alma de dragón y cerró con el Barón"
+   },
+   {
+    "n": 4,
+    "rfs": "GEN",
+    "rfs_reason": "perdió la partida 3",
+    "rfs_choice": "first",
+    "rfs_why": "GEN quiere asegurar un campeón de prioridad de su pool (Ambessa, Syndra). Pero Ambessa y Syndra quedaron baneados, así que GEN abrió con Renekton.",
+    "other_why": "IG se queda con el lado azul (mejor acceso a objetivos)",
+    "blue": "IG",
+    "red": "GEN",
+    "first": "GEN",
+    "second": "IG",
+    "log": [
+     {
+      "k": "ban",
+      "t": "GEN",
+      "ch": "Yunara",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "IG",
+      "ch": "Lee Sin",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "GEN",
+      "ch": "Syndra",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "IG",
+      "ch": "Ambessa",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "GEN",
+      "ch": "Trundle",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "IG",
+      "ch": "Camille",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "pick",
+      "t": "GEN",
+      "ch": "Renekton",
+      "role": "Top",
+      "player": "Kiin"
+     },
+     {
+      "k": "pick",
+      "t": "IG",
+      "ch": "Aurora",
+      "role": "Mid",
+      "player": "Rookie"
+     },
+     {
+      "k": "pick",
+      "t": "IG",
+      "ch": "Wukong",
+      "role": "Jungla",
+      "player": "Wei"
+     },
+     {
+      "k": "pick",
+      "t": "GEN",
+      "ch": "Sejuani",
+      "role": "Jungla",
+      "player": "Canyon"
+     },
+     {
+      "k": "pick",
+      "t": "GEN",
+      "ch": "Jinx",
+      "role": "ADC",
+      "player": "Ruler"
+     },
+     {
+      "k": "pick",
+      "t": "IG",
+      "ch": "Lulu",
+      "role": "Support",
+      "player": "Meiko"
+     },
+     {
+      "k": "ban",
+      "t": "IG",
+      "ch": "Anivia",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "GEN",
+      "ch": "Aatrox",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "IG",
+      "ch": "Seraphine",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "GEN",
+      "ch": "Kled",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "pick",
+      "t": "IG",
+      "ch": "Sivir",
+      "role": "ADC",
+      "player": "JiaQi"
+     },
+     {
+      "k": "pick",
+      "t": "GEN",
+      "ch": "Braum",
+      "role": "Support",
+      "player": "Duro"
+     },
+     {
+      "k": "pick",
+      "t": "GEN",
+      "ch": "Ahri",
+      "role": "Mid",
+      "player": "Chovy"
+     },
+     {
+      "k": "pick",
+      "t": "IG",
+      "ch": "Vayne",
+      "role": "Top",
+      "player": "TheShy"
+     }
+    ],
+    "picks": {
+     "IG": {
+      "Top": "Vayne",
+      "Jungla": "Wukong",
+      "Mid": "Aurora",
+      "ADC": "Sivir",
+      "Support": "Lulu"
+     },
+     "GEN": {
+      "Top": "Renekton",
+      "Jungla": "Sejuani",
+      "Mid": "Ahri",
+      "ADC": "Jinx",
+      "Support": "Braum"
      }
     },
     "players": {
@@ -4819,655 +5437,32 @@ const SIM = {
      "GEN": "Dive / all-in + teamfight / wombo combo"
     },
     "winner": "GEN",
-    "why": "La compo de GEN (dive / all-in) se impuso a la de IG (teamfight / wombo combo); Duro (Nautilus) fue el jugador decisivo.",
-    "duration": "27:54",
-    "dmin": 27.9,
+    "why": "La compo de GEN (dive / all-in) se impuso a la de IG (teamfight / wombo combo); Chovy (Ahri) fue el jugador decisivo.",
+    "duration": "33:16",
+    "dmin": 33.3,
     "fb": {
-     "time": "5:48",
+     "time": "5:29",
      "type": "gank de la jungla",
      "team": "GEN",
-     "killer": "Kiin (Rumble)",
+     "killer": "Ruler (Jinx)",
      "assists": [
-      "Canyon (Wukong)"
+      "Canyon (Sejuani)",
+      "Duro (Braum)"
      ],
-     "victim": "TheShy (Gnar)"
+     "victim": "Meiko (Lulu)"
     },
-    "kills": "16-5",
-    "penta": null,
-    "penta_prob": 0.026,
-    "mvp": "Duro (Nautilus)",
-    "key": "GEN ganó la pelea del alma de dragón y cerró con el Barón"
-   },
-   {
-    "n": 2,
-    "rfs": "IG",
-    "rfs_reason": "perdió la partida 1",
-    "rfs_choice": "first",
-    "rfs_why": "IG quiere asegurar un campeón de prioridad de su pool (Jayce, Nocturne, Orianna, Yunara). Pero Jayce y Nocturne quedaron baneados, así que IG abrió con Annie.",
-    "other_why": "GEN se queda con el lado azul (mejor acceso a objetivos)",
-    "blue": "GEN",
-    "red": "IG",
-    "first": "IG",
-    "second": "GEN",
-    "log": [
-     {
-      "k": "ban",
-      "t": "IG",
-      "ch": "Ambessa",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "GEN",
-      "ch": "Yunara",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "IG",
-      "ch": "Nocturne",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "GEN",
-      "ch": "Orianna",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "IG",
-      "ch": "Qiyana",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "GEN",
-      "ch": "Jayce",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "pick",
-      "t": "IG",
-      "ch": "Annie",
-      "role": "Mid",
-      "player": "Rookie"
-     },
-     {
-      "k": "pick",
-      "t": "GEN",
-      "ch": "Ezreal",
-      "role": "ADC",
-      "player": "Ruler"
-     },
-     {
-      "k": "pick",
-      "t": "GEN",
-      "ch": "Alistar",
-      "role": "Support",
-      "player": "Duro"
-     },
-     {
-      "k": "pick",
-      "t": "IG",
-      "ch": "Lee Sin",
-      "role": "Jungla",
-      "player": "Wei"
-     },
-     {
-      "k": "pick",
-      "t": "IG",
-      "ch": "Kai'Sa",
-      "role": "ADC",
-      "player": "JiaQi"
-     },
-     {
-      "k": "pick",
-      "t": "GEN",
-      "ch": "Pantheon",
-      "role": "Jungla",
-      "player": "Canyon"
-     },
-     {
-      "k": "ban",
-      "t": "GEN",
-      "ch": "Renata Glasc",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "IG",
-      "ch": "Syndra",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "GEN",
-      "ch": "Ornn",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "IG",
-      "ch": "Camille",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "pick",
-      "t": "GEN",
-      "ch": "Renekton",
-      "role": "Top",
-      "player": "Kiin"
-     },
-     {
-      "k": "pick",
-      "t": "IG",
-      "ch": "Leona",
-      "role": "Support",
-      "player": "Meiko"
-     },
-     {
-      "k": "pick",
-      "t": "IG",
-      "ch": "Kled",
-      "role": "Top",
-      "player": "TheShy"
-     },
-     {
-      "k": "pick",
-      "t": "GEN",
-      "ch": "Akali",
-      "role": "Mid",
-      "player": "Chovy"
-     }
-    ],
-    "picks": {
-     "IG": {
-      "Top": "Kled",
-      "Jungla": "Lee Sin",
-      "Mid": "Annie",
-      "ADC": "Kai'Sa",
-      "Support": "Leona"
-     },
-     "GEN": {
-      "Top": "Renekton",
-      "Jungla": "Pantheon",
-      "Mid": "Akali",
-      "ADC": "Ezreal",
-      "Support": "Alistar"
-     }
-    },
-    "players": {
-     "IG": [
-      "TheShy",
-      "Wei",
-      "Rookie",
-      "JiaQi",
-      "Meiko"
-     ],
-     "GEN": [
-      "Kiin",
-      "Canyon",
-      "Chovy",
-      "Ruler",
-      "Duro"
-     ]
-    },
-    "comps": {
-     "IG": "Dive / all-in + pick",
-     "GEN": "Dive / all-in + pick"
-    },
-    "winner": "GEN",
-    "why": "La compo de GEN (dive / all-in) se impuso a la de IG (dive / all-in); Duro (Alistar) fue el jugador decisivo.",
-    "duration": "31:23",
-    "dmin": 31.4,
-    "fb": {
-     "time": "1:51",
-     "type": "invasión a nivel 1",
-     "team": "IG",
-     "killer": "Rookie (Annie)",
-     "assists": [
-      "Wei (Lee Sin)",
-      "Meiko (Leona)"
-     ],
-     "victim": "Canyon (Pantheon)"
-    },
-    "kills": "9-4",
-    "penta": null,
-    "penta_prob": 0.034,
-    "mvp": "Duro (Alistar)",
-    "key": "GEN ganó la pelea del alma de dragón y cerró con el Barón"
-   },
-   {
-    "n": 3,
-    "rfs": "IG",
-    "rfs_reason": "perdió la partida 2",
-    "rfs_choice": "first",
-    "rfs_why": "IG quiere asegurar un campeón de prioridad de su pool (Jayce, Nocturne, Orianna, Yunara). IG abrió con Nocturne.",
-    "other_why": "GEN se queda con el lado azul (mejor acceso a objetivos)",
-    "blue": "GEN",
-    "red": "IG",
-    "first": "IG",
-    "second": "GEN",
-    "log": [
-     {
-      "k": "ban",
-      "t": "IG",
-      "ch": "Renata Glasc",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "GEN",
-      "ch": "Syndra",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "IG",
-      "ch": "Orianna",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "GEN",
-      "ch": "Yunara",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "IG",
-      "ch": "Ambessa",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "GEN",
-      "ch": "Jarvan IV",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "pick",
-      "t": "IG",
-      "ch": "Nocturne",
-      "role": "Jungla",
-      "player": "Wei"
-     },
-     {
-      "k": "pick",
-      "t": "GEN",
-      "ch": "Qiyana",
-      "role": "Jungla",
-      "player": "Canyon"
-     },
-     {
-      "k": "pick",
-      "t": "GEN",
-      "ch": "Seraphine",
-      "role": "Support",
-      "player": "Duro"
-     },
-     {
-      "k": "pick",
-      "t": "IG",
-      "ch": "Cassiopeia",
-      "role": "Mid",
-      "player": "Rookie"
-     },
-     {
-      "k": "pick",
-      "t": "IG",
-      "ch": "Caitlyn",
-      "role": "ADC",
-      "player": "JiaQi"
-     },
-     {
-      "k": "pick",
-      "t": "GEN",
-      "ch": "Ashe",
-      "role": "ADC",
-      "player": "Ruler"
-     },
-     {
-      "k": "ban",
-      "t": "GEN",
-      "ch": "K'Sante",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "IG",
-      "ch": "Anivia",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "GEN",
-      "ch": "Bard",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "IG",
-      "ch": "Viktor",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "pick",
-      "t": "GEN",
-      "ch": "Ornn",
-      "role": "Top",
-      "player": "Kiin"
-     },
-     {
-      "k": "pick",
-      "t": "IG",
-      "ch": "Karma",
-      "role": "Support",
-      "player": "Meiko"
-     },
-     {
-      "k": "pick",
-      "t": "IG",
-      "ch": "Jayce",
-      "role": "Top",
-      "player": "TheShy"
-     },
-     {
-      "k": "pick",
-      "t": "GEN",
-      "ch": "Locke",
-      "role": "Mid",
-      "player": "Chovy"
-     }
-    ],
-    "picks": {
-     "IG": {
-      "Top": "Jayce",
-      "Jungla": "Nocturne",
-      "Mid": "Cassiopeia",
-      "ADC": "Caitlyn",
-      "Support": "Karma"
-     },
-     "GEN": {
-      "Top": "Ornn",
-      "Jungla": "Qiyana",
-      "Mid": "Locke",
-      "ADC": "Ashe",
-      "Support": "Seraphine"
-     }
-    },
-    "players": {
-     "IG": [
-      "TheShy",
-      "Wei",
-      "Rookie",
-      "JiaQi",
-      "Meiko"
-     ],
-     "GEN": [
-      "Kiin",
-      "Canyon",
-      "Chovy",
-      "Ruler",
-      "Duro"
-     ]
-    },
-    "comps": {
-     "IG": "Poke / asedio + early / escaramuzas",
-     "GEN": "Teamfight / wombo combo + pick"
-    },
-    "winner": "IG",
-    "why": "La compo de IG (poke / asedio) se impuso a la de GEN (teamfight / wombo combo); Wei (Nocturne) fue el jugador decisivo.",
-    "duration": "27:33",
-    "dmin": 27.6,
-    "fb": {
-     "time": "6:56",
-     "type": "gank de la jungla",
-     "team": "IG",
-     "killer": "Rookie (Cassiopeia)",
-     "assists": [
-      "Wei (Nocturne)"
-     ],
-     "victim": "Chovy (Locke)"
-    },
-    "kills": "14-9",
-    "penta": null,
-    "penta_prob": 0.013,
-    "mvp": "Wei (Nocturne)",
-    "key": "IG ganó la pelea del alma de dragón y cerró con el Barón"
-   },
-   {
-    "n": 4,
-    "rfs": "GEN",
-    "rfs_reason": "perdió la partida 3",
-    "rfs_choice": "first",
-    "rfs_why": "GEN quiere asegurar un campeón de prioridad de su pool (Ambessa, Syndra). Pero Ambessa y Syndra quedaron baneados, así que GEN abrió con Jarvan IV.",
-    "other_why": "IG se queda con el lado azul (mejor acceso a objetivos)",
-    "blue": "IG",
-    "red": "GEN",
-    "first": "GEN",
-    "second": "IG",
-    "log": [
-     {
-      "k": "ban",
-      "t": "GEN",
-      "ch": "Kalista",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "IG",
-      "ch": "Orianna",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "GEN",
-      "ch": "Trundle",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "IG",
-      "ch": "Yunara",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "GEN",
-      "ch": "Syndra",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "IG",
-      "ch": "Ambessa",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "pick",
-      "t": "GEN",
-      "ch": "Jarvan IV",
-      "role": "Jungla",
-      "player": "Canyon"
-     },
-     {
-      "k": "pick",
-      "t": "IG",
-      "ch": "Skarner",
-      "role": "Jungla",
-      "player": "Wei"
-     },
-     {
-      "k": "pick",
-      "t": "IG",
-      "ch": "Lucian",
-      "role": "ADC",
-      "player": "JiaQi"
-     },
-     {
-      "k": "pick",
-      "t": "GEN",
-      "ch": "Camille",
-      "role": "Top",
-      "player": "Kiin"
-     },
-     {
-      "k": "pick",
-      "t": "GEN",
-      "ch": "Jinx",
-      "role": "ADC",
-      "player": "Ruler"
-     },
-     {
-      "k": "pick",
-      "t": "IG",
-      "ch": "Milio",
-      "role": "Support",
-      "player": "Meiko"
-     },
-     {
-      "k": "ban",
-      "t": "IG",
-      "ch": "Lissandra",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "GEN",
-      "ch": "Jax",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "IG",
-      "ch": "Poppy",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "GEN",
-      "ch": "Aatrox",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "pick",
-      "t": "IG",
-      "ch": "Viktor",
-      "role": "Mid",
-      "player": "Rookie"
-     },
-     {
-      "k": "pick",
-      "t": "GEN",
-      "ch": "Thresh",
-      "role": "Support",
-      "player": "Duro"
-     },
-     {
-      "k": "pick",
-      "t": "GEN",
-      "ch": "Anivia",
-      "role": "Mid",
-      "player": "Chovy"
-     },
-     {
-      "k": "pick",
-      "t": "IG",
-      "ch": "K'Sante",
-      "role": "Top",
-      "player": "TheShy"
-     }
-    ],
-    "picks": {
-     "IG": {
-      "Top": "K'Sante",
-      "Jungla": "Skarner",
-      "Mid": "Viktor",
-      "ADC": "Lucian",
-      "Support": "Milio"
-     },
-     "GEN": {
-      "Top": "Camille",
-      "Jungla": "Jarvan IV",
-      "Mid": "Anivia",
-      "ADC": "Jinx",
-      "Support": "Thresh"
-     }
-    },
-    "players": {
-     "IG": [
-      "TheShy",
-      "Wei",
-      "Rookie",
-      "JiaQi",
-      "Meiko"
-     ],
-     "GEN": [
-      "Kiin",
-      "Canyon",
-      "Chovy",
-      "Ruler",
-      "Duro"
-     ]
-    },
-    "comps": {
-     "IG": "Dive / all-in + proteger al carry",
-     "GEN": "Dive / all-in + pick"
-    },
-    "winner": "GEN",
-    "why": "La compo de GEN (dive / all-in) se impuso a la de IG (dive / all-in); Canyon (Jarvan IV) fue el jugador decisivo.",
-    "duration": "33:58",
-    "dmin": 34.0,
-    "fb": {
-     "time": "6:31",
-     "type": "gank de la jungla",
-     "team": "IG",
-     "killer": "Wei (Skarner)",
-     "assists": [],
-     "victim": "Kiin (Camille)"
-    },
-    "kills": "20-10",
+    "kills": "14-7",
     "penta": null,
     "penta_prob": 0.016,
-    "mvp": "Canyon (Jarvan IV)",
+    "mvp": "Chovy (Ahri)",
     "key": "GEN ganó la pelea del alma de dragón y cerró con el Barón"
    }
   ],
-  "pentas": [],
-  "p_any_penta": 0.086,
-  "avg_min": 30.2,
+  "pentas": [
+   "Rookie (Orianna)"
+  ],
+  "p_any_penta": 0.081,
+  "avg_min": 31.1,
   "mode": "ambos"
  },
  "f_pct": {
@@ -5493,7 +5488,7 @@ const SIM = {
     "rfs": "DK",
     "rfs_reason": "ganó el sorteo con moneda",
     "rfs_choice": "first",
-    "rfs_why": "DK quiere asegurar un campeón de prioridad de su pool (Vi, Syndra, Kalista, Renata Glasc). Pero Vi y Syndra quedaron baneados, así que DK abrió con Kai'Sa.",
+    "rfs_why": "DK quiere asegurar un campeón de prioridad de su pool (Vi, Syndra, Kalista). Pero Vi y Syndra quedaron baneados, así que DK abrió con Kai'Sa.",
     "other_why": "GEN se queda con el lado azul (mejor acceso a objetivos)",
     "blue": "GEN",
     "red": "DK",
@@ -5702,7 +5697,7 @@ const SIM = {
     "rfs": "DK",
     "rfs_reason": "perdió la partida 1",
     "rfs_choice": "first",
-    "rfs_why": "DK quiere asegurar un campeón de prioridad de su pool (Vi, Syndra, Kalista, Renata Glasc). DK abrió con Vi.",
+    "rfs_why": "DK quiere asegurar un campeón de prioridad de su pool (Vi, Syndra, Kalista). DK abrió con Vi.",
     "other_why": "GEN se queda con el lado azul (mejor acceso a objetivos)",
     "blue": "GEN",
     "red": "DK",
@@ -5912,7 +5907,7 @@ const SIM = {
     "rfs": "DK",
     "rfs_reason": "perdió la partida 2",
     "rfs_choice": "first",
-    "rfs_why": "DK quiere asegurar un campeón de prioridad de su pool (Syndra, Kalista, Renata Glasc, Nautilus). Pero Syndra y Renata Glasc quedaron baneados, así que DK abrió con Jarvan IV.",
+    "rfs_why": "DK quiere asegurar un campeón de prioridad de su pool (Syndra, Kalista). Pero Syndra quedó baneado, así que DK abrió con Jarvan IV.",
     "other_why": "GEN se queda con el lado azul (mejor acceso a objetivos)",
     "blue": "GEN",
     "red": "DK",
@@ -6121,7 +6116,7 @@ const SIM = {
     "rfs": "GEN",
     "rfs_reason": "perdió la partida 3",
     "rfs_choice": "first",
-    "rfs_why": "GEN quiere asegurar un campeón de prioridad de su pool (Qiyana, Syndra, Nautilus). GEN abrió con Qiyana.",
+    "rfs_why": "GEN quiere asegurar un campeón de prioridad de su pool (Qiyana, Syndra). GEN abrió con Qiyana.",
     "other_why": "DK se queda con el lado azul (mejor acceso a objetivos)",
     "blue": "DK",
     "red": "GEN",
@@ -6208,9 +6203,9 @@ const SIM = {
      {
       "k": "pick",
       "t": "DK",
-      "ch": "Rakan",
-      "role": "Support",
-      "player": "Career"
+      "ch": "Smolder",
+      "role": "ADC",
+      "player": "Smash"
      },
      {
       "k": "ban",
@@ -6236,53 +6231,53 @@ const SIM = {
      {
       "k": "ban",
       "t": "GEN",
-      "ch": "Zeri",
+      "ch": "Bard",
       "role": null,
       "player": null
      },
      {
       "k": "pick",
       "t": "DK",
-      "ch": "Tristana",
-      "role": "ADC",
-      "player": "Smash"
+      "ch": "Braum",
+      "role": "Support",
+      "player": "Career"
      },
      {
       "k": "pick",
       "t": "GEN",
-      "ch": "Nami",
+      "ch": "Rakan",
       "role": "Support",
       "player": "Duro"
      },
      {
       "k": "pick",
       "t": "GEN",
-      "ch": "Ahri",
+      "ch": "Sylas",
       "role": "Mid",
       "player": "Chovy"
      },
      {
       "k": "pick",
       "t": "DK",
-      "ch": "Aatrox",
+      "ch": "Kled",
       "role": "Top",
       "player": "Siwoo"
      }
     ],
     "picks": {
      "DK": {
-      "Top": "Aatrox",
+      "Top": "Kled",
       "Jungla": "Pantheon",
       "Mid": "Taliyah",
-      "ADC": "Tristana",
-      "Support": "Rakan"
+      "ADC": "Smolder",
+      "Support": "Braum"
      },
      "GEN": {
       "Top": "Renekton",
       "Jungla": "Qiyana",
-      "Mid": "Ahri",
+      "Mid": "Sylas",
       "ADC": "Lucian",
-      "Support": "Nami"
+      "Support": "Rakan"
      }
     },
     "players": {
@@ -6302,31 +6297,33 @@ const SIM = {
      ]
     },
     "comps": {
-     "DK": "Early / escaramuzas + dive / all-in",
-     "GEN": "Early / escaramuzas + pick"
+     "DK": "Early / escaramuzas + pick",
+     "GEN": "Dive / all-in + teamfight / wombo combo"
     },
     "winner": "GEN",
-    "why": "La compo de GEN (early / escaramuzas) se impuso a la de DK (early / escaramuzas); Duro (Nami) fue el jugador decisivo.",
-    "duration": "24:38",
-    "dmin": 24.6,
+    "why": "La compo de GEN (dive / all-in) se impuso a la de DK (early / escaramuzas); Canyon (Qiyana) fue el jugador decisivo.",
+    "duration": "26:01",
+    "dmin": 26.0,
     "fb": {
-     "time": "6:36",
-     "type": "gank de la jungla",
-     "team": "GEN",
-     "killer": "Canyon (Qiyana)",
-     "assists": [],
-     "victim": "Siwoo (Aatrox)"
+     "time": "2:31",
+     "type": "2v2 en bot a nivel 2-3",
+     "team": "DK",
+     "killer": "Smash (Smolder)",
+     "assists": [
+      "Career (Braum)"
+     ],
+     "victim": "Ruler (Lucian)"
     },
-    "kills": "17-7",
+    "kills": "13-4",
     "penta": null,
     "penta_prob": 0.031,
-    "mvp": "Duro (Nami)",
+    "mvp": "Canyon (Qiyana)",
     "key": "GEN convirtió la ventaja temprana en torres y Barón sin dar opción de pelea"
    }
   ],
   "pentas": [],
   "p_any_penta": 0.124,
-  "avg_min": 27.8,
+  "avg_min": 28.1,
   "mode": "pct"
  },
  "f_pk": {
@@ -6352,7 +6349,7 @@ const SIM = {
     "rfs": "T1",
     "rfs_reason": "ganó el sorteo con moneda",
     "rfs_choice": "first",
-    "rfs_why": "T1 quiere asegurar un campeón de prioridad de su pool (Jayce, Ambessa, Vi, Orianna). Pero Jayce y Ambessa quedaron baneados, así que T1 abrió con Nautilus.",
+    "rfs_why": "T1 quiere asegurar un campeón de prioridad de su pool (Jayce, Ambessa, Vi, Orianna). Pero Jayce y Ambessa quedaron baneados, así que T1 abrió con Ahri.",
     "other_why": "GEN se queda con el lado azul (mejor acceso a objetivos)",
     "blue": "GEN",
     "red": "T1",
@@ -6404,116 +6401,116 @@ const SIM = {
      {
       "k": "pick",
       "t": "T1",
-      "ch": "Nautilus",
-      "role": "Support",
-      "player": "Keria"
-     },
-     {
-      "k": "pick",
-      "t": "GEN",
-      "ch": "Ezreal",
-      "role": "ADC",
-      "player": "Ruler"
-     },
-     {
-      "k": "pick",
-      "t": "GEN",
-      "ch": "Leona",
-      "role": "Support",
-      "player": "Duro"
-     },
-     {
-      "k": "pick",
-      "t": "T1",
-      "ch": "Kai'Sa",
-      "role": "ADC",
-      "player": "Peyz"
-     },
-     {
-      "k": "pick",
-      "t": "T1",
-      "ch": "Orianna",
+      "ch": "Ahri",
       "role": "Mid",
       "player": "Faker"
      },
      {
       "k": "pick",
       "t": "GEN",
-      "ch": "Akali",
-      "role": "Mid",
-      "player": "Chovy"
-     },
-     {
-      "k": "ban",
-      "t": "GEN",
-      "ch": "Jarvan IV",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "T1",
-      "ch": "Rumble",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "GEN",
-      "ch": "Lee Sin",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "T1",
       "ch": "Nocturne",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "pick",
-      "t": "GEN",
-      "ch": "Cho'Gath",
       "role": "Jungla",
       "player": "Canyon"
      },
      {
       "k": "pick",
+      "t": "GEN",
+      "ch": "Shen",
+      "role": "Top",
+      "player": "Kiin"
+     },
+     {
+      "k": "pick",
       "t": "T1",
-      "ch": "Wukong",
+      "ch": "Lee Sin",
       "role": "Jungla",
       "player": "Oner"
      },
      {
       "k": "pick",
       "t": "T1",
-      "ch": "Galio",
+      "ch": "Kalista",
+      "role": "ADC",
+      "player": "Peyz"
+     },
+     {
+      "k": "pick",
+      "t": "GEN",
+      "ch": "Ashe",
+      "role": "ADC",
+      "player": "Ruler"
+     },
+     {
+      "k": "ban",
+      "t": "GEN",
+      "ch": "Renata Glasc",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "T1",
+      "ch": "Orianna",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "GEN",
+      "ch": "Rakan",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "T1",
+      "ch": "Akali",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "pick",
+      "t": "GEN",
+      "ch": "Seraphine",
+      "role": "Support",
+      "player": "Duro"
+     },
+     {
+      "k": "pick",
+      "t": "T1",
+      "ch": "Nautilus",
+      "role": "Support",
+      "player": "Keria"
+     },
+     {
+      "k": "pick",
+      "t": "T1",
+      "ch": "K'Sante",
       "role": "Top",
       "player": "Doran"
      },
      {
       "k": "pick",
       "t": "GEN",
-      "ch": "Camille",
-      "role": "Top",
-      "player": "Kiin"
+      "ch": "Yone",
+      "role": "Mid",
+      "player": "Chovy"
      }
     ],
     "picks": {
      "T1": {
-      "Top": "Galio",
-      "Jungla": "Wukong",
-      "Mid": "Orianna",
-      "ADC": "Kai'Sa",
+      "Top": "K'Sante",
+      "Jungla": "Lee Sin",
+      "Mid": "Ahri",
+      "ADC": "Kalista",
       "Support": "Nautilus"
      },
      "GEN": {
-      "Top": "Camille",
-      "Jungla": "Cho'Gath",
-      "Mid": "Akali",
-      "ADC": "Ezreal",
-      "Support": "Leona"
+      "Top": "Shen",
+      "Jungla": "Nocturne",
+      "Mid": "Yone",
+      "ADC": "Ashe",
+      "Support": "Seraphine"
      }
     },
     "players": {
@@ -6533,26 +6530,26 @@ const SIM = {
      ]
     },
     "comps": {
-     "T1": "Dive / all-in + teamfight / wombo combo",
-     "GEN": "Dive / all-in + pick"
+     "T1": "Pick + dive / all-in",
+     "GEN": "Dive / all-in + teamfight / wombo combo"
     },
     "winner": "T1",
-    "why": "La compo de T1 (dive / all-in) se impuso a la de GEN (dive / all-in); Keria (Nautilus) fue el jugador decisivo.",
-    "duration": "27:07",
-    "dmin": 27.1,
+    "why": "La compo de T1 (pick) se impuso a la de GEN (dive / all-in); Keria (Nautilus) fue el jugador decisivo.",
+    "duration": "28:54",
+    "dmin": 28.9,
     "fb": {
-     "time": "2:42",
+     "time": "3:23",
      "type": "2v2 en bot a nivel 2-3",
      "team": "T1",
-     "killer": "Peyz (Kai'Sa)",
+     "killer": "Peyz (Kalista)",
      "assists": [
       "Keria (Nautilus)"
      ],
-     "victim": "Duro (Leona)"
+     "victim": "Duro (Seraphine)"
     },
-    "kills": "18-9",
+    "kills": "17-10",
     "penta": null,
-    "penta_prob": 0.042,
+    "penta_prob": 0.031,
     "mvp": "Keria (Nautilus)",
     "key": "T1 ganó la pelea del alma de dragón y cerró con el Barón"
    },
@@ -6561,7 +6558,7 @@ const SIM = {
     "rfs": "GEN",
     "rfs_reason": "perdió la partida 1",
     "rfs_choice": "first",
-    "rfs_why": "GEN quiere asegurar un campeón de prioridad de su pool (Ambessa, Rumble, Qiyana, Syndra). GEN abrió con Qiyana.",
+    "rfs_why": "GEN quiere asegurar un campeón de prioridad de su pool (Ambessa, Rumble, Qiyana, Syndra). GEN abrió con Rumble.",
     "other_why": "T1 se queda con el lado azul (mejor acceso a objetivos)",
     "blue": "T1",
     "red": "GEN",
@@ -6585,6 +6582,20 @@ const SIM = {
      {
       "k": "ban",
       "t": "GEN",
+      "ch": "Orianna",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "T1",
+      "ch": "Qiyana",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "GEN",
       "ch": "Jhin",
       "role": null,
       "player": null
@@ -6595,41 +6606,6 @@ const SIM = {
       "ch": "Ambessa",
       "role": null,
       "player": null
-     },
-     {
-      "k": "ban",
-      "t": "GEN",
-      "ch": "Ahri",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "T1",
-      "ch": "Vi",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "pick",
-      "t": "GEN",
-      "ch": "Qiyana",
-      "role": "Jungla",
-      "player": "Canyon"
-     },
-     {
-      "k": "pick",
-      "t": "T1",
-      "ch": "Nocturne",
-      "role": "Jungla",
-      "player": "Oner"
-     },
-     {
-      "k": "pick",
-      "t": "T1",
-      "ch": "Alistar",
-      "role": "Support",
-      "player": "Keria"
      },
      {
       "k": "pick",
@@ -6640,203 +6616,29 @@ const SIM = {
      },
      {
       "k": "pick",
-      "t": "GEN",
-      "ch": "Seraphine",
-      "role": "Support",
-      "player": "Duro"
+      "t": "T1",
+      "ch": "Vi",
+      "role": "Jungla",
+      "player": "Oner"
      },
      {
       "k": "pick",
-      "t": "T1",
-      "ch": "Kalista",
-      "role": "ADC",
-      "player": "Peyz"
-     },
-     {
-      "k": "ban",
-      "t": "T1",
-      "ch": "Ashe",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "GEN",
-      "ch": "Ornn",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
       "t": "T1",
       "ch": "Caitlyn",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "GEN",
-      "ch": "Locke",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "pick",
-      "t": "T1",
-      "ch": "Taliyah",
-      "role": "Mid",
-      "player": "Faker"
-     },
-     {
-      "k": "pick",
-      "t": "GEN",
-      "ch": "Corki",
-      "role": "ADC",
-      "player": "Ruler"
-     },
-     {
-      "k": "pick",
-      "t": "GEN",
-      "ch": "Viktor",
-      "role": "Mid",
-      "player": "Chovy"
-     },
-     {
-      "k": "pick",
-      "t": "T1",
-      "ch": "Shen",
-      "role": "Top",
-      "player": "Doran"
-     }
-    ],
-    "picks": {
-     "T1": {
-      "Top": "Shen",
-      "Jungla": "Nocturne",
-      "Mid": "Taliyah",
-      "ADC": "Kalista",
-      "Support": "Alistar"
-     },
-     "GEN": {
-      "Top": "Rumble",
-      "Jungla": "Qiyana",
-      "Mid": "Viktor",
-      "ADC": "Corki",
-      "Support": "Seraphine"
-     }
-    },
-    "players": {
-     "T1": [
-      "Doran",
-      "Oner",
-      "Faker",
-      "Peyz",
-      "Keria"
-     ],
-     "GEN": [
-      "Kiin",
-      "Canyon",
-      "Chovy",
-      "Ruler",
-      "Duro"
-     ]
-    },
-    "comps": {
-     "T1": "Dive / all-in + early / escaramuzas",
-     "GEN": "Teamfight / wombo combo + poke / asedio"
-    },
-    "winner": "GEN",
-    "why": "La compo de GEN (teamfight / wombo combo) se impuso a la de T1 (dive / all-in); Ruler (Corki) fue el jugador decisivo.",
-    "duration": "27:00",
-    "dmin": 27.0,
-    "fb": {
-     "time": "4:53",
-     "type": "gank de la jungla",
-     "team": "GEN",
-     "killer": "Kiin (Rumble)",
-     "assists": [
-      "Canyon (Qiyana)"
-     ],
-     "victim": "Doran (Shen)"
-    },
-    "kills": "9-4",
-    "penta": null,
-    "penta_prob": 0.031,
-    "mvp": "Ruler (Corki)",
-    "key": "GEN ganó la pelea del alma de dragón y cerró con el Barón"
-   },
-   {
-    "n": 3,
-    "rfs": "T1",
-    "rfs_reason": "perdió la partida 2",
-    "rfs_choice": "first",
-    "rfs_why": "T1 quiere asegurar un campeón de prioridad de su pool (Jayce, Ambessa, Vi). Pero Jayce y Ambessa quedaron baneados, así que T1 abrió con Jhin.",
-    "other_why": "GEN se queda con el lado azul (mejor acceso a objetivos)",
-    "blue": "GEN",
-    "red": "T1",
-    "first": "T1",
-    "second": "GEN",
-    "log": [
-     {
-      "k": "ban",
-      "t": "T1",
-      "ch": "Ambessa",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "GEN",
-      "ch": "Vi",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "T1",
-      "ch": "Syndra",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "GEN",
-      "ch": "Karma",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "T1",
-      "ch": "Yunara",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "GEN",
-      "ch": "Jayce",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "pick",
-      "t": "T1",
-      "ch": "Jhin",
       "role": "ADC",
       "player": "Peyz"
      },
      {
       "k": "pick",
       "t": "GEN",
-      "ch": "Lulu",
-      "role": "Support",
-      "player": "Duro"
+      "ch": "Wukong",
+      "role": "Jungla",
+      "player": "Canyon"
      },
      {
       "k": "pick",
       "t": "GEN",
-      "ch": "Zeri",
+      "ch": "Ezreal",
       "role": "ADC",
       "player": "Ruler"
      },
@@ -6848,90 +6650,76 @@ const SIM = {
       "player": "Keria"
      },
      {
-      "k": "pick",
+      "k": "ban",
       "t": "T1",
-      "ch": "Lee Sin",
-      "role": "Jungla",
-      "player": "Oner"
-     },
-     {
-      "k": "pick",
-      "t": "GEN",
-      "ch": "Jarvan IV",
-      "role": "Jungla",
-      "player": "Canyon"
+      "ch": "Alistar",
+      "role": null,
+      "player": null
      },
      {
       "k": "ban",
       "t": "GEN",
-      "ch": "LeBlanc",
+      "ch": "Galio",
       "role": null,
       "player": null
      },
      {
       "k": "ban",
       "t": "T1",
+      "ch": "Akali",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "GEN",
       "ch": "Ornn",
       "role": null,
       "player": null
      },
      {
-      "k": "ban",
-      "t": "GEN",
-      "ch": "Ahri",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "T1",
-      "ch": "Olaf",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "pick",
-      "t": "GEN",
-      "ch": "Kled",
-      "role": "Top",
-      "player": "Kiin"
-     },
-     {
       "k": "pick",
       "t": "T1",
-      "ch": "Cassiopeia",
+      "ch": "LeBlanc",
       "role": "Mid",
       "player": "Faker"
      },
      {
       "k": "pick",
-      "t": "T1",
-      "ch": "Renekton",
-      "role": "Top",
-      "player": "Doran"
+      "t": "GEN",
+      "ch": "Leona",
+      "role": "Support",
+      "player": "Duro"
      },
      {
       "k": "pick",
       "t": "GEN",
-      "ch": "Locke",
+      "ch": "Cassiopeia",
       "role": "Mid",
       "player": "Chovy"
+     },
+     {
+      "k": "pick",
+      "t": "T1",
+      "ch": "Gwen",
+      "role": "Top",
+      "player": "Doran"
      }
     ],
     "picks": {
      "T1": {
-      "Top": "Renekton",
-      "Jungla": "Lee Sin",
-      "Mid": "Cassiopeia",
-      "ADC": "Jhin",
+      "Top": "Gwen",
+      "Jungla": "Vi",
+      "Mid": "LeBlanc",
+      "ADC": "Caitlyn",
       "Support": "Bard"
      },
      "GEN": {
-      "Top": "Kled",
-      "Jungla": "Jarvan IV",
-      "Mid": "Locke",
-      "ADC": "Zeri",
-      "Support": "Lulu"
+      "Top": "Rumble",
+      "Jungla": "Wukong",
+      "Mid": "Cassiopeia",
+      "ADC": "Ezreal",
+      "Support": "Leona"
      }
     },
     "players": {
@@ -6952,34 +6740,35 @@ const SIM = {
     },
     "comps": {
      "T1": "Pick + early / escaramuzas",
-     "GEN": "Dive / all-in + early / escaramuzas"
+     "GEN": "Teamfight / wombo combo + dive / all-in"
     },
     "winner": "GEN",
-    "why": "La compo de GEN (dive / all-in) se impuso a la de T1 (pick); Canyon (Jarvan IV) fue el jugador decisivo.",
-    "duration": "32:07",
-    "dmin": 32.1,
+    "why": "La compo de GEN (teamfight / wombo combo) se impuso a la de T1 (pick); Canyon (Wukong) fue el jugador decisivo.",
+    "duration": "22:55",
+    "dmin": 22.9,
     "fb": {
-     "time": "4:12",
-     "type": "gank de la jungla",
+     "time": "7:23",
+     "type": "escaramuza en el río por la scuttle/dragón",
      "team": "GEN",
-     "killer": "Chovy (Locke)",
+     "killer": "Canyon (Wukong)",
      "assists": [
-      "Canyon (Jarvan IV)"
+      "Chovy (Cassiopeia)",
+      "Duro (Leona)"
      ],
-     "victim": "Faker (Cassiopeia)"
+     "victim": "Oner (Vi)"
     },
-    "kills": "17-12",
+    "kills": "12-4",
     "penta": null,
-    "penta_prob": 0.034,
-    "mvp": "Canyon (Jarvan IV)",
-    "key": "GEN ganó la pelea del alma de dragón y cerró con el Barón"
+    "penta_prob": 0.013,
+    "mvp": "Canyon (Wukong)",
+    "key": "GEN convirtió la ventaja temprana en torres y Barón sin dar opción de pelea"
    },
    {
-    "n": 4,
+    "n": 3,
     "rfs": "T1",
-    "rfs_reason": "perdió la partida 3",
+    "rfs_reason": "perdió la partida 2",
     "rfs_choice": "first",
-    "rfs_why": "T1 quiere asegurar un campeón de prioridad de su pool (Jayce, Ambessa, Vi). Pero Ambessa y Vi quedaron baneados, así que T1 abrió con Karma.",
+    "rfs_why": "T1 quiere asegurar un campeón de prioridad de su pool (Jayce, Ambessa, Orianna). Pero Jayce y Ambessa quedaron baneados, así que T1 abrió con Jhin.",
     "other_why": "GEN se queda con el lado azul (mejor acceso a objetivos)",
     "blue": "GEN",
     "red": "T1",
@@ -6989,7 +6778,214 @@ const SIM = {
      {
       "k": "ban",
       "t": "T1",
-      "ch": "Vi",
+      "ch": "Ambessa",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "GEN",
+      "ch": "Jayce",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "T1",
+      "ch": "Syndra",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "GEN",
+      "ch": "Jarvan IV",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "T1",
+      "ch": "Qiyana",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "GEN",
+      "ch": "Orianna",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "pick",
+      "t": "T1",
+      "ch": "Jhin",
+      "role": "ADC",
+      "player": "Peyz"
+     },
+     {
+      "k": "pick",
+      "t": "GEN",
+      "ch": "Yunara",
+      "role": "ADC",
+      "player": "Ruler"
+     },
+     {
+      "k": "pick",
+      "t": "GEN",
+      "ch": "Lulu",
+      "role": "Support",
+      "player": "Duro"
+     },
+     {
+      "k": "pick",
+      "t": "T1",
+      "ch": "Karma",
+      "role": "Support",
+      "player": "Keria"
+     },
+     {
+      "k": "pick",
+      "t": "T1",
+      "ch": "Anivia",
+      "role": "Mid",
+      "player": "Faker"
+     },
+     {
+      "k": "pick",
+      "t": "GEN",
+      "ch": "Ornn",
+      "role": "Top",
+      "player": "Kiin"
+     },
+     {
+      "k": "ban",
+      "t": "GEN",
+      "ch": "Renekton",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "T1",
+      "ch": "Skarner",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "GEN",
+      "ch": "Pantheon",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "T1",
+      "ch": "Akali",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "pick",
+      "t": "GEN",
+      "ch": "Kindred",
+      "role": "Jungla",
+      "player": "Canyon"
+     },
+     {
+      "k": "pick",
+      "t": "T1",
+      "ch": "Xin Zhao",
+      "role": "Jungla",
+      "player": "Oner"
+     },
+     {
+      "k": "pick",
+      "t": "T1",
+      "ch": "Gnar",
+      "role": "Top",
+      "player": "Doran"
+     },
+     {
+      "k": "pick",
+      "t": "GEN",
+      "ch": "Locke",
+      "role": "Mid",
+      "player": "Chovy"
+     }
+    ],
+    "picks": {
+     "T1": {
+      "Top": "Gnar",
+      "Jungla": "Xin Zhao",
+      "Mid": "Anivia",
+      "ADC": "Jhin",
+      "Support": "Karma"
+     },
+     "GEN": {
+      "Top": "Ornn",
+      "Jungla": "Kindred",
+      "Mid": "Locke",
+      "ADC": "Yunara",
+      "Support": "Lulu"
+     }
+    },
+    "players": {
+     "T1": [
+      "Doran",
+      "Oner",
+      "Faker",
+      "Peyz",
+      "Keria"
+     ],
+     "GEN": [
+      "Kiin",
+      "Canyon",
+      "Chovy",
+      "Ruler",
+      "Duro"
+     ]
+    },
+    "comps": {
+     "T1": "Poke / asedio + escalado",
+     "GEN": "Escalado + dive / all-in"
+    },
+    "winner": "GEN",
+    "why": "La compo de GEN (escalado) se impuso a la de T1 (poke / asedio); Duro (Lulu) fue el jugador decisivo.",
+    "duration": "38:55",
+    "dmin": 38.9,
+    "fb": {
+     "time": "3:44",
+     "type": "gank de la jungla",
+     "team": "T1",
+     "killer": "Oner (Xin Zhao)",
+     "assists": [],
+     "victim": "Chovy (Locke)"
+    },
+    "kills": "17-7",
+    "penta": null,
+    "penta_prob": 0.047,
+    "mvp": "Duro (Lulu)",
+    "key": "Partida larga: GEN ganó la pelea del Elder tras ir abajo en oro"
+   },
+   {
+    "n": 4,
+    "rfs": "T1",
+    "rfs_reason": "perdió la partida 3",
+    "rfs_choice": "first",
+    "rfs_why": "T1 quiere asegurar un campeón de prioridad de su pool (Jayce, Ambessa, Orianna). Pero Ambessa y Orianna quedaron baneados, así que T1 abrió con Syndra.",
+    "other_why": "GEN se queda con el lado azul (mejor acceso a objetivos)",
+    "blue": "GEN",
+    "red": "T1",
+    "first": "T1",
+    "second": "GEN",
+    "log": [
+     {
+      "k": "ban",
+      "t": "T1",
+      "ch": "Camille",
       "role": null,
       "player": null
      },
@@ -7010,51 +7006,44 @@ const SIM = {
      {
       "k": "ban",
       "t": "GEN",
-      "ch": "Rakan",
+      "ch": "Alistar",
       "role": null,
       "player": null
      },
      {
       "k": "ban",
       "t": "T1",
-      "ch": "Anivia",
+      "ch": "Orianna",
       "role": null,
       "player": null
      },
      {
       "k": "ban",
       "t": "GEN",
+      "ch": "Qiyana",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "pick",
+      "t": "T1",
       "ch": "Syndra",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "pick",
-      "t": "T1",
-      "ch": "Karma",
-      "role": "Support",
-      "player": "Keria"
+      "role": "Mid",
+      "player": "Faker"
      },
      {
       "k": "pick",
       "t": "GEN",
-      "ch": "Ornn",
+      "ch": "Akali",
+      "role": "Mid",
+      "player": "Chovy"
+     },
+     {
+      "k": "pick",
+      "t": "GEN",
+      "ch": "Aatrox",
       "role": "Top",
       "player": "Kiin"
-     },
-     {
-      "k": "pick",
-      "t": "GEN",
-      "ch": "Pantheon",
-      "role": "Jungla",
-      "player": "Canyon"
-     },
-     {
-      "k": "pick",
-      "t": "T1",
-      "ch": "Caitlyn",
-      "role": "ADC",
-      "player": "Peyz"
      },
      {
       "k": "pick",
@@ -7065,82 +7054,89 @@ const SIM = {
      },
      {
       "k": "pick",
-      "t": "GEN",
-      "ch": "Poppy",
-      "role": "Support",
-      "player": "Duro"
-     },
-     {
-      "k": "ban",
-      "t": "GEN",
-      "ch": "Skarner",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
       "t": "T1",
-      "ch": "Yunara",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "GEN",
-      "ch": "Xin Zhao",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "ban",
-      "t": "T1",
-      "ch": "Lissandra",
-      "role": null,
-      "player": null
-     },
-     {
-      "k": "pick",
-      "t": "GEN",
-      "ch": "Ashe",
-      "role": "ADC",
-      "player": "Ruler"
-     },
-     {
-      "k": "pick",
-      "t": "T1",
-      "ch": "Ahri",
-      "role": "Mid",
-      "player": "Faker"
-     },
-     {
-      "k": "pick",
-      "t": "T1",
-      "ch": "Sejuani",
+      "ch": "Pantheon",
       "role": "Jungla",
       "player": "Oner"
      },
      {
       "k": "pick",
       "t": "GEN",
-      "ch": "Annie",
-      "role": "Mid",
-      "player": "Chovy"
+      "ch": "Jarvan IV",
+      "role": "Jungla",
+      "player": "Canyon"
+     },
+     {
+      "k": "ban",
+      "t": "GEN",
+      "ch": "Rakan",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "T1",
+      "ch": "Corki",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "GEN",
+      "ch": "Neeko",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "ban",
+      "t": "T1",
+      "ch": "Zeri",
+      "role": null,
+      "player": null
+     },
+     {
+      "k": "pick",
+      "t": "GEN",
+      "ch": "Jinx",
+      "role": "ADC",
+      "player": "Ruler"
+     },
+     {
+      "k": "pick",
+      "t": "T1",
+      "ch": "Ziggs",
+      "role": "ADC",
+      "player": "Peyz"
+     },
+     {
+      "k": "pick",
+      "t": "T1",
+      "ch": "Zyra",
+      "role": "Support",
+      "player": "Keria"
+     },
+     {
+      "k": "pick",
+      "t": "GEN",
+      "ch": "Janna",
+      "role": "Support",
+      "player": "Duro"
      }
     ],
     "picks": {
      "T1": {
       "Top": "Jayce",
-      "Jungla": "Sejuani",
-      "Mid": "Ahri",
-      "ADC": "Caitlyn",
-      "Support": "Karma"
+      "Jungla": "Pantheon",
+      "Mid": "Syndra",
+      "ADC": "Ziggs",
+      "Support": "Zyra"
      },
      "GEN": {
-      "Top": "Ornn",
-      "Jungla": "Pantheon",
-      "Mid": "Annie",
-      "ADC": "Ashe",
-      "Support": "Poppy"
+      "Top": "Aatrox",
+      "Jungla": "Jarvan IV",
+      "Mid": "Akali",
+      "ADC": "Jinx",
+      "Support": "Janna"
      }
     },
     "players": {
@@ -7160,33 +7156,33 @@ const SIM = {
      ]
     },
     "comps": {
-     "T1": "Poke / asedio + early / escaramuzas",
-     "GEN": "Dive / all-in + teamfight / wombo combo"
+     "T1": "Poke / asedio + pick",
+     "GEN": "Dive / all-in + split push"
     },
     "winner": "GEN",
-    "why": "La compo de GEN (dive / all-in) se impuso a la de T1 (poke / asedio); Duro (Poppy) fue el jugador decisivo.",
-    "duration": "32:51",
-    "dmin": 32.9,
+    "why": "La compo de GEN (dive / all-in) se impuso a la de T1 (poke / asedio); Ruler (Jinx) fue el jugador decisivo.",
+    "duration": "36:48",
+    "dmin": 36.8,
     "fb": {
-     "time": "3:23",
+     "time": "2:56",
      "type": "2v2 en bot a nivel 2-3",
-     "team": "GEN",
-     "killer": "Ruler (Ashe)",
+     "team": "T1",
+     "killer": "Peyz (Ziggs)",
      "assists": [
-      "Duro (Poppy)"
+      "Keria (Zyra)"
      ],
-     "victim": "Keria (Karma)"
+     "victim": "Duro (Janna)"
     },
-    "kills": "14-10",
+    "kills": "16-6",
     "penta": null,
-    "penta_prob": 0.013,
-    "mvp": "Duro (Poppy)",
-    "key": "GEN ganó la pelea del alma de dragón y cerró con el Barón"
+    "penta_prob": 0.041,
+    "mvp": "Ruler (Jinx)",
+    "key": "Partida larga: GEN ganó la pelea del Elder tras ir abajo en oro"
    }
   ],
   "pentas": [],
-  "p_any_penta": 0.115,
-  "avg_min": 29.8,
+  "p_any_penta": 0.126,
+  "avg_min": 31.9,
   "mode": "pickem"
  },
  "qf3": {
